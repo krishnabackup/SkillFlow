@@ -33,13 +33,13 @@ export default function LoginForm(){
       {serverError && <div className="text-red-600 text-sm">{serverError}</div>}
       <div>
         <label className="block text-sm font-medium mb-1">Email</label>
-        <input {...register('email')} className="w-full px-3 py-2 border rounded focus:outline-none focus:ring" />
+        <input {...register('email')} className="min-w-[380px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
         {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email.message}</p>}
       </div>
 
       <div>
         <label className="block text-sm font-medium mb-1">Password</label>
-        <input type="password" {...register('password')} className="w-full px-3 py-2 border rounded focus:outline-none focus:ring" />
+        <input type="password" {...register('password')} className="min-w-[380px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
         {errors.password && <p className="text-xs text-red-600 mt-1">{errors.password.message}</p>}
       </div>
 
@@ -50,10 +50,11 @@ export default function LoginForm(){
         </label>
         <a href="#" className="text-sm text-indigo-600">Forgot?</a>
       </div>
-
-      <button disabled={isSubmitting} type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 disabled:opacity-60">
+       <div className='flex justify-center'>
+      <button disabled={isSubmitting} type="submit" className='min-w-[150px] mx-auto font-bold bg-indigo-400 text-black py-2 rounded-3xl hover:bg-indigo-600 disabled:opacity-60'>
         {isSubmitting ? 'Signing in...' : 'Sign In'}
       </button>
+      </div>
     </form>
   )
 }

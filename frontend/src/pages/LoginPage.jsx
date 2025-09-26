@@ -3,16 +3,22 @@ import LoginForm from '../features/auth/components/LoginForm';
 import NavBar from '../components/NavBar';
 
 export default function LoginPage(){
-  return (
+    return (
        <>
-       <NavBar></NavBar>
-        <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md bg-white rounded-lg shadow p-8">
-        <h1 className="text-2xl font-semibold text-center mb-4 text-red-500">SkillForge</h1>
-        <p className="text-sm text-center mb-6">Sign in to continue</p>
+      <NavBar labels="Register" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
+      <div className="w-full max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
+                      bg-clip-padding text-white
+                      dark:bg-black/40 dark:border-white/20 transition">
+        <h1 className="text-2xl font-bold text-center mb-6 text-blue-200 drop-shadow">
+          Sign In To Continue
+        </h1>
         <LoginForm />
-        <p className="text-center text-sm text-gray-600 mt-4">
-          Don't have an account? <a href="/register" className="text-indigo-600">Register</a>
+        <p className="text-center text-sm text-gray-200 mt-4">
+          Don&apos;t have an account?
+          <a href="/register" className="text-indigo-300 hover:underline ml-1">
+            Register
+          </a>
         </p>
       </div>
     </div>

@@ -15,10 +15,12 @@ export default function Navbar(props) {
         </div>
         {/* Navigation Links */}
         <div className="flex space-x-6">
-        
-            <a className="text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold" href={props.labels == "Register" ? "/register" : "/"}>
-            {props.labels}
-          </a>    
+             {
+              props.labels &&  <a className="text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold" href={props.labels == "Register" ? "/register" : "/"}>
+             {props.labels}
+             </a> 
+             }
+              
           <a className="text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold" href="/aboutus">
             About US 
           </a>  

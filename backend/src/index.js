@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authroute');
 const { errorHandler } = require('./middlewares/errorhandler');
+const userRoutes = require('./routes/userroute')
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(morgan('dev'))
 
 //auth route
 app.use('/api/auth', authRoutes);
+app.use('/api/users',userRoutes)
 
 //health 
 

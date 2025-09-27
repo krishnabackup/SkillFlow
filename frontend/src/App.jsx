@@ -4,6 +4,8 @@ import Register from './pages/RegisterPage';
 import Dashboard from './pages/DashBoard';
 import NavBar from './components/NavBar';
 import AboutUs from './pages/AboutUs';
+import Questionire from './pages/Questionire';
+import ProfilePage from './pages/ProfilePage';
 
 export default function App(){
   return (
@@ -13,6 +15,8 @@ export default function App(){
         <Route path="/register" element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
+        <Route path='/register/question' element={<Questionire/>}/>
+        <Route path='/profile' element={<ProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   )

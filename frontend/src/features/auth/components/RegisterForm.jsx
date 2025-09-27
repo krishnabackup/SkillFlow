@@ -24,7 +24,7 @@ export default function RegisterForm() {
         try {
             const res = await api.post('/auth/register',payload);
             localStorage.setItem('token',res.data.token);
-            nav('/dashboard');
+            nav('/register/question');
         }
         catch(error) {
            setServerError(error?.response?.data?.message || "Registration Faiiled");

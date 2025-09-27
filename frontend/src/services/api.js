@@ -8,6 +8,14 @@ const api = axios.create({
   withCredentials: false,
 });
 
+//attach token automatically if present 
+
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 export const registeruser = async (userData) => {
   const res = await api.post("/auth/register",userData);
   return res.data;

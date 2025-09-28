@@ -66,6 +66,7 @@ export default function ProfilePage() {
       };
       console.log(payload);
       const res = await updateProfile(payload);
+      console.log(res.data);
       alert('Profile updated successfully');
       setIsedittting(true)
     } catch (err) {

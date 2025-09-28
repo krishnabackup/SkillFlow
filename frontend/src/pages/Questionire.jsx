@@ -12,7 +12,6 @@ const levelMap = {
 }
 export default function Questionire() {
     const {register,handleSubmit,watch,resetField,formState:{errors,isSubmitting}} = useForm();
-    const [serverError,setServerError] = useState('');
     const nav = useNavigate();
     const skills = watch('skills','')
     const level = watch('level','')
@@ -34,7 +33,7 @@ export default function Questionire() {
           nav('/profile');
       }
       catch(error) {
-        setServerError(error.response?.data?.message || "Registration Failed");
+        console.log(error)
       }
     }
     const handleSkills = () => {

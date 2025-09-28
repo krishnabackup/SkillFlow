@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   role: { type: String, enum: ['learner','admin'], default: 'learner' },
   createdAt: { type: Date, default: Date.now },
   profile: {
-    current_role: { type:String, enum : ['student','freshers','experienced'],default : 'student' },
+    current_role: { type:String, enum : ['student','fresher','experienced'],default : 'student' },
     skills: [{ name: String , level: Number }], // e.g. {name:'React', level:2}
     availabilityHours: { type: Number, default: 1 }
   }

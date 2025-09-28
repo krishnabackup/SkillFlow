@@ -13,10 +13,11 @@ const getUsers = asynchandler(async (req,res) => {
 
 const updateUser = asynchandler(async (req,res) => {
     const updates = {};
-    const {name, email , skills , availabilityHours} = req.body;
+    const {name, email , skills , availabilityHours, current_role} = req.body;
   if (name) updates.name = name;
   if (email) updates.email = email.toLowerCase();
   if (typeof availabilityHours !== 'undefined') updates['profile.availabilityHours'] = availabilityHours;
+  if(current_role) updates['profile.current_role'] = current_role
    if (skills) {
     if (Array.isArray(skills)) {
       updates['profile.skills'] = skills.map(s => {

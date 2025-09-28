@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import api from '../../../services/api';
+import { registeruser } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object().shape({
@@ -21,13 +21,14 @@ export default function RegisterForm() {
     const onSubmit = async (data) => {
         setServerError('');
         const payload = {name : data.name , email : data.email , password : data.password};
+        console.log(payload)
         try {
-            const res = await api.post('/auth/register',payload);
+            const res = await registeruser(payload)
             localStorage.setItem('token',res.data.token);
             nav('/register/question');
         }
         catch(error) {
-           setServerError(error?.response?.data?.message || "Registration Faiiled");
+           setServerError(error?.response?.data?.message || "Registration Failed");
         }
     };
     return(

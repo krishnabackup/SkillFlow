@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import api from "../../../services/api";
+import { loginUser } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object().shape({
@@ -18,7 +18,7 @@ export default function LoginForm(){
   const onSubmit = async (data) => {
     setServerError('');
     try {
-      const res = await api.post('/auth/login', data);
+      const res = await loginUser(data)
       // save token (localStorage example) — adjust as needed
       localStorage.setItem('token', res.data.token);
       nav('/dashboard');

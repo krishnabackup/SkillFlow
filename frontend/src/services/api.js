@@ -17,14 +17,14 @@ api.interceptors.request.use(config => {
 });
 
 export const registeruser = async (userData) => {
-  const res = await api.post("/auth/register",userData);
-  return res.data;
-}
+    const res = await api.post("/auth/register", userData);
+    return res;
+};
 
 
 export const loginUser = async (credentials) => {
   const res = await api.post("/auth/login",credentials);
-  return res.data;
+  return res;
 }
 
 export default api;

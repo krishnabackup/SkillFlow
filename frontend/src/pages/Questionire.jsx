@@ -17,19 +17,15 @@ export default function Questionire() {
     const level = watch('level','')
     const [skillArray,setSkillArray] = useState([]);
     const isAddSkillEnabled = skills.trim() !== '' && level !== '';
-    const onSubmit = (data) => {
-      data.skills = skillArray
-      const payload = {
-     profile: {
+    const onSubmit = async (data) => {
+    data.skills = skillArray
+    const payload = {
     current_role: data.current_role,
     availabilityHours: Number(data.availabilityHours),
     skills: skillArray
-    }
    };
-
-      console.log(payload)
       try {
-          updateProfile(payload);
+          await updateProfile(payload);
           nav('/profile');
       }
       catch(error) {

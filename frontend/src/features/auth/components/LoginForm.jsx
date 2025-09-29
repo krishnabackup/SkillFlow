@@ -4,6 +4,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { loginUser } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { getUserRole, setToken } from '../../../utils/authhelper';
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email required'),
@@ -19,9 +20,14 @@ export default function LoginForm(){
     setServerError('');
     try {
       const res = await loginUser(data)
-      // save token (localStorage example) — adjust as needed
-      localStorage.setItem('token', res.data.token);
-      nav('/dashboard');
+      setToken(res.data.token);
+      const role = getUserRole();
+      if(role == "admin") {
+         nav('/admin');
+      }
+      else {
+        nav('/userdashboard');
+      }
     } catch (err) {
       const msg = err?.response?.data?.message || 'Login failed';
       setServerError(msg);

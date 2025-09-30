@@ -1,4 +1,4 @@
-exports.authorize = (...allowed_roles) => (req,res,next) => {
+const authorize = (...allowed_roles) => (req,res,next) => {
    
     if(!req.user) return res.status(401).json({message : "Not Authenticated"});
 
@@ -7,6 +7,6 @@ exports.authorize = (...allowed_roles) => (req,res,next) => {
     next();
 } 
 
-
+module.exports = {authorize}
 
 

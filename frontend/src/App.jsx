@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import Questionire from './pages/Questionire';
 import ProfilePage from './pages/ProfilePage';
 import UserDashBoard from './pages/UserDashboard';
+import CourseListPage from './pages/CourseListPage';
 
 export default function App(){
   return (
@@ -18,7 +19,8 @@ export default function App(){
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/register/question' element={<Questionire/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
-        <Route path='userdashboard' element={<UserDashBoard/>}/>
+        <Route path='/userdashboard' element={<UserDashBoard/>}/>
+        <Route path='/courses' element={<CourseListPage/>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><Dashboard/></PrivateRoute>} />
       </Routes>
     </BrowserRouter>

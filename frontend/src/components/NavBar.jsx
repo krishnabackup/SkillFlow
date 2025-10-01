@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { getUserRole, isAuthenticated, logout } from '../utils/authhelper';
 
-export default function Navbar(props) {
+export default function Navbar({links}) {
   const role = getUserRole();
   const nav = useNavigate();
   const onLoggedout = () => {
@@ -20,14 +20,15 @@ export default function Navbar(props) {
           <img className="mx-auto block h-20 rounded-full sm:mx-0 sm:shrink-0" src={logo} alt="LogoImage" />
         </div>
         <div className="flex space-x-6">
-          {props.labels && (
-            <a
+          {links.map((value,index)=> (
+               <a
+               key={index}
               className="text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold"
-              href={props.labels === "Register" ? "/register" : "/"}
+              href={value.link}
             >
-              {props.labels}
+              {value.label}
             </a>
-          )}
+          ))}
         </div>
       </div>
       
@@ -40,13 +41,6 @@ export default function Navbar(props) {
           <button onClick={onLoggedout} className="bg-red-500 text-white px-4 py-2 rounded font-bold">
             LOGOUT
           </button>
-        )}
-        {props.image && (
-          <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
-            className="h-8 w-8 rounded-full"
-            alt="Profile"
-          />
         )}
       </div>
     </nav>

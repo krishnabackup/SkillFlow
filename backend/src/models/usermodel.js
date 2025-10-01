@@ -1,6 +1,5 @@
 
 const mongoose = require('mongoose');
-
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true , index: true},
@@ -10,7 +9,8 @@ const userSchema = new mongoose.Schema({
   profile: {
     current_role: { type:String, enum : ['student','fresher','experienced'],default : 'student' },
     skills: [{ name: String , level: Number }], // e.g. {name:'React', level:2}
-    availabilityHours: { type: Number, default: 1 }
+    availabilityHours: { type: Number, default: 1 },
+    courses:{type : mongoose.Schema.Types.ObjectId,ref : 'Course'}
   }
 });
 

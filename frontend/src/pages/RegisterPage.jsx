@@ -1,11 +1,15 @@
 import React from 'react';
 import RegisterForm from '../features/auth/components/RegisterForm';
 import NavBar from '../components/NavBar';
-
+const links = [
+  {
+    label : "Login", link : "/login"
+  }
+]
 export default function RegisterPage(){
   return (
        <>
-      <NavBar labels="Login" />
+      <NavBar links={links} />
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
       <div className="max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white

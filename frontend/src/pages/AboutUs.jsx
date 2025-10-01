@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 export default function AboutUs() {
     const nav = useNavigate();
     const onSubmit = () => {
-     nav("/")
+            nav('/userdashboard');
     }
     return(
         <>

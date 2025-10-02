@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/LoginPage';
-import Register from './pages/RegisterPage';
-import Dashboard from './pages/DashBoard';
-import NavBar from './components/NavBar';
+import Register from './pages/RegisterPage';;
 import AboutUs from './pages/AboutUs';
 import PrivateRoute from './PrivateRoute';
 import Questionire from './pages/Questionire';
 import ProfilePage from './pages/ProfilePage';
 import UserDashBoard from './pages/UserDashboard';
 import CourseListPage from './pages/CourseListPage';
+import AdminDashBoard from './pages/AdminDashBoard';
+import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 
 export default function App(){
   return (
@@ -21,7 +21,8 @@ export default function App(){
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/userdashboard' element={<UserDashBoard/>}/>
         <Route path='/courses' element={<CourseListPage/>}/>
-        <Route path="/admin" element={<PrivateRoute requiredRole="admin"><Dashboard/></PrivateRoute>} />
+        <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
+       <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>
       </Routes>
     </BrowserRouter>
   )

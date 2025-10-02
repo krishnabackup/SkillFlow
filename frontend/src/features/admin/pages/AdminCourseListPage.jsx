@@ -1,0 +1,86 @@
+// src/pages/AdminCourses.jsx
+import React, { useState } from 'react';
+import { useCourses, useDeleteCourses } from '../../../hooks/useAdminCourses';
+import CreateEditCourseModal from "../componenets/CreateEditCourseModal";
+import CourseCard from '../../../components/CourseCard';
+import Pagination from '../../../components/Pagination';
+import Navbar from '../../../components/NavBar';
+
+const links = [
+    {
+        label : "Admin Dashboard" , link : "/admin"
+    }
+]
+export default function AdminCourses(){
+  const [page,setPage] = useState(1);
+  const [query,setQuery] = useState('');
+  const [isModelOpen,setModelOpen] = useState(false);
+  const [modelData,setModelData] = useState(null);
+
+  const { data, isLoading, isError ,isFetching} = useCourses({ 
+    page,
+    query : query
+  });
+  const deleteMut = useDeleteCourses();
+  const [editing, setEditing] = useState(null);
+  const [confirm, setConfirm] = useState(null);
+  const openModel  = (data) => {
+    setModelData(data);
+    setModelOpen(true);
+  };
+  
+  const closeModel = () => {
+    setModelOpen(false);
+  }
+   
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error loading courses.</div>;
+  const courses = data?.items || [];
+  return (
+    <>
+    <Navbar links={links}/>
+      <main className="max-w-6xl mx-auto p-6">
+          <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <h1 className="text-2xl font-bold text-white">Manage Courses</h1>
+    
+            <div className="flex gap-3">
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search courses..."
+                className="px-3 py-2 rounded bg-white/5 text-white placeholder-gray-400"
+                aria-label="Search courses"
+              />
+            </div>
+          </header>
+    
+          {isLoading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[...Array(6)].map((_, i) => <div key={i} className="h-28 bg-gray-800 animate-pulse rounded" />)}
+            </div>
+          )}
+    
+          {isError && <div className="text-red-400">{isError}</div>}
+    
+          {!isLoading && courses.length === 0 && (
+            <div className="text-gray-300">No courses found. Try different search or filters.</div>
+          )}
+    
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {courses.map(course => <CourseCard key={course._id || course.id} course={course} onOpenModel={openModel}/>)}
+          </section>
+    
+          <Pagination page={data.page} total={data.total} limit={data.limit} onPage={(p) => setPage(p)} />
+        <div>
+            {
+                isFetching && <p className="text-sm text-gray-400">Refreshing</p>
+            }
+        </div>
+        {
+            isModelOpen && <CreateEditCourseModal course={editing} onClose={closeModel} /> 
+        }     
+        </main>
+    </>
+  );
+}

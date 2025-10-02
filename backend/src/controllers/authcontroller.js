@@ -7,7 +7,7 @@ const jwtSecret = process.env.JWT_SECRET || 'changeme';
 const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '7d';
 
 const register = asynchandler(async (req,res) => {
-    const {name, email , password} = req.body;
+    const {name, email , password,role} = req.body;
     if(!name || !email || !password) {
         return res.status(400).json({message : "Name,Email or Password required"});
     }
@@ -17,7 +17,7 @@ const register = asynchandler(async (req,res) => {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hash(password, salt);
 
-  const user = new Users({name,email,passwordHash});
+  const user = new Users({name,email,passwordHash,role});
   await user.save();
 
   const token = jwt.sign({id : user._id, role: user.role}, jwtSecret, {expiresIn: jwtExpiresIn})

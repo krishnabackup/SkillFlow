@@ -3,10 +3,9 @@
 
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
-import { getUserRole, isAuthenticated, logout } from '../utils/authhelper';
+import {isAuthenticated, logout } from '../utils/authhelper';
 
 export default function Navbar({links}) {
-  const role = getUserRole();
   const nav = useNavigate();
   const onLoggedout = () => {
     logout();

@@ -14,5 +14,14 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+userSchema.pre("save",function(next){
+  if(this.role === "admin"){
+    this.profile = undefined;
+  }
+  else if(this.role === "learner" && !this.profile){
+    this.profile = {};
+  }
+  next();
+});
 
 module.exports = mongoose.model('User', userSchema);

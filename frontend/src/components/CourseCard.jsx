@@ -1,6 +1,7 @@
 import React from "react";
-
-export default function CourseCard({course}){
+import { getUserRole } from "../utils/authhelper";
+export default function CourseCard({course,onOpenModel}){
+   const role = getUserRole();
     return(
     <>
      <article className="bg-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">
@@ -15,7 +16,13 @@ export default function CourseCard({course}){
             <span key={i} className="text-xs bg-white/5 px-2 py-0.5 rounded">{s}</span>
           ))}
         </div>
-        <div className="text-xs">{/* optional: duration etc */}</div>
+        {
+          role === "admin" ? (<div className="text-base flex justify-between mt-2">
+          <button className="bg-blue-400 text-black rounded-full p-1 min-w-12 font-bold" onClick={onOpenModel}>EDIT</button>
+          <button className="bg-red-600 text-black rounded-full p-1 font-bold">DELETE</button>
+        </div>) : (<></>)
+        }
+        
     </article>
     </>)
 }

@@ -3,11 +3,34 @@ const router = express.Router()
 const {protect}  =require("../middlewares/authMiddleware")
 const {authorize} = require("../middlewares/authorization_middlewarw")
 const User = require("../models/usermodel")
+const asynchandler = require("../utils/asynchandler")
 
-router.get("/users",protect,authorize('admin'),async (req,res) => {
-    const users = await User.find().select("-passwordHash");
-    res.json(users);
-}) 
+router.get("/users",protect,authorize('admin'), asynchandler(async (req,res) => {
+      const { page = 1, limit = 10, q, sortBy = 'createdAt', order = 'desc' } = req.query;
+      const skip = (Number(page) - 1 ) * Number(limit);
+
+      //filter
+      const filter = {};
+      if(q) {
+        filter.$text = {$search : q}
+      }
+
+  const sort = {};
+  sort[sortBy] = order === 'asc' ? 1 : -1;
+
+  const [items, total] = await Promise.all([
+    User.find(filter).sort(sort).skip(skip).limit(Number(limit)),
+    User.countDocuments(filter)
+  ]);
+
+  res.json({
+    page: Number(page),
+    limit: Number(limit),
+    total,
+    items
+  });
+}))
+
 
 router.put("/users/:id/role",protect,authorize('admin'), async (req,res) => {
     const {role} = req.body;

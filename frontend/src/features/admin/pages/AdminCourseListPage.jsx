@@ -22,11 +22,11 @@ export default function AdminCourses(){
     query : query
   });
   const deleteMut = useDeleteCourses();
-  const [editing, setEditing] = useState(null);
-  const [confirm, setConfirm] = useState(null);
+  const [editCourse,setEditCourse] = useState(null);
   const openModel  = (data) => {
     setModelData(data);
     setModelOpen(true);
+    setEditCourse(null);
   };
   
   const closeModel = () => {
@@ -36,6 +36,13 @@ export default function AdminCourses(){
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading courses.</div>;
   const courses = data?.items || [];
+  const handleEdit = (courseData) => {
+    setEditCourse(courseData);
+    setModelOpen(true);
+  }
+  const handleDelete = (course_id) => {
+    deleteMut.mutateAsync(course_id)
+  }
   return (
     <>
     <Navbar links={links}/>
@@ -53,6 +60,7 @@ export default function AdminCourses(){
                 aria-label="Search courses"
               />
             </div>
+            <button className='bg-green-400 text-black rounded-full p-1 font-bold' onClick={openModel}>Add Course</button>
           </header>
     
           {isLoading && (
@@ -68,7 +76,7 @@ export default function AdminCourses(){
           )}
     
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {courses.map(course => <CourseCard key={course._id || course.id} course={course} onOpenModel={openModel}/>)}
+            {courses.map(course => <CourseCard key={course._id || course.id} course={course} onEdit={handleEdit} onDelete={handleDelete}/>)}
           </section>
     
           <Pagination page={data.page} total={data.total} limit={data.limit} onPage={(p) => setPage(p)} />
@@ -78,7 +86,7 @@ export default function AdminCourses(){
             }
         </div>
         {
-            isModelOpen && <CreateEditCourseModal course={editing} onClose={closeModel} /> 
+            isModelOpen && <CreateEditCourseModal course={editCourse} onClose={closeModel} modelData={modelData} /> 
         }     
         </main>
     </>

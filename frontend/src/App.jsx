@@ -9,6 +9,7 @@ import UserDashBoard from './pages/UserDashboard';
 import CourseListPage from './pages/CourseListPage';
 import AdminDashBoard from './pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
+import ManageUsers from './features/admin/pages/ManageUsers';
 
 export default function App(){
   return (
@@ -23,6 +24,7 @@ export default function App(){
         <Route path='/courses' element={<CourseListPage/>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
        <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>
+       <Route path="/admin/users" element={<PrivateRoute requiredRole="admin"><ManageUsers/></PrivateRoute>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -11,6 +11,7 @@ const getUsers = asynchandler(async (req,res) => {
 });
 
 
+
 const updateUser = asynchandler(async (req,res) => {
     const updates = {};
     const {name, email , skills , availabilityHours, current_role} = req.body;

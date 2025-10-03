@@ -13,7 +13,7 @@ export  function useCourses({page,query,limit=12}){
 export function useUpdateCourses(){
     const qc = useQueryClient();
     return useMutation({
-        mutationFn : (id,payload) => updateCourses(id,payload),
+        mutationFn : ({id,payload}) => updateCourses(id,payload),
         onSuccess : () => qc.invalidateQueries(['courses'])
     })
 }
@@ -44,3 +44,4 @@ export function useCreateCourses() {
         onSuccess : () => qc.invalidateQueries(['courses'])
     })
 }
+

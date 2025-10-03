@@ -1,6 +1,6 @@
 import React from "react";
 import { getUserRole } from "../utils/authhelper";
-export default function CourseCard({course,onOpenModel}){
+export default function CourseCard({course,onEdit,onDelete}){
    const role = getUserRole();
     return(
     <>
@@ -18,8 +18,8 @@ export default function CourseCard({course,onOpenModel}){
         </div>
         {
           role === "admin" ? (<div className="text-base flex justify-between mt-2">
-          <button className="bg-blue-400 text-black rounded-full p-1 min-w-12 font-bold" onClick={onOpenModel}>EDIT</button>
-          <button className="bg-red-600 text-black rounded-full p-1 font-bold">DELETE</button>
+          <button className="bg-blue-400 text-black rounded-full p-1 min-w-12 font-bold" onClick={() => onEdit(course)}>EDIT</button>
+          <button className="bg-red-600 text-black rounded-full p-1 font-bold" onClick={() => onDelete(course._id)}>DELETE</button>
         </div>) : (<></>)
         }
         

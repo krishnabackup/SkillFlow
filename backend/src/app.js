@@ -20,9 +20,8 @@ app.use(morgan('dev'))
 //auth route
 app.use('/api/auth', authRoutes);
 app.use('/api/users',userRoutes)
-app.use("/admin",adminRoutes);
+app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
-
 //health 
 
 app.use('/api/health' , (req,res) => res.json({staus : "ok"}))
@@ -31,5 +30,6 @@ app.use('/api/health' , (req,res) => res.json({staus : "ok"}))
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
+
 
 module.exports = app;

@@ -20,7 +20,7 @@ app.use(morgan('dev'))
 //auth route
 app.use('/api/auth', authRoutes);
 app.use('/api/users',userRoutes)
-app.use("/admin",adminRoutes);
+app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
 
 //health 
@@ -37,3 +37,4 @@ connectDB(process.env.MONGO_URI).then(() => {
         console.log(`Server running on ${PORT}`)
     })
 })
+

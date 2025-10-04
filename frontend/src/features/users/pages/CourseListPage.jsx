@@ -1,11 +1,11 @@
 // src/pages/CourseListPage.jsx
 import React, { useState } from "react";
-import useCourses from "../hooks/useCousrse";
-import useDebounce from "../hooks/useDebounce";
-import CourseCard from "../components/CourseCard";
-import Pagination from "../components/Pagination";
-import Navbar from "../components/NavBar";
-
+import useCourses from "../../../hooks/useCousrse";
+import useDebounce from "../../../hooks/useDebounce";
+import CourseCard from "../../../components/CourseCard";
+import Pagination from "../../../components/Pagination";
+import Navbar from "../../../components/NavBar";
+import { useEnrollCourse } from "../../../hooks/useEnrollments";
 const links = [
         {
         label : "Home", link : '/home'
@@ -32,6 +32,8 @@ export default function CourseListPage() {
 
   const debouncedQuery = useDebounce(query);
   const deboundedSkill = useDebounce(skill)
+  
+
   // fetch
   const { data,isLoading, isError,isFetching,error} = useCourses({
     page,
@@ -39,6 +41,8 @@ export default function CourseListPage() {
     skill : deboundedSkill,
     difficulty
   });
+  
+  const addmutate = useEnrollCourse();
 
   // reset page when filters change
   React.useEffect(() => setPage(1), [debouncedQuery, skill, difficulty]);
@@ -49,7 +53,10 @@ export default function CourseListPage() {
 
   // Safe optional chaining in case backend changes shape
   const courses = data?.items || [];
-
+  const handleAddCourses =  async (courseId) => {
+    console.log(courseId);
+    await addmutate.mutateAsync(courseId);
+  }
   return (
     <>    
     <Navbar links={links}></Navbar>
@@ -99,7 +106,7 @@ export default function CourseListPage() {
       )}
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {courses.map(course => <CourseCard key={course._id || course.id} course={course} />)}
+        {courses.map(course => <CourseCard key={course._id || course.id} course={course} onAdd={handleAddCourses}/>)}
       </section>
 
       <Pagination page={data.page} total={data.total} limit={data.limit} onPage={(p) => setPage(p)} />

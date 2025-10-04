@@ -5,6 +5,7 @@ export default function CreateModel({user,onClose}){
     const createUsermutation = useCreateUserByAdmin();
     const onSubmit = async (data) => {
       await createUsermutation.mutateAsync(data, {role : "admin"});
+      onClose();
     }
     const onError = (eror) => {
         console.log("Message" , eror)

@@ -25,7 +25,7 @@ export function useCreateUserByAdmin() {
 const qc = useQueryClient();
 return useMutation(
     {
-        mutationFn : (payload) => createUserByAdmin(payload),
+        mutationFn : (payload) => createUserByAdmin({...payload,role : "admin"}),
         onSuccess : () => qc.invalidateQueries(['users'])
     }
 )

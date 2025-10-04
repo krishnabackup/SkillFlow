@@ -10,7 +10,12 @@ const userSchema = new mongoose.Schema({
     current_role: { type:String, enum : ['student','fresher','experienced'],default : 'student' },
     skills: [{ name: String , level: Number }], // e.g. {name:'React', level:2}
     availabilityHours: { type: Number, default: 1 },
-    courses:{type : mongoose.Schema.Types.ObjectId,ref : 'Course'}
+    enrollments: [{
+      course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
+      enrolledAt: { type: Date, default: Date.now },
+      progress: { type: Number, default: 0 }, // 0..100
+      lastVisitedModule: { type: String, default: null }
+    }]
   }
 });
 

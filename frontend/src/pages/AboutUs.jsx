@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
-
+import { isAuthenticated ,getUserRole } from "../utils/authhelper";
 export default function AboutUs() {
     const nav = useNavigate();
     const onSubmit = () => {
-            nav('/userdashboard');
+         if(isAuthenticated()) nav('/userdashboard');
+         else nav("/")
     }
     return(
         <>

@@ -6,10 +6,11 @@ import PrivateRoute from './PrivateRoute';
 import Questionire from './pages/Questionire';
 import ProfilePage from './pages/ProfilePage';
 import UserDashBoard from './pages/UserDashboard';
-import CourseListPage from './pages/CourseListPage';
+import CourseListPage from './features/users/pages/CourseListPage';
 import AdminDashBoard from './pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 import ManageUsers from './features/admin/pages/ManageUsers';
+import MyCourses from './features/users/pages/MyCourses';
 
 export default function App(){
   return (
@@ -21,6 +22,7 @@ export default function App(){
         <Route path='/register/question' element={<Questionire/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/userdashboard' element={<UserDashBoard/>}/>
+        <Route path='/mycourses' element={<MyCourses/>}/>
         <Route path='/courses' element={<CourseListPage/>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
        <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>

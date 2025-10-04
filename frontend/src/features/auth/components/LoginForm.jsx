@@ -5,7 +5,8 @@ import * as yup from 'yup';
 import { loginUser } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { getUserRole, setToken } from '../../../utils/authhelper';
-
+import { Navigate } from 'react-router-dom';
+import { isAuthenticated} from '../../../utils/authhelper';
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email required'),
   password: yup.string().min(6,'At least 6 characters').required('Password required')
@@ -15,7 +16,11 @@ export default function LoginForm(){
   const { register, handleSubmit, formState:{errors, isSubmitting} } = useForm({ resolver: yupResolver(schema) });
   const [serverError, setServerError] = useState('');
   const nav = useNavigate();
-
+    if(isAuthenticated()){
+    const user = getUserRole();
+    if(user === "admin") return <Navigate to="/admin" replace/>
+    else if(user=== "learner") return <Navigate to="/userdashboard" replace/>
+  }
   const onSubmit = async (data) => {
     setServerError('');
     try {

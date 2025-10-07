@@ -1,5 +1,6 @@
 import { Links } from "react-router-dom";
-import Navbar from "../components/NavBar";
+import Navbar from "../../../components/NavBar";
+import GoalsTextArea from "../components/GoalsTextArea";
 const links = [
     {
         label : "Home", link : '/home'
@@ -21,8 +22,10 @@ const links = [
 export default function UserDashBoard() {
     return(
         <>
-        <Navbar links={links}>
-        </Navbar>
+        <Navbar links={links}/>
+        <div className="flex justify-center items-center mt-10">
+          <GoalsTextArea/>
+        </div>
         </>
     )
 }

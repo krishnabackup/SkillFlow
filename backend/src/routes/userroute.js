@@ -5,6 +5,7 @@ const {getUsers , updateUser} = require("../controllers/usercontroller")
 const { body } = require('express-validator');
 const { validateRequest } = require('../validator/request_validator');
 const Users = require("../models/usermodel");
+const { normalizeSkills } = require('../middlewares/normalizeSkills');
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.put(
     body('availabilityHours').optional().isNumeric().withMessage('Availability must be number'),
     // skills can be optional; we accept array or string, so skip strict validation here
   ],
+  normalizeSkills,
   validateRequest,
   updateUser
 );
@@ -39,7 +41,7 @@ router.post("/me/enrollments",protect,async(req,res)=>{
  
 
   const already = await Users.findOne({_id : req.user.id, 'profile.enrollments.course' : courseId});
-  if(already) return res.status(400).json({message  : "Already Existed Course"});
+  if(already) return res.status(402).json({message  : "Already Existed Course"});
 
   const enrollments = { course : courseId , enrolledAt : Date.now()}
   const user = await Users.findByIdAndUpdate(req.user.id,{$push: { 'profile.enrollments' : enrollments } }, {new : true })

@@ -29,7 +29,12 @@ export default function MyCourses() {
   if (isError) return <div>Error loading enrollments.</div>;
 
   if (!enrollments || enrollments.length === 0) {
-    return <div className="p-6 text-center">You have no enrolled courses. <Link className="text-blue-500" to="/courses">Browse courses</Link></div>
+    return (
+      <>
+      <Navbar links={links}></Navbar>
+      <div className="p-6 text-center text-white">You have no enrolled courses. <Link className="text-blue-500" to="/courses">Browse courses</Link></div>
+      </>
+    )
   }
 
   return (

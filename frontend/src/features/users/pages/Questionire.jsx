@@ -1,8 +1,8 @@
-import Navbar from "../components/NavBar"
+import Navbar from "../../../components/NavBar"
 import { useForm } from "react-hook-form"
 import { Form, Button, ListGroup } from "react-bootstrap"
 import { useState } from "react";
-import {updateProfile } from "../services/userservices";
+import {updateProfile } from "../../../services/userservices";
 import { useNavigate } from "react-router-dom";
 
 const levelMap = {

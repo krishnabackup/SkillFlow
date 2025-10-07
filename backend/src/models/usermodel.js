@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   profile: {
     current_role: { type:String, enum : ['student','fresher','experienced'],default : 'student' },
     skills: [{ name: String , level: Number }], // e.g. {name:'React', level:2}
+    goals : {type : [String],default : []},
     availabilityHours: { type: Number, default: 1 },
     enrollments: [{
       course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },

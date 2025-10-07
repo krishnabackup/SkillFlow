@@ -14,12 +14,31 @@ const getUsers = asynchandler(async (req,res) => {
 
 const updateUser = asynchandler(async (req,res) => {
     const updates = {};
-    const {name, email , skills , availabilityHours, current_role} = req.body;
+    const pushUpdates = {};
+    const {name, email , skills ,goals, availabilityHours, current_role} = req.body;
   if (name) updates.name = name;
   if (email) updates.email = email.toLowerCase();
   if (typeof availabilityHours !== 'undefined') updates['profile.availabilityHours'] = availabilityHours;
   if(current_role) updates['profile.current_role'] = current_role
+   if (goals) {
+    let goalList = [];
+
+    if (typeof goals === 'string') {
+      goalList = goals.split(',').map(g => g.trim()).filter(Boolean);
+    } else if (Array.isArray(goals)) {
+      goalList = goals;
+    }
+
+    // Instead of overwriting, use $push to append
+    if (goalList.length > 0) {
+      pushUpdates['profile.goals'] = { $each: goalList };
+    }
+  }
+  
    if (skills) {
+   if (skills && skills.length > 50) {
+    return res.status(400).json({ message: 'too many skills' });
+  }
     if (Array.isArray(skills)) {
       updates['profile.skills'] = skills.map(s => {
         if (typeof s === 'string') return { name: s, level: 0 };
@@ -36,7 +55,7 @@ const updateUser = asynchandler(async (req,res) => {
 
   const updated = await User.findByIdAndUpdate(
     req.user.id,
-    { $set: updates },
+    { $set: updates, ...Object.keys(pushUpdates).length > 0 && {$push : pushUpdates} },
     { new: true, runValidators: true, context: 'query' }
   ).select('-passwordHash');
 

@@ -6,6 +6,7 @@ import CourseCard from "../../../components/CourseCard";
 import Pagination from "../../../components/Pagination";
 import Navbar from "../../../components/NavBar";
 import { useEnrollCourse } from "../../../hooks/useEnrollments";
+import { addUserEnrolledCourses } from "../../../services/user_course_services";
 const links = [
         {
         label : "Home", link : '/home'
@@ -54,8 +55,19 @@ export default function CourseListPage() {
   // Safe optional chaining in case backend changes shape
   const courses = data?.items || [];
   const handleAddCourses =  async (courseId) => {
-    console.log(courseId);
-    await addmutate.mutateAsync(courseId);
+    try {
+    const res = await addmutate.mutateAsync(courseId);
+    alert("Course added Sucessfully");
+    }
+    catch(error) {
+      if(error.response){
+        const status = error.response.status;
+        if(status === 402) alert("Course already existed");
+      }
+      else{
+        console.log(error.message);
+      }
+    }
   }
   return (
     <>    

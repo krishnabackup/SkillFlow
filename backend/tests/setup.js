@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const {MongoseS}
 beforeAll(async () => {
   const testDbUrl = process.env.MONGO_URI_TEST;
   await mongoose.connect(testDbUrl);

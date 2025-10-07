@@ -7,7 +7,7 @@ export const getUserEnrolledCourses = async () => {
 
 export const addUserEnrolledCourses = async (courseId) => {
     const res = await api.post("/users/me/enrollments",{courseId} );
-    return res.data;
+    return res;
 }
 
 export const deleteEnrolledCourses = async (courseId) => {

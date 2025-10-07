@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/LoginPage';
-import Register from './pages/RegisterPage';;
+import Login from './features/auth/pages/LoginPage';
+import Register from '../src/features/auth/pages/RegisterPage';;
 import AboutUs from './pages/AboutUs';
 import PrivateRoute from './PrivateRoute';
-import Questionire from './pages/Questionire';
-import ProfilePage from './pages/ProfilePage';
-import UserDashBoard from './pages/UserDashboard';
+import Questionire from './features/users/pages/Questionire';
+import ProfilePage from './features/users/pages/ProfilePage';
+import UserDashBoard from './features/users/pages/UserDashboard';
 import CourseListPage from './features/users/pages/CourseListPage';
 import AdminDashBoard from './pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';

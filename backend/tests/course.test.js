@@ -12,9 +12,7 @@ describe("Courses Api ",() => {
   let adminToken,userToken,adminUser,normalUser;
 
   beforeAll(async () => {
-    await User.deleteMany({});
-    await Course.deleteMany({});
-
+    
     adminUser = await User.create({
       name: 'Admin User',
       email: 'admin@test.com',

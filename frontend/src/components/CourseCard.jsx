@@ -22,7 +22,7 @@ export default function CourseCard({course,onEdit,onDelete,onAdd}){
           <button className="bg-red-600 text-black rounded-full p-1 font-bold" onClick={() => onDelete(course._id)}>DELETE</button>
         </div>) :(
           <div className="text-base flex justify-between mt-10">
-          <button className="bg-blue-400 text-black rounded-full p-1 min-w-12 font-bold" onClick={() => onAdd(course._id)}>Add</button></div>)
+          <button className="bg-blue-400 text-black rounded-full p-1 min-w-12 font-bold" onClick={() => onAdd(course._id)}>ADD</button></div>)
         }
         
     </article>

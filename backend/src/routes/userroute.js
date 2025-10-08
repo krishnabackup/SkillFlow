@@ -6,9 +6,9 @@ const { body } = require('express-validator');
 const { validateRequest } = require('../validator/request_validator');
 const Users = require("../models/usermodel");
 const { normalizeSkills } = require('../middlewares/normalizeSkills');
-
+const Course = require("../models/coursemodel");
 const router = express.Router();
-
+const {getRecommendation} = require("../controllers/recommendation_controller")
 // GET current user
 router.get('/me', protect, getUsers);
 
@@ -44,6 +44,7 @@ router.post("/me/enrollments",protect,async(req,res)=>{
   if(already) return res.status(402).json({message  : "Already Existed Course"});
 
   const enrollments = { course : courseId , enrolledAt : Date.now()}
+  await Course.findByIdAndUpdate(courseId, { $inc: { enrollmentsCount : 1 } });
   const user = await Users.findByIdAndUpdate(req.user.id,{$push: { 'profile.enrollments' : enrollments } }, {new : true })
   .populate('profile.enrollments.course','title description difficulty skills estimatedHours')
   res.status(201).json(user.profile.enrollments);
@@ -70,4 +71,6 @@ router.patch('/me/enrollments/:courseId/progress', protect, async (req, res) => 
   const updated = user.profile.enrollments.find(e => String(e.course._id) === String(courseId));
   res.json(updated);
 });
+
+router.get('/me/recommendation', protect, getRecommendation);
 module.exports = router;

@@ -21,7 +21,6 @@ export default function RegisterForm() {
     const onSubmit = async (data) => {
         setServerError('');
         const payload = {name : data.name , email : data.email , password : data.password};
-        console.log(payload)
         try {
             const res = await registeruser(payload)
             localStorage.setItem('token',res.data.token);

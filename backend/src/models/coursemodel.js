@@ -10,12 +10,13 @@ const courseSchema = mongoose.Schema({
     title : {type : String , required : true, index : true},
     description : {type: String },
     skills: { type: [String], default: [] }, // tags/skills taught
-     difficulty: { type: String, enum: ['beginner','intermediate','advanced'], default: 'beginner' },
-     prerequisites: { type: [String], default: [] },
-     estimatedHours: { type: Number, default: 5 },
-     resources: { type: [ResourceSchema], default: [] },
-     createdAt: { type: Date, default: Date.now },
-     createdBy : {type : mongoose.Schema.Types.ObjectId,ref : 'User'},
+    difficulty: { type: String, enum: ['beginner','intermediate','advanced'], default: 'beginner' },
+    prerequisites: { type: [String], default: [] },
+    estimatedHours: { type: Number, default: 5 },
+    enrollmentsCount : {type : Number, default : 0 },
+    resources: { type: [ResourceSchema], default: [] },
+    createdAt: { type: Date, default: Date.now },
+    createdBy : {type : mongoose.Schema.Types.ObjectId,ref : 'User'},
     updatedAt: { type: Date, default: Date.now }
 },{
 timestamps : true

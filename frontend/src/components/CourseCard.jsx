@@ -1,6 +1,7 @@
 import React from "react";
 import { getUserRole } from "../utils/authhelper";
 export default function CourseCard({course,onEdit,onDelete,onAdd}){
+   if (!course) return null;
    const role = getUserRole();
     return(
     <>

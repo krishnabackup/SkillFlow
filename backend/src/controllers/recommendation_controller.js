@@ -19,7 +19,11 @@ const getRecommendation = async (req, res, next) => {
 
     // ✅ Normalize skills
     const userSkillsArray = normalizeSkillName(user.profile?.skills || []);
-     console.log(userSkillsArray);
+    
+    const userEnrollmentsId = new Set(
+      (user.profile?.enrollments || []).map(e => e.course.toString())
+    );
+    console.log(userEnrollmentsId);
     // Create skill → level map
     const skillMap = {};
     (user.profile?.skills || []).forEach(s => {
@@ -33,9 +37,10 @@ const getRecommendation = async (req, res, next) => {
     const skip = (page - 1) * limit;
 
     let results = [];
+    let flag = false;
     // ✅ Case 1: No skills → show beginner courses
     if (userSkillsArray.length === 0) {
-      const begginerCourses  = await Course.find({ difficulty: "beginner" })
+      const begginerCourses  = await Course.find({ difficulty: "beginner", _id : { $nin : [...userEnrollmentsId]} })
         .sort({ enrollmentsCount: -1, createdAt: -1 })
         .skip(skip)
         .limit(limit)
@@ -49,9 +54,10 @@ const getRecommendation = async (req, res, next) => {
             fillGapsScore: 0,
             reinforceScore: 0,
         }))
+        flag = true;
     } else {
       // ✅ Case 2: Score-based recommendation
-      const allCourses = await Course.find().lean();
+      const allCourses = await Course.find({_id : {$nin : [...userEnrollmentsId]}}).lean();
       const scored = allCourses.map(c => {
         const courseSkills = (c.skills || []).map(s =>
           String(s).toLowerCase()
@@ -103,13 +109,24 @@ const getRecommendation = async (req, res, next) => {
       .slice(skip, skip + limit);
 
     // ✅ Send full response
-    res.json({
+    if(!flag){
+      res.json({
       page,
       limit,
       totalResults: results.length,
       fillGaps,
       reinforce,
     });
+    }
+    else{
+      res.json({
+      page,
+      limit,
+      totalResults: results.length,
+      fillGaps
+    });
+    }
+    
     console.log(res.data);
   } catch (error) {
     next(error);

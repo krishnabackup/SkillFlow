@@ -47,10 +47,18 @@ export default function MyCourses() {
           const c = e.course;
           return (
             <div key={c._id} className="bg-white p-4 rounded shadow">
-              <img src={c.thumbnail} alt={`${c.title} thumbnail`} className="w-full h-36 object-cover rounded"/>
-              <h2 className="mt-2 font-semibold">{c.title}</h2>
-              <p className="text-sm text-gray-600">{c.description}</p>
-              <div className="mt-2 flex items-center justify-between">
+               <h2 className="text-lg font-semibold mb-1 text-black">{c.title}</h2>
+      <p className="text-sm text-gray-600 mb-2 line-clamp-3">{c.description || "No description"}</p>
+        <div className="flex gap-2 items-center">
+          <span className="px-2 py-2 rounded text-xs bg-gray-600 text-white">{c.difficulty}</span>
+        </div>
+        <div className="flex gap-2 items-center text-gray-700 mt-2 flex-wrap">
+            <p className="text-sm">Skills Learned :</p>
+            {c.skills?.slice(0,c?.skills.length).map((s, i) => (
+            <p key={i} className="text-xs text-black  px-2 py-1 rounded">{s}</p>
+          ))}
+        </div>
+              <div className="mt-5 flex items-center justify-between">
                 <div>
                   <div className="text-xs text-gray-500">Progress</div>
                   <div className="text-sm font-bold">{e.progress ?? 0}%</div>

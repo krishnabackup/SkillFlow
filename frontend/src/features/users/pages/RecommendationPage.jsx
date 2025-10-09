@@ -75,7 +75,7 @@ export default function RecommendationsPage() {
 
         {/* Courses Grid */}
         {recommendations.length === 0 ? (
-          <p>No recommendations found for this category.</p>
+          <p>No recommendations found for this category.Please add more skills in profile.</p>
         ) : (
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recommendations.map((r, i) => (

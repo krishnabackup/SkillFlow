@@ -1,0 +1,74 @@
+user_id,course_id,user_text,course_text,label
+68dba423965d323f9edb6e0b,68dd5dcc3fb1f20ba29f1259,,Kubernetes Essentials Cluster orchestration. Kubernetes DevOps,0
+68dba423965d323f9edb6e0b,68dd5dcc3fb1f20ba29f1251,,SQL for Developers SQL queries & joins. SQL,0
+68dba423965d323f9edb6e0b,68dd5dcc3fb1f20ba29f124b,,JavaScript for Beginners JS fundamentals. JavaScript,0
+68dba423965d323f9edb6e0f,68dd5dcc3fb1f20ba29f1258,,Docker Basics Containers and Docker CLI. Docker,0
+68dba423965d323f9edb6e0f,68dd5dcc3fb1f20ba29f1263,,C Programming Basics Intro to C programming. C,0
+68dba423965d323f9edb6e0f,68dd5dcc3fb1f20ba29f1269,,Flutter for Beginners Cross-platform mobile apps. Flutter Dart,0
+68dd6a68daf6bbb23a770e9a,68dd5dcc3fb1f20ba29f1258,,Docker Basics Containers and Docker CLI. Docker,0
+68dd6a68daf6bbb23a770e9a,68dd5dcc3fb1f20ba29f126c,,Ethical Hacking Basics Penetration testing concepts. Hacking Security,0
+68dd6a68daf6bbb23a770e9a,68dd5dcc3fb1f20ba29f125e,,PostgreSQL Advanced Stored procedures & triggers. PostgreSQL,0
+68de93c38caecb049842dc2a,68dd5dcc3fb1f20ba29f1252,,Cloud Fundamentals Intro to cloud. Cloud,0
+68de93c38caecb049842dc2a,68df84f446990dbd09dd6c48,,Excel For Data Analyts Beginner Friendly Tutorial Excel PowerBI,0
+68de93c38caecb049842dc2a,68dd5dcc3fb1f20ba29f126b,,Cybersecurity Fundamentals Intro to cybersecurity. Security,0
+68dfa99bba8b151a151b9df6,68dd5dcc3fb1f20ba29f125e,,PostgreSQL Advanced Stored procedures & triggers. PostgreSQL,0
+68dfa99bba8b151a151b9df6,68dd5dcc3fb1f20ba29f1279,,Project Management Basics Agile & Scrum concepts. Project Management,0
+68dfa99bba8b151a151b9df6,68dd5dcc3fb1f20ba29f125d,,MongoDB Essentials CRUD operations in MongoDB. MongoDB Database,0
+68dfa99bba8b151a151b9df7,68dd5dcc3fb1f20ba29f126b,,Cybersecurity Fundamentals Intro to cybersecurity. Security,0
+68dfa99bba8b151a151b9df7,68dd5dcc3fb1f20ba29f125a,,Linux for Developers Essential commands and scripting. Linux,0
+68dfa99bba8b151a151b9df7,68dd5dcc3fb1f20ba29f1262,,"Angular Fundamentals Components, services, routing. Angular",0
+68dfa99bba8b151a151b9df8,68dd5dcc3fb1f20ba29f126f,,Azure Fundamentals Azure core concepts. Azure Cloud,0
+68dfa99bba8b151a151b9df8,68dd5dcc3fb1f20ba29f1266,,Spring Boot Fundamentals REST APIs with Spring Boot. Java Spring,0
+68dfa99bba8b151a151b9df8,68dd5dcc3fb1f20ba29f124c,,React Essentials React components & hooks. React,0
+68dfa99bba8b151a151b9df9,68dd5dcc3fb1f20ba29f1262,,"Angular Fundamentals Components, services, routing. Angular",0
+68dfa99bba8b151a151b9df9,68dd5dcc3fb1f20ba29f124a,,CSS Fundamentals Learn CSS basics. CSS,0
+68dfa99bba8b151a151b9df9,68dd5dcc3fb1f20ba29f1273,,"Natural Language Processing Text classification, sentiment analysis. NLP ML",0
+68dfa99bba8b151a151b9dfa,68dd5dcc3fb1f20ba29f1273,,"Natural Language Processing Text classification, sentiment analysis. NLP ML",0
+68dfa99bba8b151a151b9dfa,68dd5dcc3fb1f20ba29f126f,,Azure Fundamentals Azure core concepts. Azure Cloud,0
+68dfa99bba8b151a151b9dfa,68dd5dcc3fb1f20ba29f1269,,Flutter for Beginners Cross-platform mobile apps. Flutter Dart,0
+68dfa99bba8b151a151b9dfb,68dd5dcc3fb1f20ba29f125a,,Linux for Developers Essential commands and scripting. Linux,0
+68dfa99bba8b151a151b9dfb,68dd5dcc3fb1f20ba29f1279,,Project Management Basics Agile & Scrum concepts. Project Management,0
+68dfa99bba8b151a151b9dfb,68dd5dcc3fb1f20ba29f126a,,React Native Basics Mobile apps with React Native. React Native,0
+68dfaf46312ffe4e307842e4,68dd5dcc3fb1f20ba29f1250,,Intro to Machine Learning ML principles. ML,0
+68dfaf46312ffe4e307842e4,68dd5dcc3fb1f20ba29f1273,,"Natural Language Processing Text classification, sentiment analysis. NLP ML",0
+68dfaf46312ffe4e307842e4,68dd5dcc3fb1f20ba29f1269,,Flutter for Beginners Cross-platform mobile apps. Flutter Dart,0
+68dfb010312ffe4e307842ed,68dd5dcc3fb1f20ba29f1251,,SQL for Developers SQL queries & joins. SQL,0
+68dfb010312ffe4e307842ed,68dd5dcc3fb1f20ba29f124f,,"Python for Data Science NumPy, Pandas basics. Python",0
+68dfb010312ffe4e307842ed,68dd5dcc3fb1f20ba29f126f,,Azure Fundamentals Azure core concepts. Azure Cloud,0
+68e0b814edc9252fd16cc042,68df84f446990dbd09dd6c48,,Excel For Data Analyts Beginner Friendly Tutorial Excel PowerBI,0
+68e0b814edc9252fd16cc042,68dd5dcc3fb1f20ba29f1257,,GraphQL with Node.js Build GraphQL APIs. GraphQL Node.js,0
+68e0b814edc9252fd16cc042,68dd5dcc3fb1f20ba29f125a,,Linux for Developers Essential commands and scripting. Linux,0
+68e0b877edc9252fd16cc048,68dd5dcc3fb1f20ba29f1258,,Docker Basics Containers and Docker CLI. Docker,0
+68e0b877edc9252fd16cc048,68dd5dcc3fb1f20ba29f125d,,MongoDB Essentials CRUD operations in MongoDB. MongoDB Database,0
+68e0b877edc9252fd16cc048,68dd5dcc3fb1f20ba29f1274,,Big Data with Hadoop MapReduce and HDFS. Big Data Hadoop SAM BEEN LAPO DAND,0
+68e0ba2cedc9252fd16cc054,68dd5dcc3fb1f20ba29f125b,,Git & GitHub Mastery Collaboration with Git. Git Version Control,0
+68e0ba2cedc9252fd16cc054,68dd5dcc3fb1f20ba29f1262,,"Angular Fundamentals Components, services, routing. Angular",0
+68e0ba2cedc9252fd16cc054,68dd5dcc3fb1f20ba29f126b,,Cybersecurity Fundamentals Intro to cybersecurity. Security,0
+68e0c3c5edc9252fd16cc08b,68dd5dcc3fb1f20ba29f1269,I want to become a full stack developer I wan to become a software developer I want to learn yoga I want to learn kunfu,Flutter for Beginners Cross-platform mobile apps. Flutter Dart,1
+68e0c3c5edc9252fd16cc08b,68dd5dcc3fb1f20ba29f126e,I want to become a full stack developer I wan to become a software developer I want to learn yoga I want to learn kunfu,AWS Cloud Practitioner AWS services basics. AWS Cloud,0
+68e0c3c5edc9252fd16cc08b,68dd5dcc3fb1f20ba29f1260,I want to become a full stack developer I wan to become a software developer I want to learn yoga I want to learn kunfu,Bootstrap Fundamentals Build responsive layouts. Bootstrap,0
+68e0c3c5edc9252fd16cc08b,68dd5dcc3fb1f20ba29f125e,I want to become a full stack developer I wan to become a software developer I want to learn yoga I want to learn kunfu,PostgreSQL Advanced Stored procedures & triggers. PostgreSQL,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f125f,HTML CSS React,Tailwind CSS Basics Utility-first styling. CSS Tailwind,1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1256,HTML CSS React,Next.js Fundamentals SSR and static site generation. Next.js React,1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1253,HTML CSS React,"Advanced CSS Flexbox, Grid, animations. CSS Design",1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1249,HTML CSS React,HTML Basics Learn the fundamentals of HTML. HTML,1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1255,HTML CSS React,"React Advanced Patterns Context, HOCs, render props. React",1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1273,HTML CSS React,"Natural Language Processing Text classification, sentiment analysis. NLP ML",1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f124c,HTML CSS React,React Essentials React components & hooks. React,1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f124a,HTML CSS React,CSS Fundamentals Learn CSS basics. CSS,1
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1270,HTML CSS React,GCP Essentials Google Cloud basics. GCP Cloud,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1272,HTML CSS React,Deep Learning with TensorFlow Neural networks in TF. Deep Learning TensorFlow,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1259,HTML CSS React,Kubernetes Essentials Cluster orchestration. Kubernetes DevOps,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f125a,HTML CSS React,Linux for Developers Essential commands and scripting. Linux,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1269,HTML CSS React,Flutter for Beginners Cross-platform mobile apps. Flutter Dart,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1257,HTML CSS React,GraphQL with Node.js Build GraphQL APIs. GraphQL Node.js,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1268,HTML CSS React,iOS Development with Swift iOS apps with Swift. Swift iOS,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1277,HTML CSS React,Tableau for Beginners Create dashboards in Tableau. Tableau Analytics,0
+68e62082607344fdb5147c19,68df84f446990dbd09dd6c48,HTML CSS React,Excel For Data Analyts Beginner Friendly Tutorial Excel PowerBI,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f124f,HTML CSS React,"Python for Data Science NumPy, Pandas basics. Python",0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1274,HTML CSS React,Big Data with Hadoop MapReduce and HDFS. Big Data Hadoop SAM BEEN LAPO DAND,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1260,HTML CSS React,Bootstrap Fundamentals Build responsive layouts. Bootstrap,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f126c,HTML CSS React,Ethical Hacking Basics Penetration testing concepts. Hacking Security,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f1263,HTML CSS React,C Programming Basics Intro to C programming. C,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f126a,HTML CSS React,React Native Basics Mobile apps with React Native. React Native,0
+68e62082607344fdb5147c19,68dd5dcc3fb1f20ba29f126f,HTML CSS React,Azure Fundamentals Azure core concepts. Azure Cloud,0

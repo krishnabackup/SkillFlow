@@ -8,7 +8,8 @@ const Users = require("../models/usermodel");
 const { normalizeSkills } = require('../middlewares/normalizeSkills');
 const Course = require("../models/coursemodel");
 const router = express.Router();
-const {getRecommendation} = require("../controllers/recommendation_controller")
+const {getRecommendation} = require("../controllers/recommendation_controller");
+const { generateRoadmap } = require('../services/openaiservices');
 // GET current user
 router.get('/me', protect, getUsers);
 
@@ -73,4 +74,5 @@ router.patch('/me/enrollments/:courseId/progress', protect, async (req, res) => 
 });
 
 router.get('/me/recommendation', protect, getRecommendation);
+router.post('/me/roadmap',protect,generateRoadmap)
 module.exports = router;

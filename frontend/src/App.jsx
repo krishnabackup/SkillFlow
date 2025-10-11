@@ -12,6 +12,7 @@ import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 import ManageUsers from './features/admin/pages/ManageUsers';
 import MyCourses from './features/users/pages/MyCourses';
 import RecommendationsPage from './features/users/pages/RecommendationPage';
+import RoadmapPage from './features/users/pages/RoadmapPages';
 
 export default function App(){
   return (
@@ -25,6 +26,7 @@ export default function App(){
         <Route path='/userdashboard' element={<UserDashBoard/>}/>
         <Route path='/mycourses' element={<MyCourses/>}/>
         <Route path='/courses' element={<CourseListPage/>}/>
+        <Route path='/roadmapgeneration' element={<RoadmapPage/>}/>
         <Route path='/recommandation'  element={<RecommendationsPage/>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
        <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>

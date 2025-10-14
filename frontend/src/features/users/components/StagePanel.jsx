@@ -58,25 +58,30 @@ export default function StagePanel({ stage, onUpdate, onAddStage, onDeleteStage 
       > {form.duration_weeks}</h1>
 
       <label className="text-sm text-gray-300">Skills to Learn</label>
-      {stage.recommended_courses[0]?.skills_learned?.map((skill, idx) => (
+      {stage.skills?.map((skill, idx) => (
         <h2 key={idx} className='text-white text-base'>{skill}</h2>
       ))}
 
       <label className="text-sm text-gray-300 mt-4 block">Resources</label>
-      {stage.recommended_courses[0]?.resources?.map((resource, idx) => (
-        <div key={idx} className="mb-2 p-2 bg-gray-800 rounded">
-          <h2 className='text-white text-base font-semibold'>{resource.title}</h2>
+      {
+        stage.recommended_courses?.map((rc) => 
+            rc.resources?.map((rec,recIndx) => (
+          <div key={recIndx} className="mb-2 p-2 bg-gray-800 rounded">
+          <h2 className='text-white text-base font-semibold'>{rc.title}</h2>
           <a
-            href={resource.url}
+            href={rec.url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 text-sm underline"
           >
-            {resource.url}
+            {rec.url}
           </a>
-          <div className="text-gray-400 text-xs">{resource.type}</div>
+          <div className="text-gray-400 text-xs">{rec.type}</div>
+            </div>
+        )
+      )
+      )
+        }
         </div>
-      ))}
-    </div>
   );
 }

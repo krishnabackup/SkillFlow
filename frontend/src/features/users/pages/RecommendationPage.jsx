@@ -25,6 +25,7 @@ export default function RecommendationsPage() {
     )
   }
   const recommendations = data?.[activeTab] || [];
+  console.log(recommendations)
   const handleAddCourses =  async (courseId) => {
     try {
      await addmutate.mutateAsync(courseId);
@@ -40,6 +41,7 @@ export default function RecommendationsPage() {
       }
     }
   }
+  console.log(data.totalResults)
   return (
     <>
       <Navbar
@@ -83,7 +85,7 @@ export default function RecommendationsPage() {
             ))}
           </section>
         )}
-         <Pagination page={data.page} total={data.total} limit={data.limit} onPage={(p) => setPage(p)} />
+         <Pagination page={data.page} total={data.totalResults} limit={data.limit} onPage={(p) => setPage(p)} />
       </main>
     </>
   );

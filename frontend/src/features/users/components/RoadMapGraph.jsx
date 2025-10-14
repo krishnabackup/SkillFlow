@@ -12,12 +12,13 @@ import ReactFlow, {
 } from 'react-flow-renderer';
 import dagre from 'dagre';
 import StagePanel from './StagePanel';
+import { CustomNode } from './CustomNode';
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-const nodeWidth = 220;
-const nodeHeight = 120;
+const nodeWidth = 140;
+const nodeHeight = 100;
 
 function getLayoutedElements(nodes, edges, direction = 'LR') {
   const isHorizontal = direction === 'LR';
@@ -46,22 +47,51 @@ function getLayoutedElements(nodes, edges, direction = 'LR') {
   return { nodes: layoutedNodes, edges };
 }
 
+const positions = [
+  {
+    x : 0 , y : 0
+  },
+  {
+    x : 200, y : 150
+  },
+  {
+    x : 400 ,y : 0
+  },
+  {
+    x : 600, y : 150
+  },
+  {
+    x : 800 , y : 0
+  },
+  {
+    x : 1000, y : 150
+  },
+  {
+    x :  1200 , y : 0
+  },
+  {
+    x : 1400 , y : 150
+  }
+]
+ const nodeTypes = { custom : CustomNode}
 export default function RoadmapGraph({ roadmap, onSave }) {
-  // roadmap: {stages:[], edges:[], title,...}
-  const initialNodes = (roadmap?.stages || []).map(s => ({
+  const initialNodes = (roadmap?.stages || []).map((s,index) => ({
     id: s._id,
+    type: 'custom',
     data: { label: s.stage, stage: s },
-    position: s.position || { x: Math.random()*250, y: Math.random()*250 },
-    style: { width: nodeWidth, height: nodeHeight },
+    position: { x: positions[index].x, y: positions[index].y},
+    style: { width: nodeWidth, height: nodeHeight,backgroundColor : 'rgb(239, 208, 51)'},
+    className : "flex items-center justify-center font-bold  shadow-md rounded-md border-2 border-stone-400",
     sourcePosition: 'right',
     targetPosition: 'left',
   }));
 
-  const initialEdges = (roadmap?.edges || []).map(e => ({ id: e.id, source: e.source, target: e.target }));
+  const initialEdges = (roadmap?.edges || []).map(e => ({ id: e.id, source: e.source, target: e.target ,animation : true, style : { stroke : '#facc15' , strokeWidth : 2 }, type : 'smoothstep'}));
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [onEditNode,setOnEditNode] = useState(false);
   const reactFlowWrapper = useRef(null);
   const rfInstance = useRef(null);
 
@@ -79,6 +109,7 @@ export default function RoadmapGraph({ roadmap, onSave }) {
   // node select
   const onNodeClick = useCallback((event, node) => {
     setSelectedNode(node.data.stage);
+    setOnEditNode(true);
   }, []);
 
   // handle drag stop -> persist new positions locally
@@ -127,6 +158,7 @@ export default function RoadmapGraph({ roadmap, onSave }) {
       <div className="flex-1" ref={reactFlowWrapper}>
         <ReactFlow
           nodes={nodes}
+          nodeTypes={nodeTypes}
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
@@ -136,10 +168,11 @@ export default function RoadmapGraph({ roadmap, onSave }) {
           fitView
           attributionPosition="bottom-left"
           onInit={(instance) => (rfInstance.current = instance)}
+          className="bg-gradient-to-br from-gray-900 via-gray-950 to-black"
         >
-          <MiniMap />
+          {onEditNode && <MiniMap   nodeColor={(n) => "#facc15"} maskColor="rgba(0, 0, 0, 0.6)" className="rounded-lg" /> }
           <Controls />
-          <Background />
+          <Background color='#444' gap={24} variant='dots' />
         </ReactFlow>
 
         <div className="absolute bottom-6 left-6 z-20 space-x-2">

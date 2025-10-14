@@ -1,7 +1,9 @@
 require("dotenv").config();
 const Users = require("../../src/models/usermodel");
+const Courses = require("../models/coursemodel")
 const { InferenceClient } = require("@huggingface/inference");
 const RoadMap = require("../models/roadmapmodel");
+const { validateJsonFromAI } = require("../utils/aijsonparser");
 const HF_API_TOKEN = process.env.HF_ACCESS_TOKEN;
 const hf = new InferenceClient(HF_API_TOKEN);
 
@@ -11,6 +13,18 @@ const generateRoadmap = async (req, res) => {
 
     const user = await Users.findById(req.user.id).lean();
     if (!user) return res.status(401).json({ message: "User not found" });
+    
+    //fetch recommendation to Seed  AI 
+    
+    const recommendation = require("../services/recommendationInternalCall")
+    const rec = await recommendation.getRecommendationInternalCall(req.user.id);
+    // top N reccomendation
+
+    const top = (rec.fillGaps || []).slice(0,6).map(r => {
+      const c = r.course || r;
+      return { title : c.title , description : c.description || "",skills : c.skills || [] };
+    });
+
 
     const goal = user.profile?.goals?.[0];
     const experience = user.profile?.current_role || "beginner";
@@ -25,6 +39,7 @@ and its type like whether it is youtube video,online course free or website with
 Don't recoomend paid courses.Provide a link between all stages and return it in edges attribute as shown below.
 provide recommended_courses always even it is project building phase or final phase.
 Output only valid JSON with double quoted keys and string values, no comments or trailing commas.
+Respond ONLY with valid JSON. Do not include explanations or code block markers
 Format:
 {
   "title": string,
@@ -62,6 +77,7 @@ Format:
 Generate a skill roadmap for a user who wants to become a ${goal}.
 Current experience: ${experience}.
 Existing skills: ${skills.length ? skills.join(", ") : "None"}.
+Seed courses: ${JSON.stringify(top)}.
 Output **only the JSON** (no markdown or text).`;
 
     const response = await hf.chatCompletion({
@@ -73,25 +89,48 @@ Output **only the JSON** (no markdown or text).`;
       max_tokens: 4048,
     });
 
-    let content = response.choices?.[0]?.message?.content || "";
-    console.log("Raw HF response:\n", content.slice(0, 500));
+    const roadmap =  validateJsonFromAI(response);
 
-    // 🧹 Clean out extra markdown or text
-    content = content
-      .replace(/```json/g, "")
-      .replace(/```/g, "")
-      .trim();
 
-    // ✅ Extract only the JSON part (in case model added text around)
-    const jsonMatch = content.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error("No valid JSON object found in model output");
+    const normalizedStages = roadmap.stages.map((s, i) => ({
+      _id: s._id || `stage_${i+1}`,
+      stage: s.stage,
+      description: s.description || '',
+      duration_weeks: Number(s.duration_weeks || 1),
+      skills: (s.skills || []).map(String),
+      recommended_courses: (s.recommended_courses || []).map(rc => ({
+        title: rc.title,
+        description : rc.description,
+        difficulty  : rc.difficulty,
+        skills_learned : rc.skills_learned,
+        resources : (rc.resources || []).map(res => ({
+              title : res && res.title ? res.title : "",
+              url:res && res.url ?  res.url : "",
+              type: res && res.url ? res.type : "link",
+        }))
+      })),
+    }));
+    
+    const roadmapCourses = roadmap.stages.recommended_courses.map((rc,i) =>(
+        {
+        title: rc.title,
+        description : rc.description,
+        difficulty  : rc.difficulty,
+        skills_learned : rc.skills_learned,
+        resources : (rc.resources || []).map(res => ({
+        title : res && res.title ? res.title : "",
+        url:res && res.url ?  res.url : "",
+        type: res && res.url ? res.type : "link",
+        }))
+        }
+      ))
+    console.log(roadmapCourses);
 
-    const roadmap = JSON.parse(jsonMatch[0]);
     const newRoadmap = new RoadMap({
-      title : goal,
+      title : roadmap?.title,
       owner : user._id,
       totalduration : roadmap?.totalduration,
-      stages : roadmap?.stages,
+      stages : normalizedStages,
       edges: roadmap?.edges || []
     });
     await newRoadmap.save();
@@ -108,8 +147,6 @@ const getRoadmap = async(req,res,next) => {
 
  const roadmap = await RoadMap.find({owner : user._id});
  if(!roadmap) return res.status(404).json({message : "Roadmap not found or empty"});
- 
- console.log(roadmap);
 res.status(200).json({
   roadmap
 })

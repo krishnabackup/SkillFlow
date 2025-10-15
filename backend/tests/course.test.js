@@ -1,3 +1,4 @@
+require("dotenv").config();
 const request = require('supertest');
 const app = require("../src/app");
 const mongoose = require('mongoose');
@@ -7,12 +8,21 @@ const jwt = require('jsonwebtoken');
 const { json } = require('express');
 const bcrypt = require("bcryptjs");
 const { put } = require('../src/routes/courseroute');
+const { connectTestDB, closeTestDB } = require("./setupTestDb");
 
 describe("Courses Api ",() => {
   let adminToken,userToken,adminUser,normalUser;
-
+  const userlogin = {
+    email: 'learner@test.com',
+    password:'Password123',
+  }
+  const adminLogin = {
+    email: 'admin@test.com',
+    password: 'Password123'
+  }
   beforeAll(async () => {
-    
+    await connectTestDB();
+    process.env.JWT_SECRET = process.env.JWT_SECRET || "changeme";
     adminUser = await User.create({
       name: 'Admin User',
       email: 'admin@test.com',
@@ -26,12 +36,21 @@ describe("Courses Api ",() => {
       passwordHash: await bcrypt.hash('Password123',10),
       role: 'learner',
     });
-  adminToken = jwt.sign({id : adminUser._id},process.env.JWT_SECRET,{expiresIn : process.env.JWT_EXPIRES_IN});
-  userToken = jwt.sign({id : normalUser._id},process.env.JWT_SECRET,{expiresIn : process.env.JWT_EXPIRES_IN});
+
+    const loginResonseUser = await request(app)
+    .post('/api/auth/login')
+    .send(userlogin)
+    
+     const loginResonseAdmin = await request(app)
+    .post('/api/auth/login')
+    .send(adminLogin)
+    
+  adminToken = loginResonseAdmin.body.token;
+  userToken = loginResonseUser.body.token
  });
 
   afterAll(async () => {
-    await mongoose.connection.close();
+    await closeTestDB();
 })
 
   test('GET /api/courses fetch courses',async () => {
@@ -60,7 +79,6 @@ describe("Courses Api ",() => {
     .post("/api/courses")
     .set('Authorization', `Bearer ${adminToken}`)
     .send( { title: "Cloud Fundamentals", skills:["Cloud"], difficulty:"beginner", description:"Intro to cloud." });
-    console.log(res.statusCode, res.body);
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty('_id');
     expect(res.body.title).toBe('Cloud Fundamentals');

@@ -29,7 +29,4 @@ app.use('/api/health' , (req,res) => res.json({staus : "ok"}))
 //error handler
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
-
-
 module.exports = app;

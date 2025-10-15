@@ -1,4 +1,4 @@
-export const validateJsonFromAI = (response) => {
+const validateJsonFromAI = (response) => {
     const text = (response?.choices?.[0].message?.content).toString();
     if(!text) throw new Error("Empty AI Response");
 
@@ -16,3 +16,6 @@ export const validateJsonFromAI = (response) => {
   }
     
 }
+
+
+module.exports = {validateJsonFromAI}

@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "coverage": "vitest run --coverage",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
@@ -21,6 +22,7 @@
     "fast-levenshtein": "^3.0.0",
     "fuse.js": "^7.1.0",
     "helmet": "^8.1.0",
+    "jest": "^30.2.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.18.2",
@@ -33,7 +35,7 @@
   },
   "devDependencies": {
     "eslint": "^9.36.0",
-    "jest": "^30.2.0",
+    "mongodb-memory-server": "^10.2.3",
     "nodemon": "^3.1.10",
     "supertest": "^7.1.4"
   }

@@ -1,5 +1,6 @@
 module.exports = {
     testEnvironment : "node",
-    setupFilesAfterEnv : ["D:/SkillFlow/backend/src/index.js"]
+    setupFilesAfterEnv : ["<rootDir>/tests/setup.js"],
+    testTimeout : 20000
 }
 

@@ -19,16 +19,28 @@ const normalizeSkillName = (input) => {
   console.log(skillName);
   if(!skillName) return null 
   if (typeof skillName !== "string") return null;
-  const lower = skillName.trim().toLowerCase();
+ const specialCharremoved = skillName.replace(/[^a-zA-Z0-9+#]/g, '');
+  console.log(specialCharremoved);
+  const lower = specialCharremoved.trim().toLowerCase();
+  console.log(lower); 
   if(!lower) return null;
 
   const directMatch = canonicalSkills.find(skill => skill.toLowerCase() === lower);
-  if(directMatch) input[i].name = directMatch;
-
+  console.log(directMatch);
+  if(directMatch) {
+    input[i].name = directMatch; 
+    continue;
+  }
+  for (const [canonical, synonyms] of Object.entries(skillSynonyms)) {
+  if (synonyms.includes(lower)) {
+    input[i].name = canonical;
+    continue; // skip fuzzy matching
+  }
+}
   const fuseResult = fuseIndex.search(lower);
 
   //fuse.js 
-  if(fuseResult.length > 0 && fuseResult[0].score < 0.45) {
+  if(fuseResult.length > 0 && fuseResult[0].score < 0.55) {
     console.log("Fuse",fuseResult[0].item);
     input[i].name = fuseResult[0].item;
   }
@@ -55,7 +67,7 @@ const normalizeSkillName = (input) => {
         input[i].name = synon;
     }
   }
-  input[i].name.charAt(0).toUpperCase() + input[i].name.slice(1)
+  input[i].name = input[i].name.charAt(0).toUpperCase() + input[i].name.slice(1)
   }
   return input;
 }

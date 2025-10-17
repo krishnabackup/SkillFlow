@@ -11,10 +11,9 @@ const router = express.Router();
 const {getRecommendation} = require("../controllers/recommendation_controller");
 const { generateRoadmap, getRoadmap } = require('../services/openaiservices');
 const {updateProgress} = require('../controllers/EnrollmentController')
-// GET current user
+
 router.get('/me', protect, getUsers);
 
-// PUT update current user (basic validation)
 router.put(
   '/me',
   protect,
@@ -22,7 +21,7 @@ router.put(
     body('name').optional().isLength({ min: 2 }).withMessage('Name min 2 chars'),
     body('email').optional().isEmail().withMessage('Invalid email'),
     body('availabilityHours').optional().isNumeric().withMessage('Availability must be number'),
-    // skills can be optional; we accept array or string, so skip strict validation here
+    
   ],
   normalizeSkills,
   validateRequest,

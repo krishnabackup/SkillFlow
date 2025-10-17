@@ -13,7 +13,7 @@ export default function Navbar({links}) {
   };
   return (
     <nav className="bg-[#ced725] px-4 py-3 flex items-center justify-between shadow">
-      {/* Left Side: Logo and optional navigation link */}
+      
       <div className="flex items-center space-x-8">
         <div className="flex items-center space-x-2 gap-x-10">
           <img className="mx-auto block h-20 rounded-full sm:mx-0 sm:shrink-0" src={logo} alt="LogoImage" />
@@ -30,8 +30,6 @@ export default function Navbar({links}) {
           ))}
         </div>
       </div>
-      
-      {/* Right Side: About US and LOGOUT button */}
       <div className="flex items-center space-x-4 justify-end ml-auto">
         <a className="text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold" href="/aboutus">
           About US 

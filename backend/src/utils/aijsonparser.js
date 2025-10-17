@@ -4,10 +4,9 @@ const validateJsonFromAI = (response) => {
 
  let cleaned = text.replace(/```json/g, "").replace(/```/g, "").trim();
 
-  // find first { ... } block
+  
   const m = cleaned.match(/\{[\s\S]*\}/);
   if(!m) throw new Error("No JSON object detected in AI output");
-
   try {
     const parsed = JSON.parse(m[0]);
     return parsed;

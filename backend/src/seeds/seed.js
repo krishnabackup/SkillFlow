@@ -9,14 +9,12 @@ const bcrypt = require("bcryptjs");
             await connectDB(process.env.MONGO_URI);
 
             const passwordhash = await bcrypt.hash("Password@123", 10);
-            const newUser = User.create({
+            const newUser = await User.create({
                 name: "Krishna",
                 email: "krishnadek2006@gmail.com",
                 role: "admin",
                 passwordHash: passwordhash,
-                profile: { skills: [{ name: "HTML", level: 2 }] }
             });
-
             console.log("Seed Completed");
             process.exit(0)
         }

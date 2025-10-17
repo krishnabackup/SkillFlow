@@ -111,7 +111,8 @@ Output **only the JSON** (no markdown or text).`;
       })),
     }));
     
-    const roadmapCourses = roadmap.stages.recommended_courses.map((rc,i) =>(
+    const roadmapCourses = roadmap.stages.flatMap(stage => 
+      (stage.recommended_courses || []).map(rc => (
         {
         title: rc.title,
         description : rc.description,
@@ -124,8 +125,7 @@ Output **only the JSON** (no markdown or text).`;
         }))
         }
       ))
-    console.log(roadmapCourses);
-
+    );
     const newRoadmap = new RoadMap({
       title : roadmap?.title,
       owner : user._id,

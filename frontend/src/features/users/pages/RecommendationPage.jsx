@@ -75,7 +75,6 @@ export default function RecommendationsPage() {
           </button>
         </div>
 
-        {/* Courses Grid */}
         {recommendations.length === 0 ? (
           <p>No recommendations found for this category.Please add more skills in profile.</p>
         ) : (

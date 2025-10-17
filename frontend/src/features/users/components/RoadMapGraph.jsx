@@ -95,7 +95,7 @@ export default function RoadmapGraph({ roadmap, onSave }) {
   const reactFlowWrapper = useRef(null);
   const rfInstance = useRef(null);
 
-  // layout once on mount if no positions provided
+  
   useEffect(() => {
     const noPos = initialNodes.every(n => !n.position || (n.position.x === 0 && n.position.y === 0));
     if (initialNodes.length && noPos) {
@@ -103,27 +103,27 @@ export default function RoadmapGraph({ roadmap, onSave }) {
       setNodes(layouted.nodes);
       setEdges(layouted.edges);
     }
-    // eslint-disable-next-line
+   
   }, []);
 
-  // node select
+  
   const onNodeClick = useCallback((event, node) => {
     setSelectedNode(node.data.stage);
     setOnEditNode(true);
   }, []);
 
-  // handle drag stop -> persist new positions locally
+  
   const onNodeDragStop = useCallback((event, node) => {
     setNodes((nds) => nds.map(n => n.id === node.id ? { ...n, position: node.position } : n));
   }, [setNodes]);
 
-  // connect handler => add edge
+  
   const onConnect = useCallback((params) => {
     const newEdge = addEdge(params, edges);
     setEdges(newEdge);
   }, [edges, setEdges]);
 
-  // add stage helper
+ 
   const addStage = useCallback((stage) => {
     const id = stage._id;
     const newNode = {

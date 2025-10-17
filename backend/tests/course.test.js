@@ -61,7 +61,7 @@ describe("Courses Api ",() => {
 
   //User can't do post put delte task 
 
-  test("POST /api/courses new course",async ()=> {
+  test("User can't POST /api/courses new course",async ()=> {
     const res = await request(app)
     .post('/api/courses')
     .set('Authorization',`Bearer ${userToken}`)
@@ -74,7 +74,7 @@ describe("Courses Api ",() => {
 
   //admin can do all function
 
-    test("POST /api/courses new course",async ()=> {
+    test(" Admin can POST /api/courses new course",async ()=> {
     const res = await request(app)
     .post("/api/courses")
     .set('Authorization', `Bearer ${adminToken}`)
@@ -85,7 +85,7 @@ describe("Courses Api ",() => {
     
   });
 
-  test("PUT /api/courses  update courses",async () => {
+  test(" Admin can PUT /api/courses  update courses",async () => {
     const course = await Course.findOne({ title: 'Cloud Fundamentals' });
     const res = await request(app)
     .put(`/api/courses/${course._id}`)
@@ -95,7 +95,7 @@ describe("Courses Api ",() => {
     expect(res.body.title).toBe("Updated Cloud Fundamentals");
   });
 
-  test('DELETE /api/courses delete courses',async () => {
+  test('Admin can DELETE /api/courses delete courses',async () => {
     const course = await Course.findOne({title : "Updated Cloud Fundamentals"});
     const res = await request(app)
     .delete(`/api/courses/${course._id}`)

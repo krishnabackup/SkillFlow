@@ -1,4 +1,3 @@
-import { Links } from "react-router-dom";
 import Navbar from "../../../components/NavBar";
 import GoalsTextArea from "../components/GoalsTextArea";
 const links = [
@@ -19,7 +18,7 @@ const links = [
     }
     
 ]
-export default function UserDashBoard() {
+export default function HomePage() {
     
     return(
         <>

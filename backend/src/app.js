@@ -9,6 +9,7 @@ const { errorHandler } = require('./middlewares/errorhandler');
 const userRoutes = require('./routes/userroute')
 const adminRoutes = require("./routes/adminroute")
 const courseRoutes  = require("./routes/courseroute");
+const emailVerificationRoutes = require('./services/emailverification');
 const app = express()
 
 //Middleware
@@ -22,6 +23,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users',userRoutes)
 app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
+app.use('/api/auth/email-verification', emailVerificationRoutes);
 //health 
 
 app.use('/api/health' , (req,res) => res.json({staus : "ok"}))

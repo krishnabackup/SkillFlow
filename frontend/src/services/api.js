@@ -27,4 +27,15 @@ export const loginUser = async (credentials) => {
   return res;
 }
 
+
+export const verifyEmail = async (email) => {
+    const res = await api.post('/auth/email-verification/send-verification-email', { email });
+    return res.data;
+}
+
+export const confirmEmailVerification = async (token) => {
+    const res = await api.get(`/auth/email-verification/verify-email?token=${token}`);
+    return res;
+} 
+
 export default api;

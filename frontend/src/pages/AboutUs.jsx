@@ -3,7 +3,7 @@ import { isAuthenticated ,getUserRole } from "../utils/authhelper";
 export default function AboutUs() {
     const nav = useNavigate();
     const onSubmit = () => {
-         if(isAuthenticated()) nav('/userdashboard');
+         if(isAuthenticated()) nav('/home');
          else nav("/")
     }
     return(

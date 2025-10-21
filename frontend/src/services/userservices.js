@@ -16,3 +16,5 @@ export const createUserByAdmin = async (payload) => {
     const res = await api.post('/auth/register',payload);
     return res.data
 } 
+
+

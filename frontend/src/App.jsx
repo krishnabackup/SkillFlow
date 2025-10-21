@@ -5,7 +5,6 @@ import AboutUs from './pages/AboutUs';
 import PrivateRoute from './PrivateRoute';
 import Questionire from './features/users/pages/Questionire';
 import ProfilePage from './features/users/pages/ProfilePage';
-import UserDashBoard from './features/users/pages/UserDashboard';
 import CourseListPage from './features/users/pages/CourseListPage';
 import AdminDashBoard from './pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
@@ -15,6 +14,8 @@ import RecommendationsPage from './features/users/pages/RecommendationPage';
 import RoadmapPage from './features/users/pages/RoadmapPages';
 import CourseProgress from './features/analytics/components/CourseProgress';
 import SingleCoursePage from './features/users/pages/singleCoursePage';
+import VerifyEmailPage from  './pages/VerifyEmailPage';
+import HomePage from './features/users/pages/HomePage';
 
 export default function App(){
   return (
@@ -25,10 +26,11 @@ export default function App(){
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/register/question' element={<Questionire/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
-        <Route path='/userdashboard' element={<UserDashBoard/>}/>
+        <Route path='/home' element={<HomePage/>}/>
         <Route path='/mycourses' element={<MyCourses/>}/>
         <Route path='/courses' element={<CourseListPage/>}/>
         <Route path='/courses/:courseId' element={<SingleCoursePage/>}/>
+        <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
         <Route path='/roadmapgeneration' element={<RoadmapPage/>}/>
         <Route path='/courseprogress' element={<CourseProgress/>}/>
         <Route path='/recommandation'  element={<RecommendationsPage/>}/>

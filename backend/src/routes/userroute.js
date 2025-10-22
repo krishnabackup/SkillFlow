@@ -9,9 +9,9 @@ const { normalizeSkills } = require('../middlewares/normalizeSkills');
 const Course = require("../models/coursemodel");
 const router = express.Router();
 const {getRecommendation} = require("../controllers/recommendation_controller");
-const { generateRoadmap, getRoadmap } = require('../services/openaiservices');
 const {updateProgress} = require('../controllers/EnrollmentController')
-
+const {getRoadmap: getRoadmapOpenAI, generateRoadmap: generateRoadmapOpenAI} = require('../services/openaiservices_openai');
+const {generateRoadmap,getRoadmap, getRoadmapById} = require('../services/openaiservices');
 router.get('/me', protect, getUsers);
 
 router.put(
@@ -74,8 +74,11 @@ router.patch('/me/enrollments/:courseId/progress', protect, async (req, res) => 
 });
 
 router.get('/me/recommendation', protect, getRecommendation);
+
+//Roadmap Routes
 router.post('/me/roadmap',protect,generateRoadmap)
 router.get('/me/roadmap',protect,getRoadmap)
+router.get('/me/roadmap/:id',protect,getRoadmapById);
 
 //enrollment Route
 router.patch('/me/enrollments/:courseId/progress', protect, updateProgress);

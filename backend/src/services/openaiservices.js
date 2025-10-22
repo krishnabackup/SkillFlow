@@ -6,6 +6,7 @@ const RoadMap = require("../models/roadmapmodel");
 const { validateJsonFromAI } = require("../utils/aijsonparser");
 const HF_API_TOKEN = process.env.HF_ACCESS_TOKEN;
 const hf = new InferenceClient(HF_API_TOKEN);
+const asynchandler = require("../utils/asynchandler");
 
 const generateRoadmap = async (req, res) => {
   try {
@@ -110,7 +111,7 @@ Output **only the JSON** (no markdown or text).`;
         }))
       })),
     }));
-    
+    console.log("Normalized Stages:", normalizedStages.recommended_courses);
     const roadmapCourses = roadmap.stages.flatMap(stage => 
       (stage.recommended_courses || []).map(rc => (
         {
@@ -141,7 +142,7 @@ Output **only the JSON** (no markdown or text).`;
   }
 };
 
-const getRoadmap = async(req,res,next) => {
+const getRoadmap = asynchandler(async(req,res,next) => {
  const user = await Users.findById(req.user.id).lean();
  if(!user) return res.status(404).json({message : "User not found"});
 
@@ -150,7 +151,14 @@ const getRoadmap = async(req,res,next) => {
 res.status(200).json({
   roadmap
 })
+});
 
-}
+const getRoadmapById = asynchandler(async(req,res,next) => {
+ const roadmap = await RoadMap.findById(req.params.id);
+ if(!roadmap) return res.status(404).json({message : "Roadmap not found"}); 
+ recommandedCourses = roadmap.stages.flatMap(s => s.recommended_courses || []);
+ console.log("Recommanded Courses:", recommandedCourses);
+ res.status(200).json(recommandedCourses);
+});
 
-module.exports = { generateRoadmap,getRoadmap };
+module.exports = { generateRoadmap,getRoadmap ,getRoadmapById};

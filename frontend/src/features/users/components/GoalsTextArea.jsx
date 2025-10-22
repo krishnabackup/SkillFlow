@@ -31,7 +31,8 @@ export default function GoalsTextArea(){
             <div>
                 {
                     isGenerated ? generate.isPending ? <h1 className="text-yellow-400 text-2xl font-semibold">Generating roadmap takes some seconds . Please wait.....</h1> 
-                    : <h1 className="text-green-400 text-2xl font-semibold">Roadmap Generated . Click <Link to='/roadmapgeneration'> here</Link></h1> 
+                    : generate.isSuccess ? <h1 className="text-green-400 text-2xl font-semibold">Roadmap Generated . Click <Link to='/roadmapgeneration'> here</Link></h1> 
+                    : <h1 className="text-red-500 text-2xl font-semibold">Failed to generate roadmap. Please try again.</h1>
                     : ""
                 }
             </div>

@@ -16,7 +16,8 @@ import CourseProgress from './features/analytics/components/CourseProgress';
 import SingleCoursePage from './features/users/pages/singleCoursePage';
 import VerifyEmailPage from  './pages/VerifyEmailPage';
 import HomePage from './features/users/pages/HomePage';
-
+import PathsPage from './features/users/pages/PathsPage';
+import SinglePathPage from './features/users/pages/SinglePathPage';
 export default function App(){
   return (
     <BrowserRouter>
@@ -27,6 +28,8 @@ export default function App(){
         <Route path='/register/question' element={<Questionire/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>
         <Route path='/home' element={<HomePage/>}/>
+        <Route path='/paths' element={<PathsPage/>}/>
+        <Route path='/paths/:pathId' element={<SinglePathPage/>}/>
         <Route path='/mycourses' element={<MyCourses/>}/>
         <Route path='/courses' element={<CourseListPage/>}/>
         <Route path='/courses/:courseId' element={<SingleCoursePage/>}/>

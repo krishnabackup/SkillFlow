@@ -25,6 +25,9 @@ export default function RoadmapPage(){
   },
   {
     label: "Generate Roadmap", link: "/roadmapgeneration"
+  },
+  {
+    label: "Paths", link: "/paths"
   }
  ]
   return (

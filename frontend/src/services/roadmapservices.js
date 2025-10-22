@@ -10,3 +10,8 @@ export const getRoadmap = async() => {
     return res.data;
 }
 
+
+export const getPathById = async(pathId) => {
+    const res = await api.get(`/users/me/roadmap/${pathId}`);
+    return res;
+}

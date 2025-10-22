@@ -31,7 +31,7 @@ export default function Questionire() {
    };
       try {
           await updateProfile(payload);
-          nav('/userdashboard');
+          nav('/home');
       }
       catch(error) {
         console.log(error)

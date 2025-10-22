@@ -1,0 +1,3171 @@
+[
+  {
+    "_id": "f4d87ac1-2b87-429f-9016-b869cb76a8a8",
+    "title": "Hadoop Complete Guide to",
+    "description": "Master Hadoop through practical examples and exercises.",
+    "skills": [
+      "Hadoop",
+      "NumPy",
+      "Design Thinking",
+      "MobX"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 370,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example0.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=2a184bdc",
+        "type": "youtube"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=daf66418",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "hadoop"
+    ],
+    "slug": "hadoop-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "cc367372-8096-49cd-8671-30164b057ade",
+    "title": "Project Management Complete Guide to",
+    "description": "Understand Project Management through practical examples and exercises.",
+    "skills": [
+      "PyTorch",
+      "NumPy",
+      "Project Management"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Security",
+      "Project Management"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 146,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example1.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=27759322",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "project management"
+    ],
+    "slug": "project-management-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "40fd42fc-9518-4d33-8cfe-294dfef6f893",
+    "title": "AWS Fundamentals",
+    "description": "Get started with AWS through practical examples and exercises.",
+    "skills": [
+      "Linux",
+      "Design Thinking",
+      "AWS"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "CI/CD",
+      "Node.js"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1170,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example2.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "aws"
+    ],
+    "slug": "aws-fundamentals",
+    "level": "advanced"
+  },
+  {
+    "_id": "3e293a19-65df-4166-8d6a-3b51d39f0294",
+    "title": "React Native Complete Guide to",
+    "description": "Explore React Native through practical examples and exercises.",
+    "skills": [
+      "React Native"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Tailwind CSS",
+      "Kotlin"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 491,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example3.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example3.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example3.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "react native"
+    ],
+    "slug": "react-native-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "7003ff60-4073-4198-ac89-6fe2e21e9025",
+    "title": "Critical Thinking Mastering",
+    "description": "Build projects with Critical Thinking through practical examples and exercises.",
+    "skills": [
+      "Critical Thinking"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Pandas"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1249,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example4.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example4.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example4.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "critical thinking"
+    ],
+    "slug": "critical-thinking-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "ac195c40-e6bc-4f82-82c7-4e7492d3ace3",
+    "title": "Vue.js Essentials",
+    "description": "Master Vue.js through practical examples and exercises.",
+    "skills": [
+      "Serverless",
+      "PostgreSQL",
+      "Vue.js"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Tableau",
+      "Cypress"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 781,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example5.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example5.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example5.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "vue.js"
+    ],
+    "slug": "vue.js-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "1b3c121e-feb2-4504-8079-cbe0f933648b",
+    "title": "Writing Essentials",
+    "description": "Understand Writing through practical examples and exercises.",
+    "skills": [
+      "Writing",
+      "TypeScript"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "SQL Basics",
+      "Spark"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 487,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example6.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example6.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "writing"
+    ],
+    "slug": "writing-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "19c8720d-44cd-4e56-8859-a84f9507026c",
+    "title": "MobX Essentials",
+    "description": "Explore MobX through practical examples and exercises.",
+    "skills": [
+      "MobX"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "PostgreSQL",
+      "NLP"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 87,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example7.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example7.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "mobx"
+    ],
+    "slug": "mobx-essentials",
+    "level": "advanced"
+  },
+  {
+    "_id": "3bf7be3d-11c3-4228-ac32-944b874d5a0a",
+    "title": "Time Management Essentials",
+    "description": "Build projects with Time Management through practical examples and exercises.",
+    "skills": [
+      "Time Management",
+      "TypeScript",
+      "Design Thinking"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 13,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example8.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=0f7df20c",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "time management"
+    ],
+    "slug": "time-management-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "25421013-dd34-4f0d-a5d1-76f47e8650ba",
+    "title": "Linux Intro to",
+    "description": "Explore Linux through practical examples and exercises.",
+    "skills": [
+      "Pandas",
+      "Linux",
+      "Spring"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Machine Learning"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 109,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example9.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example9.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "linux"
+    ],
+    "slug": "linux-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "0402da71-fc0d-4b4f-b288-76aade318fee",
+    "title": "SQL Basics Practical",
+    "description": "Get started with SQL Basics through practical examples and exercises.",
+    "skills": [
+      "SQL Basics"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1903,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example10.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example10.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example10.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "sql basics"
+    ],
+    "slug": "sql-basics-practical",
+    "level": "advanced"
+  },
+  {
+    "_id": "3bb14ef8-aaf9-4240-bcac-fa345b9fe3a1",
+    "title": "Pandas Mastering",
+    "description": "Build projects with Pandas through practical examples and exercises.",
+    "skills": [
+      "Pandas",
+      "Jenkins"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1766,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example11.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "pandas"
+    ],
+    "slug": "pandas-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "a7447e1f-734f-4070-947c-ce66d61c61e5",
+    "title": "SQL Essentials",
+    "description": "Understand SQL through practical examples and exercises.",
+    "skills": [
+      "SQL"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1814,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=de7947c8",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "sql"
+    ],
+    "slug": "sql-essentials",
+    "level": "advanced"
+  },
+  {
+    "_id": "91759b0a-a694-4d74-8bed-4b25c46d0fb5",
+    "title": "Power BI Basics",
+    "description": "Master Power BI through practical examples and exercises.",
+    "skills": [
+      "Java",
+      "Power BI"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 884,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example13.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "power bi"
+    ],
+    "slug": "power-bi-basics",
+    "level": "advanced"
+  },
+  {
+    "_id": "27c594c8-b580-4a03-a316-b149b3af6ba0",
+    "title": "Svelte Advanced",
+    "description": "Master Svelte through practical examples and exercises.",
+    "skills": [
+      "Svelte"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Hadoop",
+      "NLP"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 15,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example14.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "svelte"
+    ],
+    "slug": "svelte-advanced",
+    "level": "intermediate"
+  },
+  {
+    "_id": "c183ce29-8787-4abd-9548-f0e8bca6fc36",
+    "title": "Serverless Practical",
+    "description": "Understand Serverless through practical examples and exercises.",
+    "skills": [
+      "Serverless",
+      "PostgreSQL"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "TypeScript",
+      "Power BI"
+    ],
+    "estimatedHours": 40,
+    "enrollmentsCount": 1916,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example15.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example15.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "serverless"
+    ],
+    "slug": "serverless-practical",
+    "level": "advanced"
+  },
+  {
+    "_id": "3bcb730d-1098-4190-9836-447b43f2b41f",
+    "title": "SQL Complete Guide to",
+    "description": "Get started with SQL through practical examples and exercises.",
+    "skills": [
+      "SQL"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1902,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example16.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example16.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example16.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "sql"
+    ],
+    "slug": "sql-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "a52355b6-5d78-4a4f-9620-238b589c2a87",
+    "title": "PostgreSQL Fundamentals",
+    "description": "Explore PostgreSQL through practical examples and exercises.",
+    "skills": [
+      "PostgreSQL",
+      "Data Science"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Bootstrap",
+      "Computer Vision"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1780,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=daba55ce",
+        "type": "youtube"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example17.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "postgresql"
+    ],
+    "slug": "postgresql-fundamentals",
+    "level": "beginner"
+  },
+  {
+    "_id": "cff48e72-8354-474f-bf5b-d6602b3d3684",
+    "title": "Kubernetes Complete Guide to",
+    "description": "Master Kubernetes through practical examples and exercises.",
+    "skills": [
+      "Public Speaking",
+      "SQL",
+      "Kubernetes",
+      "Redux"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 1713,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example18.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example18.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "kubernetes"
+    ],
+    "slug": "kubernetes-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "bfe39696-07c5-489d-8765-8bba5c263468",
+    "title": "Pandas Intro to",
+    "description": "Explore Pandas through practical examples and exercises.",
+    "skills": [
+      "Pandas"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Cypress"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 48,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=a8f40840",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "pandas"
+    ],
+    "slug": "pandas-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "e8f104b3-95a3-4399-99b8-8da110d3ba21",
+    "title": "NLP Essentials",
+    "description": "Master NLP through practical examples and exercises.",
+    "skills": [
+      "NLP",
+      "Flutter",
+      "Redis",
+      "Agile"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1139,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example20.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example20.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "nlp"
+    ],
+    "slug": "nlp-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "79ab106e-3c38-4873-9dec-e486315e5f50",
+    "title": "Kubernetes Essentials",
+    "description": "Understand Kubernetes through practical examples and exercises.",
+    "skills": [
+      "Tableau",
+      "Kubernetes",
+      "Microservices",
+      "Design Thinking"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 1532,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example21.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example21.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "kubernetes"
+    ],
+    "slug": "kubernetes-essentials",
+    "level": "advanced"
+  },
+  {
+    "_id": "b8bf49cc-19e8-4c58-a83e-0aaef1e0cb70",
+    "title": "NumPy Complete Guide to",
+    "description": "Get started with NumPy through practical examples and exercises.",
+    "skills": [
+      "NumPy"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Critical Thinking"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1669,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example22.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=fcfcb373",
+        "type": "youtube"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=48da843b",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "numpy"
+    ],
+    "slug": "numpy-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "ce487cf3-e1e2-4e17-93cf-95f46dcfaa80",
+    "title": "Leadership Essentials",
+    "description": "Explore Leadership through practical examples and exercises.",
+    "skills": [
+      "Tailwind CSS",
+      "Leadership"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Leadership",
+      "AWS"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 160,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example23.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example23.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "leadership"
+    ],
+    "slug": "leadership-essentials",
+    "level": "intermediate"
+  },
+  {
+    "_id": "01f2039e-6263-402f-a5a6-d70b08257804",
+    "title": "Machine Learning Complete Guide to",
+    "description": "Learn Machine Learning through practical examples and exercises.",
+    "skills": [
+      "Microservices",
+      "Machine Learning"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Microservices",
+      "OAuth"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1321,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example24.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=6fb2c45d",
+        "type": "youtube"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example24.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "machine learning"
+    ],
+    "slug": "machine-learning-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "812d1900-2c06-496f-8c79-2cd003240422",
+    "title": "Svelte Complete Guide to",
+    "description": "Get started with Svelte through practical examples and exercises.",
+    "skills": [
+      "Svelte",
+      "Security",
+      "Linux",
+      "MongoDB"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1632,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example25.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example25.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=91473131",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "svelte"
+    ],
+    "slug": "svelte-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "caa323a8-8fcf-4f8d-bc88-58317f4fc1c9",
+    "title": "Business Analysis Mastering",
+    "description": "Build projects with Business Analysis through practical examples and exercises.",
+    "skills": [
+      "Business Analysis"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Svelte",
+      "Flask"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 238,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example26.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "business analysis"
+    ],
+    "slug": "business-analysis-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "33afbbc7-b8b8-48b3-b0c3-65e30ec4107b",
+    "title": "Go Essentials",
+    "description": "Master Go through practical examples and exercises.",
+    "skills": [
+      "Svelte",
+      "Go",
+      "C#"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1093,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=87f74426",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "go"
+    ],
+    "slug": "go-essentials",
+    "level": "intermediate"
+  },
+  {
+    "_id": "6deae045-3e21-4d17-a237-8e8b0433d0b9",
+    "title": "Jenkins Mastering",
+    "description": "Understand Jenkins through practical examples and exercises.",
+    "skills": [
+      "Jenkins"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "NestJS",
+      "Excel"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1911,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example28.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example28.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "jenkins"
+    ],
+    "slug": "jenkins-mastering",
+    "level": "intermediate"
+  },
+  {
+    "_id": "612150f6-24f6-4383-94e6-e176f96e7dbe",
+    "title": "Cypress Practical",
+    "description": "Understand Cypress through practical examples and exercises.",
+    "skills": [
+      "TypeScript",
+      "Cypress"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1143,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example29.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "cypress"
+    ],
+    "slug": "cypress-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "0396cbc9-f47e-4494-b8f6-74062d0eeff0",
+    "title": "Java Fundamentals",
+    "description": "Get started with Java through practical examples and exercises.",
+    "skills": [
+      "AWS",
+      "Java"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 566,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=22ef10a1",
+        "type": "youtube"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example30.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "java"
+    ],
+    "slug": "java-fundamentals",
+    "level": "beginner"
+  },
+  {
+    "_id": "15f52f8d-77a7-4c52-bdd9-ac9523721a67",
+    "title": "Azure Practical",
+    "description": "Understand Azure through practical examples and exercises.",
+    "skills": [
+      "Azure"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Data Science",
+      "OAuth"
+    ],
+    "estimatedHours": 40,
+    "enrollmentsCount": 146,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example31.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "azure"
+    ],
+    "slug": "azure-practical",
+    "level": "intermediate"
+  },
+  {
+    "_id": "79851ead-42e0-4acc-897f-6bcb472bfaf7",
+    "title": "Flutter Fundamentals",
+    "description": "Build projects with Flutter through practical examples and exercises.",
+    "skills": [
+      "Flutter"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "Security",
+      "Python"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1379,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example32.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "flutter"
+    ],
+    "slug": "flutter-fundamentals",
+    "level": "advanced"
+  },
+  {
+    "_id": "19b656aa-c7bb-4b41-b838-c3737c801d0f",
+    "title": "AWS Advanced",
+    "description": "Learn AWS through practical examples and exercises.",
+    "skills": [
+      "Bootstrap",
+      "AWS"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1167,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example33.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "aws"
+    ],
+    "slug": "aws-advanced",
+    "level": "advanced"
+  },
+  {
+    "_id": "f443d960-afc5-4d30-8554-12043f290e26",
+    "title": "Power BI Basics",
+    "description": "Explore Power BI through practical examples and exercises.",
+    "skills": [
+      "SQL",
+      "Power BI"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1895,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example34.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example34.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "power bi"
+    ],
+    "slug": "power-bi-basics",
+    "level": "beginner"
+  },
+  {
+    "_id": "c8ab7eb8-02a0-491d-894d-9c8b8ff1a417",
+    "title": "Tailwind CSS Essentials",
+    "description": "Explore Tailwind CSS through practical examples and exercises.",
+    "skills": [
+      "TypeScript",
+      "Tailwind CSS",
+      "Kotlin",
+      "HTML"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "Design Thinking"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 464,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example35.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "tailwind css"
+    ],
+    "slug": "tailwind-css-essentials",
+    "level": "advanced"
+  },
+  {
+    "_id": "05d55604-c13e-4e7e-9488-9deba8477392",
+    "title": "CircleCI Intro to",
+    "description": "Explore CircleCI through practical examples and exercises.",
+    "skills": [
+      "Redis",
+      "GCP",
+      "CircleCI"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Azure",
+      "Linux"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1231,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=8b0b0cde",
+        "type": "youtube"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example36.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=c47320af",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "circleci"
+    ],
+    "slug": "circleci-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "013d2104-3703-43f9-baa4-20eace34b39a",
+    "title": "Communication Basics",
+    "description": "Explore Communication through practical examples and exercises.",
+    "skills": [
+      "Communication",
+      "MobX",
+      "Product Management"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Docker"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 606,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example37.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "communication"
+    ],
+    "slug": "communication-basics",
+    "level": "beginner"
+  },
+  {
+    "_id": "852c213a-abc8-4db7-9584-e7a646836291",
+    "title": "Jenkins Mastering",
+    "description": "Understand Jenkins through practical examples and exercises.",
+    "skills": [
+      "Communication",
+      "Jenkins",
+      "Angular"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1085,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example38.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "jenkins"
+    ],
+    "slug": "jenkins-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "f31ea3fa-796b-4d7e-9056-f60ace23b88f",
+    "title": "Design Thinking Basics",
+    "description": "Master Design Thinking through practical examples and exercises.",
+    "skills": [
+      "React",
+      "Design Thinking",
+      "Spark"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Flask"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1929,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example39.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example39.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "design thinking"
+    ],
+    "slug": "design-thinking-basics",
+    "level": "intermediate"
+  },
+  {
+    "_id": "7dc3bef7-50b4-45ea-a03f-0f75eec4b6f0",
+    "title": "Android Complete Guide to",
+    "description": "Get started with Android through practical examples and exercises.",
+    "skills": [
+      "Writing",
+      "Android",
+      "Angular",
+      "Python"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Agile"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1438,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example40.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example40.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "android"
+    ],
+    "slug": "android-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "43d288a6-7729-4036-bf4d-ec299f51f561",
+    "title": "Java Fundamentals",
+    "description": "Learn Java through practical examples and exercises.",
+    "skills": [
+      "Tailwind CSS",
+      "Java"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "DevOps",
+      "Tableau"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1134,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=7458fa7a",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "java"
+    ],
+    "slug": "java-fundamentals",
+    "level": "beginner"
+  },
+  {
+    "_id": "b7332743-13c7-400c-9cb6-ef0361d1fd95",
+    "title": "JavaScript Intro to",
+    "description": "Build projects with JavaScript through practical examples and exercises.",
+    "skills": [
+      "JavaScript"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Excel"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1784,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=8b10dc78",
+        "type": "youtube"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example42.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "javascript"
+    ],
+    "slug": "javascript-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "ea62b12f-19e4-4eca-a000-8370334c1fc5",
+    "title": "React Native Essentials",
+    "description": "Build projects with React Native through practical examples and exercises.",
+    "skills": [
+      "React",
+      "Excel",
+      "React Native"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 319,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=18dce0dd",
+        "type": "youtube"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example43.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=798de233",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "react native"
+    ],
+    "slug": "react-native-essentials",
+    "level": "advanced"
+  },
+  {
+    "_id": "3275b0f4-41ee-4d06-bb89-360324d43b01",
+    "title": "Android Essentials",
+    "description": "Get started with Android through practical examples and exercises.",
+    "skills": [
+      "Android",
+      "Spark",
+      "SQL Basics"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Jest",
+      "Jenkins"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 261,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example44.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example44.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "android"
+    ],
+    "slug": "android-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "f5f33950-c729-4d38-81ab-77de8a91d0bf",
+    "title": "Security Mastering",
+    "description": "Master Security through practical examples and exercises.",
+    "skills": [
+      "Security",
+      "Power BI",
+      "Linux",
+      "Python"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "HTML"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 26,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example45.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example45.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example45.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "security"
+    ],
+    "slug": "security-mastering",
+    "level": "intermediate"
+  },
+  {
+    "_id": "8907835b-fe73-45c0-a552-afd7a435cd2b",
+    "title": "PostgreSQL Practical",
+    "description": "Understand PostgreSQL through practical examples and exercises.",
+    "skills": [
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Kotlin",
+      "Next.js"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 50,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example46.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "postgresql"
+    ],
+    "slug": "postgresql-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "0da4d92c-0d7f-4d6e-9b40-cd50c5c1fff0",
+    "title": "Flutter Essentials",
+    "description": "Learn Flutter through practical examples and exercises.",
+    "skills": [
+      "Flutter"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1241,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example47.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example47.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=f210705b",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "flutter"
+    ],
+    "slug": "flutter-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "228d8b13-ea7f-4dc4-9191-940873008f44",
+    "title": "Power BI Essentials",
+    "description": "Understand Power BI through practical examples and exercises.",
+    "skills": [
+      "OAuth",
+      "CircleCI",
+      "AWS",
+      "Power BI"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 358,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example48.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example48.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example48.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "power bi"
+    ],
+    "slug": "power-bi-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "82329e90-4b74-49c1-872c-60b8b8edf450",
+    "title": "MongoDB Advanced",
+    "description": "Get started with MongoDB through practical examples and exercises.",
+    "skills": [
+      "Product Management",
+      "MongoDB"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Security"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1050,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=212ec351",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example49.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=464628e8",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "mongodb"
+    ],
+    "slug": "mongodb-advanced",
+    "level": "beginner"
+  },
+  {
+    "_id": "3b9cc829-459b-4c72-8274-cec0dc00e016",
+    "title": "React Native Mastering",
+    "description": "Get started with React Native through practical examples and exercises.",
+    "skills": [
+      "Time Management",
+      "React Native"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Tableau",
+      "Leadership"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1923,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example50.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example50.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "react native"
+    ],
+    "slug": "react-native-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "1384fde4-2d88-42ae-860e-fc7804d1b9bb",
+    "title": "PyTorch Intro to",
+    "description": "Explore PyTorch through practical examples and exercises.",
+    "skills": [
+      "Testing",
+      "PyTorch",
+      "Business Analysis",
+      "React Native"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1822,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example51.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=4cb364da",
+        "type": "youtube"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=e777573b",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "pytorch"
+    ],
+    "slug": "pytorch-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "f418c43c-c37b-44b1-b2c8-40d0e2f4fcae",
+    "title": "Kubernetes Complete Guide to",
+    "description": "Understand Kubernetes through practical examples and exercises.",
+    "skills": [
+      "Kubernetes",
+      "Linux"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Security",
+      "Critical Thinking"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 98,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=8c9ca9b5",
+        "type": "youtube"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example52.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example52.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "kubernetes"
+    ],
+    "slug": "kubernetes-complete-guide-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "a0bd1071-ad86-4341-a1d9-685ef100abd0",
+    "title": "Testing Essentials",
+    "description": "Build projects with Testing through practical examples and exercises.",
+    "skills": [
+      "Testing"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Flask",
+      "iOS"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 443,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example53.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example53.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "testing"
+    ],
+    "slug": "testing-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "eee55bb7-9442-4597-ba19-89bb5792fced",
+    "title": "Git Practical",
+    "description": "Explore Git through practical examples and exercises.",
+    "skills": [
+      "Testing",
+      "PostgreSQL",
+      "Git",
+      "JavaScript"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 5,
+    "enrollmentsCount": 974,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example54.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "git"
+    ],
+    "slug": "git-practical",
+    "level": "advanced"
+  },
+  {
+    "_id": "b1c4be53-be5a-4f50-9e96-460d0340accc",
+    "title": "Serverless Intro to",
+    "description": "Get started with Serverless through practical examples and exercises.",
+    "skills": [
+      "Serverless",
+      "NLP"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "NLP"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1344,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example55.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example55.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example55.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "serverless"
+    ],
+    "slug": "serverless-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "9bbd706c-b280-47f5-aad2-6363ecf5f59d",
+    "title": "React Native Basics",
+    "description": "Explore React Native through practical examples and exercises.",
+    "skills": [
+      "CSS",
+      "Python",
+      "React Native"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Flutter"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 467,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=b8c580f7",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example56.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "react native"
+    ],
+    "slug": "react-native-basics",
+    "level": "beginner"
+  },
+  {
+    "_id": "c202aed6-f563-48b8-9697-66b5916f2ecc",
+    "title": "Kotlin Intro to",
+    "description": "Build projects with Kotlin through practical examples and exercises.",
+    "skills": [
+      "Kotlin",
+      "Spring",
+      "React Native"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "MobX"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1919,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example57.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "kotlin"
+    ],
+    "slug": "kotlin-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "14a8f3e9-52ca-4674-933a-27817df8629e",
+    "title": "Design Thinking Practical",
+    "description": "Master Design Thinking through practical examples and exercises.",
+    "skills": [
+      "Design Thinking",
+      "Leadership"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "TypeScript",
+      "Public Speaking"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1185,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example58.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "design thinking"
+    ],
+    "slug": "design-thinking-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "499e979d-8387-49b8-988d-c825064ba355",
+    "title": "Pandas Intro to",
+    "description": "Build projects with Pandas through practical examples and exercises.",
+    "skills": [
+      "Pandas",
+      "CI/CD",
+      "Git"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Excel",
+      "React Native"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 815,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example59.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "pandas"
+    ],
+    "slug": "pandas-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "81de5499-8333-43a4-98d6-ea988215c531",
+    "title": "Agile Advanced",
+    "description": "Explore Agile through practical examples and exercises.",
+    "skills": [
+      "Time Management",
+      "Cypress",
+      "Agile"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [
+      "Angular"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 302,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example60.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example60.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "agile"
+    ],
+    "slug": "agile-advanced",
+    "level": "advanced"
+  },
+  {
+    "_id": "f88515e9-f29a-4b9d-9f70-3af62a2dd66f",
+    "title": "Tableau Intro to",
+    "description": "Get started with Tableau through practical examples and exercises.",
+    "skills": [
+      "Tableau"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1915,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example61.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example61.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "tableau"
+    ],
+    "slug": "tableau-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "3c6d1921-775e-4b0c-8a5c-78b5281e60f4",
+    "title": "Jenkins Intro to",
+    "description": "Get started with Jenkins through practical examples and exercises.",
+    "skills": [
+      "Angular",
+      "Pandas",
+      "Jenkins",
+      "C++"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Spark"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1838,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example62.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=ba923a8c",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "jenkins"
+    ],
+    "slug": "jenkins-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "bb71d8a4-0a83-4526-9527-2b7c6dd33dde",
+    "title": "AWS Advanced",
+    "description": "Build projects with AWS through practical examples and exercises.",
+    "skills": [
+      "AWS",
+      "MongoDB"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1093,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=4c9a6d39",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example63.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example63.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "aws"
+    ],
+    "slug": "aws-advanced",
+    "level": "beginner"
+  },
+  {
+    "_id": "9aa7d065-cb09-4552-b0b6-800b8095bd6f",
+    "title": "Java Complete Guide to",
+    "description": "Build projects with Java through practical examples and exercises.",
+    "skills": [
+      "DevOps",
+      "Java"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1184,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example64.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "java"
+    ],
+    "slug": "java-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "055460c5-f9ca-4448-be9f-e14e64d2391b",
+    "title": "Bootstrap Basics",
+    "description": "Explore Bootstrap through practical examples and exercises.",
+    "skills": [
+      "Redis",
+      "Bootstrap"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 554,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example65.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example65.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=874667de",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "bootstrap"
+    ],
+    "slug": "bootstrap-basics",
+    "level": "intermediate"
+  },
+  {
+    "_id": "cfaf62e3-ae37-418e-a23f-18a055c33326",
+    "title": "Swift Advanced",
+    "description": "Get started with Swift through practical examples and exercises.",
+    "skills": [
+      "Swift"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 8,
+    "enrollmentsCount": 861,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=301911d6",
+        "type": "youtube"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=c9ad8ddc",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "swift"
+    ],
+    "slug": "swift-advanced",
+    "level": "beginner"
+  },
+  {
+    "_id": "7fe828cf-218a-457e-929e-da8f1bfcce2a",
+    "title": "Data Science Practical",
+    "description": "Learn Data Science through practical examples and exercises.",
+    "skills": [
+      "Redis",
+      "GCP",
+      "Svelte",
+      "Data Science"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1232,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example67.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=ea0e3c3b",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example67.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "data science"
+    ],
+    "slug": "data-science-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "4622f1e8-49cd-45e3-b1ef-a0ee44b152e6",
+    "title": "Communication Mastering",
+    "description": "Understand Communication through practical examples and exercises.",
+    "skills": [
+      "Communication",
+      "Business Analysis",
+      "Express"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Jest"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 450,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example68.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "communication"
+    ],
+    "slug": "communication-mastering",
+    "level": "intermediate"
+  },
+  {
+    "_id": "9acaebe9-9756-4bcc-b989-cd95c54a7ee6",
+    "title": "Linux Intro to",
+    "description": "Explore Linux through practical examples and exercises.",
+    "skills": [
+      "Node.js",
+      "Linux",
+      "Express",
+      "CircleCI"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1051,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example69.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example69.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "linux"
+    ],
+    "slug": "linux-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "bf0d249e-28fa-45c0-b904-51db88937bee",
+    "title": "CircleCI Fundamentals",
+    "description": "Understand CircleCI through practical examples and exercises.",
+    "skills": [
+      "CircleCI"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Node.js",
+      "CI/CD"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 532,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example70.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "circleci"
+    ],
+    "slug": "circleci-fundamentals",
+    "level": "beginner"
+  },
+  {
+    "_id": "8fa70a55-1487-4afb-8348-c0f4b33e1c32",
+    "title": "Spark Advanced",
+    "description": "Learn Spark through practical examples and exercises.",
+    "skills": [
+      "MobX",
+      "Spark"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Python",
+      "HTML"
+    ],
+    "estimatedHours": 40,
+    "enrollmentsCount": 998,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example71.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=524cd472",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "spark"
+    ],
+    "slug": "spark-advanced",
+    "level": "intermediate"
+  },
+  {
+    "_id": "2a908bee-ddf5-43f6-aee0-c8337d9588f4",
+    "title": "CircleCI Basics",
+    "description": "Learn CircleCI through practical examples and exercises.",
+    "skills": [
+      "Product Management",
+      "Next.js",
+      "CircleCI"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "CSS",
+      "Design Thinking"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1859,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example72.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example72.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "circleci"
+    ],
+    "slug": "circleci-basics",
+    "level": "beginner"
+  },
+  {
+    "_id": "da73184c-784c-44e7-9dda-664ea63ba65c",
+    "title": "Android Fundamentals",
+    "description": "Explore Android through practical examples and exercises.",
+    "skills": [
+      "Android"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Java",
+      "SQL"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1104,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example73.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example73.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "android"
+    ],
+    "slug": "android-fundamentals",
+    "level": "intermediate"
+  },
+  {
+    "_id": "a328e5da-e1d0-4187-b432-a7d24c961f01",
+    "title": "Testing Intro to",
+    "description": "Master Testing through practical examples and exercises.",
+    "skills": [
+      "Testing"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1423,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example74.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example74.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example74.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "testing"
+    ],
+    "slug": "testing-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "3dc8f2ff-0a56-4759-8397-affe6d4348dd",
+    "title": "Redux Complete Guide to",
+    "description": "Build projects with Redux through practical examples and exercises.",
+    "skills": [
+      "Redux",
+      "Business Analysis"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Design Thinking"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 846,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example75.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example75.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example75.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "redux"
+    ],
+    "slug": "redux-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "29a28767-e7d6-4741-a25c-478ff7cd34ab",
+    "title": "PyTorch Basics",
+    "description": "Build projects with PyTorch through practical examples and exercises.",
+    "skills": [
+      "PyTorch"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Communication",
+      "NumPy"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 52,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example76.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "pytorch"
+    ],
+    "slug": "pytorch-basics",
+    "level": "intermediate"
+  },
+  {
+    "_id": "00a3b89e-2c16-4dbe-8e31-52385efd33ba",
+    "title": "Django Mastering",
+    "description": "Master Django through practical examples and exercises.",
+    "skills": [
+      "Django"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Redux",
+      "Jenkins"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1884,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example77.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example77.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "django"
+    ],
+    "slug": "django-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "55a021b9-652b-40af-8ba1-8a9c4fdb0da2",
+    "title": "GraphQL Intro to",
+    "description": "Explore GraphQL through practical examples and exercises.",
+    "skills": [
+      "Jest",
+      "GraphQL",
+      "Java",
+      "JavaScript"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1669,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example78.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example78.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "graphql"
+    ],
+    "slug": "graphql-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "f15abd58-61f4-47f1-a76f-dc7a46cbc54f",
+    "title": "Kubernetes Essentials",
+    "description": "Build projects with Kubernetes through practical examples and exercises.",
+    "skills": [
+      "NLP",
+      "TypeScript",
+      "Kubernetes"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 335,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example79.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example79.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "kubernetes"
+    ],
+    "slug": "kubernetes-essentials",
+    "level": "intermediate"
+  },
+  {
+    "_id": "624a4983-507c-4dc9-bd00-40b678ab56b8",
+    "title": "TypeScript Practical",
+    "description": "Get started with TypeScript through practical examples and exercises.",
+    "skills": [
+      "Svelte",
+      "TypeScript"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Flask"
+    ],
+    "estimatedHours": 40,
+    "enrollmentsCount": 746,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example80.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example80.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "typescript"
+    ],
+    "slug": "typescript-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "4161a2d9-4b5a-43e5-a6a1-36a274195a3e",
+    "title": "PyTorch Mastering",
+    "description": "Master PyTorch through practical examples and exercises.",
+    "skills": [
+      "PyTorch",
+      "Tailwind CSS"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Data Science"
+    ],
+    "estimatedHours": 3,
+    "enrollmentsCount": 1435,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=8f2a473c",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "pytorch"
+    ],
+    "slug": "pytorch-mastering",
+    "level": "beginner"
+  },
+  {
+    "_id": "59dde4c2-161e-4064-b1d3-1b2190f7fcee",
+    "title": "Design Thinking Intro to",
+    "description": "Explore Design Thinking through practical examples and exercises.",
+    "skills": [
+      "Design Thinking"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Business Analysis",
+      "C++"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 376,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example82.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "design thinking"
+    ],
+    "slug": "design-thinking-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "5fae4eb5-02c1-4605-a15c-6ae651ce1be9",
+    "title": "C++ Practical",
+    "description": "Master C++ through practical examples and exercises.",
+    "skills": [
+      "C++"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1491,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example83.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "c++"
+    ],
+    "slug": "c++-practical",
+    "level": "intermediate"
+  },
+  {
+    "_id": "5025ca54-1561-47aa-821a-99399feafc09",
+    "title": "Leadership Practical",
+    "description": "Learn Leadership through practical examples and exercises.",
+    "skills": [
+      "Public Speaking",
+      "Leadership"
+    ],
+    "difficulty": "advanced",
+    "prerequisites": [],
+    "estimatedHours": 3,
+    "enrollmentsCount": 735,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=34631cba",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "leadership"
+    ],
+    "slug": "leadership-practical",
+    "level": "advanced"
+  },
+  {
+    "_id": "6372ccc9-6caa-400f-8ed8-434a8ffbaeb2",
+    "title": "Spring Advanced",
+    "description": "Build projects with Spring through practical examples and exercises.",
+    "skills": [
+      "PostgreSQL",
+      "Spring"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 40,
+    "enrollmentsCount": 1078,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example85.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example85.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "spring"
+    ],
+    "slug": "spring-advanced",
+    "level": "intermediate"
+  },
+  {
+    "_id": "59c8dc77-1062-4ba1-b972-51f8a1318bf8",
+    "title": "Spark Essentials",
+    "description": "Learn Spark through practical examples and exercises.",
+    "skills": [
+      "SQL",
+      "Bootstrap",
+      "TensorFlow",
+      "Spark"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1932,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=01bd8487",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "spark"
+    ],
+    "slug": "spark-essentials",
+    "level": "intermediate"
+  },
+  {
+    "_id": "5f161b2e-10d3-4257-84d4-c3b2f937976f",
+    "title": "GCP Mastering",
+    "description": "Learn GCP through practical examples and exercises.",
+    "skills": [
+      "GCP"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Redis"
+    ],
+    "estimatedHours": 20,
+    "enrollmentsCount": 1494,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=dec83c2e",
+        "type": "youtube"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example87.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=38c1ceef",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "gcp"
+    ],
+    "slug": "gcp-mastering",
+    "level": "intermediate"
+  },
+  {
+    "_id": "5217e874-e554-473d-95f9-8153a3a2446d",
+    "title": "iOS Intro to",
+    "description": "Get started with iOS through practical examples and exercises.",
+    "skills": [
+      "C++",
+      "MobX",
+      "Microservices",
+      "iOS"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Jest",
+      "Agile"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 862,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example88.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example88.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "ios"
+    ],
+    "slug": "ios-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "ad10911b-27fb-4602-aa3e-56a43b888d14",
+    "title": "SQL Intro to",
+    "description": "Learn SQL through practical examples and exercises.",
+    "skills": [
+      "SQL",
+      "Project Management",
+      "Vue.js"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1816,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example89.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example89.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example89.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "sql"
+    ],
+    "slug": "sql-intro-to",
+    "level": "beginner"
+  },
+  {
+    "_id": "10510d6e-524b-4720-b57a-79a5579ba1af",
+    "title": "Node.js Practical",
+    "description": "Understand Node.js through practical examples and exercises.",
+    "skills": [
+      "Node.js",
+      "Testing",
+      "Communication",
+      "Kubernetes"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "SQL Basics",
+      "Tailwind CSS"
+    ],
+    "estimatedHours": 40,
+    "enrollmentsCount": 249,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example90.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=6a5814e9",
+        "type": "youtube"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example90.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "node.js"
+    ],
+    "slug": "node.js-practical",
+    "level": "beginner"
+  },
+  {
+    "_id": "b18d7658-c00d-45ef-ac2f-a8173a9f8d8e",
+    "title": "Kotlin Intro to",
+    "description": "Learn Kotlin through practical examples and exercises.",
+    "skills": [
+      "Bootstrap",
+      "Business Analysis",
+      "Kotlin"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "HTML",
+      "Java"
+    ],
+    "estimatedHours": 12,
+    "enrollmentsCount": 1885,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=203d266c",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example91.com",
+        "type": "online_course_free"
+      }
+    ],
+    "tags": [
+      "kotlin"
+    ],
+    "slug": "kotlin-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "63e3cdb4-2c11-4bfd-a6ef-f5c5e61a7c25",
+    "title": "Tailwind CSS Complete Guide to",
+    "description": "Learn Tailwind CSS through practical examples and exercises.",
+    "skills": [
+      "Flutter",
+      "Tailwind CSS",
+      "Machine Learning",
+      "C++"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "CircleCI",
+      "Flask"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1611,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example92.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "tailwind css"
+    ],
+    "slug": "tailwind-css-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "a6c0d11c-60f6-4029-b6d6-7651ae707577",
+    "title": "Svelte Essentials",
+    "description": "Build projects with Svelte through practical examples and exercises.",
+    "skills": [
+      "Svelte",
+      "Node.js",
+      "Public Speaking"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [
+      "Redis",
+      "Android"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 83,
+    "resources": [
+      {
+        "title": "Official Docs",
+        "url": "https://example93.com/docs",
+        "type": "website"
+      }
+    ],
+    "tags": [
+      "svelte"
+    ],
+    "slug": "svelte-essentials",
+    "level": "beginner"
+  },
+  {
+    "_id": "6bd77a63-56c2-4ee6-99bf-7c7290f3fcad",
+    "title": "Agile Complete Guide to",
+    "description": "Learn Agile through practical examples and exercises.",
+    "skills": [
+      "PostgreSQL",
+      "Agile"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Product Management"
+    ],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1278,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=a0ecbf77",
+        "type": "youtube"
+      },
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=4380481e",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "agile"
+    ],
+    "slug": "agile-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "0c75e27c-b472-43f4-9b9d-198590317aa2",
+    "title": "Power BI Complete Guide to",
+    "description": "Learn Power BI through practical examples and exercises.",
+    "skills": [
+      "C++",
+      "Computer Vision",
+      "Power BI"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Android",
+      "Jenkins"
+    ],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1568,
+    "resources": [
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example95.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Official Docs",
+        "url": "https://example95.com/docs",
+        "type": "website"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example95.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "power bi"
+    ],
+    "slug": "power-bi-complete-guide-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "9c7c5a1b-9eaf-4ea9-b09d-85addfd5f83d",
+    "title": "Redux Advanced",
+    "description": "Master Redux through practical examples and exercises.",
+    "skills": [
+      "Security",
+      "Redux",
+      "Product Management"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 5,
+    "enrollmentsCount": 1713,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=2934ebde",
+        "type": "youtube"
+      },
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example96.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example96.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "redux"
+    ],
+    "slug": "redux-advanced",
+    "level": "intermediate"
+  },
+  {
+    "_id": "4de9b544-d9bc-4540-8010-68f251fefa2b",
+    "title": "C++ Intro to",
+    "description": "Master C++ through practical examples and exercises.",
+    "skills": [
+      "Machine Learning",
+      "DevOps",
+      "C++"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "Docker"
+    ],
+    "estimatedHours": 30,
+    "enrollmentsCount": 1464,
+    "resources": [
+      {
+        "title": "Free Course",
+        "url": "https://freecourse.example97.com",
+        "type": "online_course_free"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example97.com/tutorial",
+        "type": "article"
+      },
+      {
+        "title": "Blog Post",
+        "url": "https://blog.example97.com/tutorial",
+        "type": "article"
+      }
+    ],
+    "tags": [
+      "c++"
+    ],
+    "slug": "c++-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "29baa55f-0026-43e0-bdfb-10b11598c029",
+    "title": "Python Intro to",
+    "description": "Get started with Python through practical examples and exercises.",
+    "skills": [
+      "Python"
+    ],
+    "difficulty": "intermediate",
+    "prerequisites": [],
+    "estimatedHours": 3,
+    "enrollmentsCount": 548,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=f7fe9527",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "python"
+    ],
+    "slug": "python-intro-to",
+    "level": "intermediate"
+  },
+  {
+    "_id": "8eea367d-adba-44e7-bbd9-49ba107c498a",
+    "title": "Android Fundamentals",
+    "description": "Understand Android through practical examples and exercises.",
+    "skills": [
+      "Android",
+      "Java",
+      "React",
+      "Swift"
+    ],
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "estimatedHours": 8,
+    "enrollmentsCount": 1224,
+    "resources": [
+      {
+        "title": "Free YouTube Tutorial",
+        "url": "https://youtube.com/watch?v=e84f7699",
+        "type": "youtube"
+      }
+    ],
+    "tags": [
+      "android"
+    ],
+    "slug": "android-fundamentals",
+    "level": "beginner"
+  }
+]

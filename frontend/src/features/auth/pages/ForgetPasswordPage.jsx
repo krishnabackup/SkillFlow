@@ -10,7 +10,9 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 import { useLocation,useNavigate} from "react-router-dom";
 const schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email required"),
-    newPassword: yup.string().min(6, "At least 6 characters").when('isVeriified', {
+    newPassword: yup.string().min(6, "At least 6 characters").matches(/(.*[a-z].*){1,}/, 'Password must contain at least one lowercase letters')
+  .matches(/(.*[A-Z].*){1,}/, 'Password must contain at least one uppercase letters')
+  .matches(/(.*\d.*){2,}/, 'Password must contain at least two numbers').when('isVeriified', {
         is: true,
         then: yup.string().required('New Password required')
     }),

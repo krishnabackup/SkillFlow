@@ -50,9 +50,18 @@ router.post('/forgetPassword', async (req, res) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const email = decoded.email;
+        const user = await Users.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
         const salt = await bcrypt.genSalt(10);
-        const passwordHash = await bcrypt.hash(newPassword, salt);
-        await Users.findOneAndUpdate({ email }, { passwordHash },{new : true});
+        const isPasswordSame = await bcrypt.compare(newPassword, user.passwordHash);
+        if(isPasswordSame){
+            return  res.status(400).json({ message: 'New password must be different from the old password' });
+        }
+        const newpasswordHash = await bcrypt.hash(newPassword, salt);
+        user.passwordHash = newpasswordHash;
+        await user.save();
         res.status(200).json({ message: 'Password reset successfully for'});
     }
     catch (error) {

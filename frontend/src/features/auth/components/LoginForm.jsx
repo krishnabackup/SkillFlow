@@ -1,37 +1,47 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { loginUser } from '../../../services/api';
-import { useNavigate } from 'react-router-dom';
 import { getUserRole, setToken } from '../../../utils/authhelper';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { isAuthenticated} from '../../../utils/authhelper';
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email required'),
-  password: yup.string().min(6,'At least 6 characters').required('Password required')
+  password: yup.string().min(6,'At least 6 characters').required('Password required'),
+  rememberMe : yup.boolean()
 });
 
 export default function LoginForm(){
+  const navigate = useNavigate();
+  const [isChecked,setIsChecked] = useState(false);
   const { register, handleSubmit, formState:{errors, isSubmitting} } = useForm({ resolver: yupResolver(schema) });
   const [serverError, setServerError] = useState('');
-  const nav = useNavigate();
-    if(isAuthenticated()){
+   useEffect(() => {
+      if(isAuthenticated()){
     const user = getUserRole();
-    if(user === "admin") return <Navigate to="/admin" replace/>
-    else if(user=== "learner") return <Navigate to="/userdashboard" replace/>
+    if(user === "admin") navigate("/admin",{replace : true})
+    else if(user=== "learner") navigate("/home",{replace : true})
   }
+   },[navigate])
+    
   const onSubmit = async (data) => {
     setServerError('');
     try {
       const res = await loginUser(data)
-      setToken(res.data.token);
-      const role = getUserRole();
-      if(role == "admin") {
-         nav('/admin');
-      }
-      else {
-        nav('/home');
+      if(res.status === 201) {
+        const token = res.data.token;
+        const role = res.data.user.role;
+        if(data.rememberMe) {
+          setToken(token);
+        }
+        else{
+          sessionStorage.setItem('token',token)
+          console.log(role)
+          if(role === "admin") navigate("/admin",{replace : true})
+          else navigate("/home",{replace : true})
+        }
+ 
       }
     } catch (err) {
       const msg = err?.response?.data?.message || 'Login failed';
@@ -56,7 +66,7 @@ export default function LoginForm(){
 
       <div className="flex items-center justify-between">
         <label className="flex items-center text-sm">
-          <input type="checkbox" className="mr-2" />
+          <input type="checkbox" {...register("rememberMe")}className="mr-2" />
           Remember me
         </label>
         <a href="/forgetPassword" className="text-sm text-indigo-600">Forgot?</a>

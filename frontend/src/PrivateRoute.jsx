@@ -1,7 +1,0 @@
-import { Navigate } from 'react-router-dom';
-import { isAuthenticated } from './utils/authhelper';
-
-export default function PrivateRoute({ children}) {
-
-  return isAuthenticated ? children : <Navigate to="/"></Navigate>;
-}

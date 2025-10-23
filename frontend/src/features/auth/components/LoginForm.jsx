@@ -31,7 +31,7 @@ export default function LoginForm(){
          nav('/admin');
       }
       else {
-        nav('/userdashboard');
+        nav('/home');
       }
     } catch (err) {
       const msg = err?.response?.data?.message || 'Login failed';
@@ -59,7 +59,7 @@ export default function LoginForm(){
           <input type="checkbox" className="mr-2" />
           Remember me
         </label>
-        <a href="#" className="text-sm text-indigo-600">Forgot?</a>
+        <a href="/forgetPassword" className="text-sm text-indigo-600">Forgot?</a>
       </div>
        <div className='flex justify-center'>
       <button disabled={isSubmitting} type="submit" className='min-w-[150px] mx-auto font-bold bg-indigo-400 text-black py-2 rounded-3xl hover:bg-indigo-600 disabled:opacity-60'>

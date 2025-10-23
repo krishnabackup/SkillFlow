@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const Users = require("../models/usermodel")
 const asynchandler = require("../utils/asynchandler")
-
+const nodemailer = require("nodemailer");
 const jwtSecret = process.env.JWT_SECRET || 'changeme';
 const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '7d';
 
@@ -44,5 +44,6 @@ const getProfile = asynchandler(async (req,res) => {
     if(!user) return res.status(401).json({message : "User not Found"});
     res.json(user)
 });
+
 
 module.exports = { login , register , getProfile }

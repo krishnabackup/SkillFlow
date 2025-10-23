@@ -18,12 +18,15 @@ import VerifyEmailPage from  './pages/VerifyEmailPage';
 import HomePage from './features/users/pages/HomePage';
 import PathsPage from './features/users/pages/PathsPage';
 import SinglePathPage from './features/users/pages/SinglePathPage';
+import ForgetPasswordPage from './features/auth/pages/ForgetPasswordPage';
 export default function App(){
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path='/forgetPassword/:token' element={<ForgetPasswordPage/>}/>
+        <Route path='/forgetPassword' element={<ForgetPasswordPage/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/register/question' element={<Questionire/>}/>
         <Route path='/profile' element={<ProfilePage/>}/>

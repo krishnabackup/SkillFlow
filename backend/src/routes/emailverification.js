@@ -14,7 +14,6 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/send-verification-email', async (req, res) => {
-    const { email } = req.body;
     try {
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
        const verificationLink = `http://localhost:5173/verify-email?token=${token}`;

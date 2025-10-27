@@ -1,37 +1,11 @@
-require("dotenv").config();
-const Users = require("../../src/models/usermodel");
-const Courses = require("../models/coursemodel")
-const { InferenceClient } = require("@huggingface/inference");
-const RoadMap = require("../models/roadmapmodel");
-const { validateJsonFromAI } = require("../utils/aijsonparser");
-const HF_API_TOKEN = process.env.HF_ACCESS_TOKEN;
-const hf = new InferenceClient(HF_API_TOKEN);
-const asynchandler = require("../utils/asynchandler");
-
-const generateRoadmap = async (req, res) => {
-  try {
-    console.log("Using Hugging Face Token:", HF_API_TOKEN ? "Loaded ✅" : "Missing ❌");
-    const {goal}  = req.body;
-    console.log(goal)
-    const user = await Users.findById(req.user.id).lean();
-    if (!user) return res.status(401).json({ message: "User not found" });
-    
-    //fetch recommendation to Seed  AI 
-    
-    const recommendation = require("../services/recommendationInternalCall")
-    const rec = await recommendation.getRecommendationInternalCall(req.user.id);
-    // top N reccomendation
-
-    const top = (rec.fillGaps || []).slice(0,6).map(r => {
-      const c = r.course || r;
-      return { title : c.title , description : c.description || "",skills : c.skills || [] };
-    });
+require("dotenv").config()
 
 
-    const experience = user.profile?.current_role || "beginner";
-    const skills = user.profile?.skills || [];
+const {GoogleGenAI} = require("@google/genai")
 
-    const systemPrompt = `
+const ai = new GoogleGenAI(process.env.GEMINI_API_KEY)
+
+ const systemPrompt = `
 You are an expert career mentor who creates structured skill-learning roadmaps.
 Return only **valid JSON**. 
 Each roadmap must contain multiple "stages" showing what to learn first, next, and finally.
@@ -74,12 +48,49 @@ Format:
   ]
 }`;
 
-    const userPrompt = `
+ const userPrompt = `
 Generate a skill roadmap for a user who wants to become a ${goal}.
 Current experience: ${experience}.
 Existing skills: ${skills.length ? skills.join(", ") : "None"}.
 Seed courses: ${JSON.stringify(top)}.
 Output **only the JSON** (no markdown or text).`;
+
+const generateText = async () => {
+  const response = await ai.models.generateContent({
+    model : 'gemini-2.5-flash',
+    contents : userPrompt ,
+    config : {
+        systemInstruction : systemPrompt
+    }
+  });
+  console.log(response.text)
+}
+
+
+const generateRoadmapGoogle = async (req, res) => {
+  try {
+    console.log("Using Hugging Face Token:", HF_API_TOKEN ? "Loaded ✅" : "Missing ❌");
+    const {goal}  = req.body;
+    console.log(goal)
+    const user = await Users.findById(req.user.id).lean();
+    if (!user) return res.status(401).json({ message: "User not found" });
+    
+    //fetch recommendation to Seed  AI 
+    
+    const recommendation = require("../services/recommendationInternalCall")
+    const rec = await recommendation.getRecommendationInternalCall(req.user.id);
+    // top N reccomendation
+
+    const top = (rec.fillGaps || []).slice(0,6).map(r => {
+      const c = r.course || r;
+      return { title : c.title , description : c.description || "",skills : c.skills || [] };
+    });
+
+
+    const experience = user.profile?.current_role || "beginner";
+    const skills = user.profile?.skills || [];
+
+   
 
     const response = await hf.chatCompletion({
       model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
@@ -142,7 +153,8 @@ Output **only the JSON** (no markdown or text).`;
   }
 };
 
-const getRoadmap = asynchandler(async(req,res,next) => {
+
+const getRoadmapGoogle = asynchandler(async(req,res,next) => {
  const user = await Users.findById(req.user.id).lean();
  if(!user) return res.status(404).json({message : "User not found"});
 
@@ -153,7 +165,7 @@ res.status(200).json({
 })
 });
 
-const getRoadmapById = asynchandler(async(req,res,next) => {
+const getRoadmapByIdGoogle = asynchandler(async(req,res,next) => {
  const roadmap = await RoadMap.findById(req.params.id);
  if(!roadmap) return res.status(404).json({message : "Roadmap not found"}); 
  const title = roadmap.title
@@ -161,4 +173,4 @@ const getRoadmapById = asynchandler(async(req,res,next) => {
  res.status(200).json({title : title , recommended_courses : recommandedCourses});
 });
 
-module.exports = { generateRoadmap,getRoadmap ,getRoadmapById};
+module.exports = { generateRoadmapGoogle,getRoadmapByIdGoogle ,getRoadmapGoogle};

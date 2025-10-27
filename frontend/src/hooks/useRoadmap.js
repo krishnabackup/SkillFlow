@@ -11,7 +11,7 @@ export const useRoadmap = () => {
 export const useGenerateRoadmap = () => {
     const qc = useQueryClient();
     return useMutation({
-        mutationFn : () => generateRoadmap(),
+        mutationFn : (goal) => generateRoadmap(goal),
         onSuccess : () => qc.invalidateQueries['roadmap']
     })
 } 

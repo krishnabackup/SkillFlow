@@ -5,7 +5,27 @@ import logo from "../assets/logo.png";
 import { Link, useNavigate } from 'react-router-dom';
 import {isAuthenticated, logout } from '../utils/authhelper';
 
-export default function Navbar({links}) {
+const links = [
+  {
+    label : "HOME", link : "/home"
+  },
+  {
+    label : "COURSE" , link : "/courses"
+  },
+  {
+    label : "RECOMMENDATION" , link : "/recommendation"
+  },
+  {
+    label : "MY COURSE" , link : "/mycourses"
+  },
+  {
+    label : "ROADMAP" , link : "/roadmapgeneration"
+  },
+  {
+    label : "MY PATHS" , link : "/paths"
+  }
+]
+export default function Navbar() {
   const nav = useNavigate();
   const onLoggedout = () => {
     logout();

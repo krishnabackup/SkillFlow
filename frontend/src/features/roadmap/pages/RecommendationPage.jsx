@@ -24,6 +24,7 @@ export default function RecommendationsPage() {
         </>
     )
   }
+  console.log(activeTab)
   const recommendations = data?.[activeTab] || [];
   console.log(recommendations)
   const handleAddCourses =  async (courseId) => {
@@ -41,15 +42,10 @@ export default function RecommendationsPage() {
       }
     }
   }
-  console.log(data.totalResults)
+
   return (
     <>
       <Navbar
-        links={[
-          { label: "Home", link: "/home" },
-          { label: "My Courses", link: "/mycourses" },
-          { label: "Recommendation", link: "/recommendations" },
-        ]}
       />
 
       <main className="max-w-6xl mx-auto p-6 text-white">

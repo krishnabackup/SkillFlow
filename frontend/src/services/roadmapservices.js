@@ -1,7 +1,7 @@
 import api from "./api"
 
-export const generateRoadmap =  async() => {
-  const res = await api.post('/users/me/roadmap');
+export const generateRoadmap =  async(goal) => {
+  const res = await api.post('/users/me/roadmap',{goal : goal.goal});
   return res.data;
 }
 

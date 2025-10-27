@@ -9,7 +9,8 @@ export default function GoalsTextArea(){
     const generate = useGenerateRoadmap();
     const handleLearn = async (data) => {
     await updateProfile(data);
-    await generate.mutate();
+    const goal = {goal : data.goals};
+    await generate.mutate(goal);
     setIsgenerated(true);
     resetField('goals');
     }

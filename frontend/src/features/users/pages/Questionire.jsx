@@ -10,11 +10,6 @@ const levelMap = {
     'Intermediate' : 2,
     'Experienced' : 3
 }
-const links = [
-  {
-    label : "",links : ""
-  }
-]
 export default function Questionire() {
     const {register,handleSubmit,watch,resetField,formState:{errors,isSubmitting}} = useForm();
     const nav = useNavigate();
@@ -50,7 +45,6 @@ export default function Questionire() {
     }
     return(
         <>
-        <Navbar links={links}/>
         <div className="flex justify-between ml-5 p-10 mt-5 mr-10 text-yellow-400 ">
             <div>
               <Form action="" className="space-y-5" onSubmit={handleSubmit(onSubmit)}>

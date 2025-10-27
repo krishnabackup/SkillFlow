@@ -11,14 +11,14 @@ import AdminDashBoard from './pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 import ManageUsers from './features/admin/pages/ManageUsers';
 import MyCourses from './features/users/pages/MyCourses';
-import RecommendationsPage from './features/users/pages/RecommendationPage';
-import RoadmapPage from './features/users/pages/RoadmapPages';
+import RecommendationsPage from './features/roadmap/pages/RecommendationPage';
+import RoadmapPage from './features/roadmap/pages/RoadmapPages';
 import CourseProgress from './features/analytics/components/CourseProgress';
 import SingleCoursePage from './features/users/pages/singleCoursePage';
 import VerifyEmailPage from  './pages/VerifyEmailPage';
 import HomePage from './features/users/pages/HomePage';
-import PathsPage from './features/users/pages/PathsPage';
-import SinglePathPage from './features/users/pages/SinglePathPage';
+import PathsPage from './features/roadmap/pages/PathsPage';
+import SinglePathPage from './features/roadmap/pages/SinglePathPage';
 import ForgetPasswordPage from './features/auth/pages/ForgetPasswordPage';
 export default function App(){
   return (
@@ -40,7 +40,7 @@ export default function App(){
         <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
         <Route path='/roadmapgeneration' element={<ProtectedRoute requiredRole="learner"><RoadmapPage/></ProtectedRoute>}/>
         <Route path='/courseprogress' element={<ProtectedRoute requiredRole="learner"><CourseProgress/></ProtectedRoute>}/>
-        <Route path='/recommandation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
+        <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
         <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>
         <Route path="/admin/users" element={<PrivateRoute requiredRole="admin"><ManageUsers/></PrivateRoute>}/>

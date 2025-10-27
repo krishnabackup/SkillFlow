@@ -1,33 +1,38 @@
-// LearnerDashboard.jsx
-import React from 'react';
-import { useEnrollCourse, useUnEnroll, useEnrollments } from '../../../hooks/useEnrollments';
+
+import Navbar from '../../../components/NavBar'
+import { useParams } from 'react-router-dom'
+import { getPathById } from '../../../services/roadmapservices';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/NavBar';
-
-export default function MyCourses() {
-  const { data: enrollments, isLoading, isError, isFetching } = useEnrollments();
-  const unenrollMut = useUnEnroll();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading enrollments.</div>;
-
-  if (!enrollments || enrollments.length === 0) {
-    return (
-      <>
-      <Navbar links={links}></Navbar>
-      <div className="p-6 text-center text-white">You have no enrolled courses. <Link className="text-blue-500" to="/courses">Browse courses</Link></div>
-      </>
-    )
-  }
-
+export default function SinglePathPage() {
+    const [recommended_courses,set_recommended_courses] = useState([])
+    const [title,setTitle] = useState("");
+    const [isFetching,setIsFetching] = useState(true)
+    const { pathId } = useParams();
+    useEffect(() => {
+        try {
+          const fetchPath = async (pathId) => {
+            const res = await getPathById(pathId);
+            set_recommended_courses(res.data.recommended_courses)
+            setTitle(res.data.title);
+            setIsFetching(false)
+        }
+        if (pathId) {
+            fetchPath(pathId);  
+        }
+    }
+        catch (error) {
+            console.error('Error fetching path:', error);
+        }
+    }, [pathId]);
   return (
     <>
     <Navbar></Navbar>
     <div className="max-w-6xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-bold text-white">My Courses {isFetching && <span className="text-sm text-gray-400">refreshing…</span>}</h1>
+      <h1 className="text-2xl font-bold text-white">{title} {isFetching && <span className="text-sm text-gray-400">refreshing…</span>}</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {enrollments.map(e => {
-          const c = e.course;
+        {recommended_courses.map(c => {
+          const resources = c.resources;
           return (
             <div key={c._id} className="bg-white p-4 rounded shadow">
                <h2 className="text-lg font-semibold mb-1 text-black">{c.title}</h2>
@@ -44,12 +49,11 @@ export default function MyCourses() {
               <div className="mt-5 flex items-center justify-between">
                 <div>
                   <div className="text-xs text-gray-500">Progress</div>
-                  <div className="text-sm font-bold">{e.progress ?? 0}%</div>
+                  <div className="text-sm font-bold">{c.progress ?? 0}%</div>
                 </div>
                 <div className="flex gap-2">
                   <Link to={`/courses/${c._id}`} className="px-3 py-1 bg-indigo-600 text-white rounded">Continue</Link>
                   <button
-                    onClick={() => unenrollMut.mutate(c._id)}
                     aria-label={`Unenroll from ${c.title}`}
                     className="px-3 py-1 bg-red-500 text-white rounded"
                   >Unenroll</button>
@@ -61,5 +65,5 @@ export default function MyCourses() {
       </div>
     </div>
     </>
-  );
+  )
 }

@@ -4,7 +4,6 @@ import useCourses from "../../../hooks/useCousrse";
 import useDebounce from "../../../hooks/useDebounce";
 import CourseCard from "../../../components/CourseCard";
 import Pagination from "../../../components/Pagination";
-import Navbar from "../../../components/NavBar";
 import { useEnrollCourse } from "../../../hooks/useEnrollments";
 import { addUserEnrolledCourses } from "../../../services/user_course_services";
 export default function CourseListPage() {
@@ -53,8 +52,7 @@ export default function CourseListPage() {
     }
   }
   return (
-    <>    
-    <Navbar></Navbar>
+  <>    
     <main className="max-w-6xl mx-auto p-6">
       <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h1 className="text-2xl font-bold text-white">Courses</h1>

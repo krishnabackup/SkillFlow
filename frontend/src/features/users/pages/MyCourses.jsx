@@ -2,7 +2,6 @@
 import React from 'react';
 import { useEnrollCourse, useUnEnroll, useEnrollments } from '../../../hooks/useEnrollments';
 import { Link } from 'react-router-dom';
-import Navbar from '../../../components/NavBar';
 
 export default function MyCourses() {
   const { data: enrollments, isLoading, isError, isFetching } = useEnrollments();
@@ -14,15 +13,13 @@ export default function MyCourses() {
   if (!enrollments || enrollments.length === 0) {
     return (
       <>
-      <Navbar links={links}></Navbar>
       <div className="p-6 text-center text-white">You have no enrolled courses. <Link className="text-blue-500" to="/courses">Browse courses</Link></div>
       </>
     )
   }
 
   return (
-    <>
-    <Navbar></Navbar>
+  <>
     <div className="max-w-6xl mx-auto p-6 space-y-4">
       <h1 className="text-2xl font-bold text-white">My Courses {isFetching && <span className="text-sm text-gray-400">refreshing…</span>}</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

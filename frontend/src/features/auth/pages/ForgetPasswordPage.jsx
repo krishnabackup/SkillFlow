@@ -1,4 +1,4 @@
-import Navbar from "../../../components/NavBar";
+
 import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -21,12 +21,7 @@ const schema = yup.object().shape({
         then: yup.string().required('Confirm New Password required')
     }),
 })
-const links = [
-    {
-        label : "Login", link : '/'
-
-    },
-]
+ 
 export default function ForgetPasswordPage() {
     const nav = useNavigate();
     const location = useLocation();
@@ -88,7 +83,6 @@ export default function ForgetPasswordPage() {
 }
   return (
     <>
-    <Navbar links={links}></Navbar>
     <ToastContainer
         position="top-center"
         className="px-4 py-4 mt-4"

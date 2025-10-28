@@ -11,6 +11,7 @@ const adminRoutes = require("./routes/adminroute")
 const courseRoutes  = require("./routes/courseroute");
 const emailVerificationRoutes = require('./routes/emailverification');
 const passwordResetRoutes = require('./routes/passwordRestRoute');
+const analyticsRoutes = require("./routes/analyticsRoute")
 const app = express()
 
 
@@ -27,6 +28,10 @@ app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
 app.use('/api/auth/email-verification', emailVerificationRoutes);
 app.use('/api/auth', passwordResetRoutes);
+
+//analytics route
+app.use("/api/admin/analytics",analyticsRoutes)
+
 //health 
 
 app.use('/api/health' , (req,res) => res.json({staus : "ok"}))

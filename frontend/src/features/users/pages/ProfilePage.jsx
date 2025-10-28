@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { getProfile, updateProfile } from '../../../services/userservices';
-import Navbar from '../../../components/NavBar';
 import { ListGroup, Button } from 'react-bootstrap';
 
 const levelMap = {
@@ -84,7 +83,6 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Navbar />
       <div className="max-w-2xl mx-auto p-6">
         <h2 className="text-2xl font-semibold mb-4 text-white">My Profile</h2>
         {serverMsg && <div className="mb-4 text-sm text-indigo-700">{serverMsg}</div>}

@@ -7,7 +7,7 @@ import ProtectedRoute from './components/ProtectedRoutes';
 import Questionire from './features/users/pages/Questionire';
 import ProfilePage from './features/users/pages/ProfilePage';
 import CourseListPage from './features/users/pages/CourseListPage';
-import AdminDashBoard from './pages/AdminDashBoard';
+import AdminDashBoard from './features/admin/pages/AdminDashBoard';
 import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 import ManageUsers from './features/admin/pages/ManageUsers';
 import MyCourses from './features/users/pages/MyCourses';
@@ -21,16 +21,22 @@ import PathsPage from './features/roadmap/pages/PathsPage';
 import SinglePathPage from './features/roadmap/pages/SinglePathPage';
 import ForgetPasswordPage from './features/auth/pages/ForgetPasswordPage';
 import RoadmapsPages from './features/roadmap/pages/RoadmapsPages';
+import Mainlayout from './components/Mainlayout';
+import AdminAnalytics from './features/admin/pages/AnalyticsAdminPage';
 export default function App(){
   return (
     <BrowserRouter>
       <Routes>
+        {/* Auth Route */}
         <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path='/forgetPassword/:token' element={<ForgetPasswordPage/>}/>
         <Route path='/forgetPassword' element={<ForgetPasswordPage/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
+         <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
         <Route path='/register/question' element={<ProtectedRoute requiredRole="learner"><Questionire/></ProtectedRoute>}/>
+       {/* User Route */}
+        <Route element = {<Mainlayout/>}>
         <Route path='/profile' element={<ProtectedRoute requiredRole="learner"><ProfilePage/></ProtectedRoute>}/>
         <Route path='/home' element={<ProtectedRoute requiredRole="learner"><HomePage/></ProtectedRoute>}/>
         <Route path='/paths' element={<ProtectedRoute requiredRole="learner"><PathsPage/></ProtectedRoute>}/>
@@ -38,14 +44,16 @@ export default function App(){
         <Route path='/mycourses' element={<ProtectedRoute requiredRole="learner"><MyCourses/></ProtectedRoute>}/>
         <Route path='/courses' element={<ProtectedRoute requiredRole="learner"><CourseListPage/></ProtectedRoute>}/>
         <Route path='/courses/:courseId' element={<ProtectedRoute requiredRole="learner"><SingleCoursePage/></ProtectedRoute>}/>
-        <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
         <Route path='/roadmapgeneration' element={<ProtectedRoute requiredRole="learner"><RoadmapsPages/></ProtectedRoute>}/>
         <Route path='/roadmapgeneration/:roadmapId' element={<ProtectedRoute requiredRole="learner"><RoadmapPage/></ProtectedRoute>}/>
         <Route path='/courseprogress' element={<ProtectedRoute requiredRole="learner"><CourseProgress/></ProtectedRoute>}/>
         <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
+        </Route>
+        {/* Admin Route */}
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
         <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>
         <Route path="/admin/users" element={<PrivateRoute requiredRole="admin"><ManageUsers/></PrivateRoute>}/>
+        <Route path="/admin/analytics" element={<PrivateRoute requiredRole="admin"><AdminAnalytics/></PrivateRoute>}/>
       </Routes>
     </BrowserRouter>
   )

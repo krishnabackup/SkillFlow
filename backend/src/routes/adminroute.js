@@ -4,7 +4,7 @@ const {protect}  =require("../middlewares/authMiddleware")
 const {authorize} = require("../middlewares/authorization_middlewarw")
 const User = require("../models/usermodel")
 const asynchandler = require("../utils/asynchandler")
-
+const {getAnalytics} = require("../controllers/analyticsController")
 router.get("/users",protect,authorize('admin'), asynchandler(async (req,res) => {
       const { page = 1, limit = 10, q, sortBy = 'createdAt', order = 'desc' } = req.query;
       const skip = (Number(page) - 1 ) * Number(limit);

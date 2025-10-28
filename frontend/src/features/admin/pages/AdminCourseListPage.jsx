@@ -4,13 +4,8 @@ import { useCourses, useDeleteCourses } from '../../../hooks/useAdminCourses';
 import CreateEditCourseModal from "../componenets/CreateEditCourseModal";
 import CourseCard from '../../../components/CourseCard';
 import Pagination from '../../../components/Pagination';
-import Navbar from '../../../components/NavBar';
 
-const links = [
-    {
-        label : "Admin Dashboard" , link : "/admin"
-    }
-]
+ 
 export default function AdminCourses(){
   const [page,setPage] = useState(1);
   const [query,setQuery] = useState('');
@@ -45,7 +40,6 @@ export default function AdminCourses(){
   }
   return (
     <>
-    <Navbar links={links}/>
       <main className="max-w-6xl mx-auto p-6">
           <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <h1 className="text-2xl font-bold text-white">Manage Courses</h1>

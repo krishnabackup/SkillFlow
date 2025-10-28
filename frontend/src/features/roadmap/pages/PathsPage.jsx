@@ -1,4 +1,3 @@
-import Navbar from "../../../components/NavBar";
 import { Link } from "react-router-dom";
 import { useDeleteRoadmap, useRoadmap} from "../../../hooks/useRoadmap";
 export default function PathsPage(){
@@ -11,7 +10,6 @@ export default function PathsPage(){
   if (!roadmap || roadmap.length === 0) {
     return (
       <>
-      <Navbar></Navbar>
       <div className="p-6 text-center text-white">You have no Paths to show. <Link className="text-blue-500" to="/home"> Generate a road map.</Link></div>
       </>
     )
@@ -20,8 +18,7 @@ export default function PathsPage(){
     deleteRoadmap.mutateAsync(roadmapId)
   }
   return (
-    <>
-    <Navbar></Navbar>
+  <>
     <div className="max-w-6xl mx-auto p-6 space-y-4">
       <h1 className="text-2xl font-bold text-white">My Paths {isFetching && <span className="text-sm text-gray-400">refreshing…</span>}</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

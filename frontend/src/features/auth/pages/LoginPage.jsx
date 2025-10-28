@@ -1,17 +1,12 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-import NavBar from '../../../components/NavBar';
 
-const links = [
-  {
-    label : "Register", link : "/register"
-  }
-]
+ 
 
 export default function LoginPage(){
     return (
        <>
-      <NavBar links={links} />
+      
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
       <div className="w-full max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white

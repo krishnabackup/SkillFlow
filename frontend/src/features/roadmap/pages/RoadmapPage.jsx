@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import Navbar from '../../../components/NavBar';
 import { useRoadmap, useGenerateRoadmap } from '../../../hooks/useRoadmap';
 import RoadmapGraph from '../components/RoadMapGraph';
 import { useParams } from 'react-router-dom';
@@ -31,14 +30,12 @@ export default function RoadmapPage(){
   if (!roadmap || roadmap.length === 0) {
     return (
       <>
-      <Navbar></Navbar>
       <div className="p-6 text-center text-white">You have no Roadmap to show. <Link className="text-blue-500" to="/home">Generate a Roadmap</Link></div>
       </>
     )
   }
   return (
     <>
-    <Navbar/>
       <div className="p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl text-white">{roadmap.title}</h2>

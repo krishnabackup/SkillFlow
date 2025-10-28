@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRecommendation } from "../../../hooks/useRecommedation";
 import CourseCard from "../../../components/CourseCard";
-import Navbar from "../../../components/NavBar";
 import Pagination from "../../../components/Pagination";
 import { useEnrollCourse } from "../../../hooks/useEnrollments";
 export default function RecommendationsPage() {
@@ -15,16 +14,10 @@ export default function RecommendationsPage() {
   if(!data) {
     return (
         <>
-        <Navbar links={[
-          { label: "Home", link: "/home" },
-          { label: "My Courses", link: "/mycourses" },
-          { label: "Recommendation", link: "/recommendations" },
-        ]}></Navbar>
         <p className="text-white p-6">No recommendations..</p>;
         </>
     )
   }
-  console.log(activeTab)
   const recommendations = data?.[activeTab] || [];
   console.log(recommendations)
   const handleAddCourses =  async (courseId) => {
@@ -43,11 +36,8 @@ export default function RecommendationsPage() {
     }
   }
 
-  return (
+    return (
     <>
-      <Navbar
-      />
-
       <main className="max-w-6xl mx-auto p-6 text-white">
         <h1 className="text-3xl font-bold mb-6">Recommended Courses</h1>
 

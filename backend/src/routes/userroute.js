@@ -7,6 +7,7 @@ const { validateRequest } = require('../validator/request_validator');
 const Users = require("../models/usermodel");
 const { normalizeSkills } = require('../middlewares/normalizeSkills');
 const Course = require("../models/coursemodel");
+const Enrollments = require("../models/enrollmentmodel")
 const router = express.Router();
 const {getRecommendation} = require("../controllers/recommendation_controller");
 const {updateProgress} = require('../controllers/EnrollmentController')
@@ -50,6 +51,11 @@ router.post("/me/enrollments",protect,async(req,res)=>{
   const user = await Users.findByIdAndUpdate(req.user.id,{$push: { 'profile.enrollments' : enrollments } }, {new : true })
   .populate('profile.enrollments.course','title description difficulty skills estimatedHours')
   res.status(201).json(user.profile.enrollments);
+  await Enrollments.insertOne({
+    user : req.user.id,
+    course : courseId,
+     status : 'active'
+  })
 })
 
 

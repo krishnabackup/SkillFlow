@@ -14,7 +14,8 @@ const EnrollmentSchema  = new mongoose.Schema({
     progress : [ProgressSchema],
     startedAt : {type : Date , default : Date.now},
     completedAt : { type : Date , default : null},
-    status: { type: String, enum: ['active','completed','dropped'], default: 'active' }
+    status: { type: String, enum: ['active','completed','dropped'], default: 'active' },
+    lastActivity : Date
 },{timestamps : true});
 
 module.exports = mongoose.model('Enrollment', EnrollmentSchema)

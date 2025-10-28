@@ -37,11 +37,9 @@ export default function LoginForm(){
         }
         else{
           sessionStorage.setItem('token',token)
-          console.log(role)
-          if(role === "admin") navigate("/admin",{replace : true})
-          else navigate("/home",{replace : true})
         }
- 
+        if(role === "admin") navigate("/admin",{replace : true})
+        else navigate("/home",{replace : true})
       }
     } catch (err) {
       const msg = err?.response?.data?.message || 'Login failed';

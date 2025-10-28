@@ -1,17 +1,34 @@
 
+import { useEffect, useState } from 'react';
 import Navbar from '../../../components/NavBar';
 import { useRoadmap, useGenerateRoadmap } from '../../../hooks/useRoadmap';
 import RoadmapGraph from '../components/RoadMapGraph';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { getPathById } from '../../../services/roadmapservices';
 export default function RoadmapPage(){
-  const { data: roadmap, isLoading } = useRoadmap();
+  const {roadmapId} = useParams();
+  const [roadmap,setRoadMap] = useState([]);
+  const [isLoading,setIsLoading] = useState(true);
   const gen = useGenerateRoadmap();
-
+  useEffect(()=> {
+    try {
+      const fetchRoadmapById = async(roadmapID) => {
+       const res = await getPathById(roadmapID);
+       setRoadMap(res.data.roadmap)
+       setIsLoading(false)
+      }
+      if(roadmapId) fetchRoadmapById(roadmapId)
+    }
+    catch(error) {
+      console.log("Error fetching ",error)
+    }
+  },[roadmapId])
   const handleEnroll = async (courseId) => {
     // call enroll API (not implemented here)
     console.log('enroll', courseId);
   }
-  if (!roadmap?.roadmap || roadmap?.roadmap.length === 0) {
+  if (!roadmap || roadmap.length === 0) {
     return (
       <>
       <Navbar></Navbar>
@@ -24,13 +41,13 @@ export default function RoadmapPage(){
     <Navbar/>
       <div className="p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl text-white">{roadmap?.roadmap?.[0].title}</h2>
+          <h2 className="text-2xl text-white">{roadmap.title}</h2>
           <button className="px-3 py-2 bg-emerald-500 rounded" onClick={() => gen.mutate()}>
             Regenerate
           </button>
         </div>
 
-        {isLoading ? <div>Loading...</div> : <RoadmapGraph roadmap={roadmap?.roadmap?.[0]} onSave={handleEnroll} />}
+        {isLoading ? <div>Loading...</div> : <RoadmapGraph roadmap={roadmap} onSave={handleEnroll} />}
       </div>
     </>
   );

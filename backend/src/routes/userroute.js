@@ -12,6 +12,7 @@ const {getRecommendation} = require("../controllers/recommendation_controller");
 const {updateProgress} = require('../controllers/EnrollmentController')
 const {getRoadmap: getRoadmapOpenAI, generateRoadmap: generateRoadmapOpenAI} = require('../services/openaiservices_openai');
 const {generateRoadmap,getRoadmap, getRoadmapById} = require('../services/openaiservices');
+const { generateRoadmapGoogle, getRoadmapGoogle, getRoadmapByIdGoogle, deleteRoadmapByIdGoogle } = require('../services/geminiapi');
 router.get('/me', protect, getUsers);
 
 router.put(
@@ -76,9 +77,10 @@ router.patch('/me/enrollments/:courseId/progress', protect, async (req, res) => 
 router.get('/me/recommendation', protect, getRecommendation);
 
 //Roadmap Routes
-router.post('/me/roadmap',protect,generateRoadmap)
-router.get('/me/roadmap',protect,getRoadmap)
-router.get('/me/roadmap/:id',protect,getRoadmapById);
+router.post('/me/roadmap',protect,generateRoadmapGoogle)
+router.get('/me/roadmap',protect,getRoadmapGoogle)
+router.get('/me/roadmap/:id',protect,getRoadmapByIdGoogle);
+router.delete('/me/roadmap/:id',protect,deleteRoadmapByIdGoogle)
 
 //enrollment Route
 router.patch('/me/enrollments/:courseId/progress', protect, updateProgress);

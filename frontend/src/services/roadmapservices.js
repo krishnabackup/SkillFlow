@@ -11,6 +11,10 @@ export const getRoadmap = async() => {
 }
 
 
+export const deleteRoadmap = async(roadmapId) => {
+  const res = await api.delete(`/users/me/roadmap/${roadmapId}`)
+  return res.data
+}
 export const getPathById = async(pathId) => {
     const res = await api.get(`/users/me/roadmap/${pathId}`);
     return res;

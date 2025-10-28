@@ -1,5 +1,5 @@
 const validateJsonFromAI = (response) => {
-    const text = (response?.choices?.[0].message?.content)?.toString();
+    const text = (response.text)?.toString();
     if (!text) throw new Error("Empty AI Response");
 
     // Remove code block markup

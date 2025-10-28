@@ -12,7 +12,7 @@ import AdminCourseListPage from './features/admin/pages/AdminCourseListPage';
 import ManageUsers from './features/admin/pages/ManageUsers';
 import MyCourses from './features/users/pages/MyCourses';
 import RecommendationsPage from './features/roadmap/pages/RecommendationPage';
-import RoadmapPage from './features/roadmap/pages/RoadmapPages';
+import RoadmapPage from './features/roadmap/pages/RoadmapPage';
 import CourseProgress from './features/analytics/components/CourseProgress';
 import SingleCoursePage from './features/users/pages/singleCoursePage';
 import VerifyEmailPage from  './pages/VerifyEmailPage';
@@ -20,6 +20,7 @@ import HomePage from './features/users/pages/HomePage';
 import PathsPage from './features/roadmap/pages/PathsPage';
 import SinglePathPage from './features/roadmap/pages/SinglePathPage';
 import ForgetPasswordPage from './features/auth/pages/ForgetPasswordPage';
+import RoadmapsPages from './features/roadmap/pages/RoadmapsPages';
 export default function App(){
   return (
     <BrowserRouter>
@@ -38,7 +39,8 @@ export default function App(){
         <Route path='/courses' element={<ProtectedRoute requiredRole="learner"><CourseListPage/></ProtectedRoute>}/>
         <Route path='/courses/:courseId' element={<ProtectedRoute requiredRole="learner"><SingleCoursePage/></ProtectedRoute>}/>
         <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
-        <Route path='/roadmapgeneration' element={<ProtectedRoute requiredRole="learner"><RoadmapPage/></ProtectedRoute>}/>
+        <Route path='/roadmapgeneration' element={<ProtectedRoute requiredRole="learner"><RoadmapsPages/></ProtectedRoute>}/>
+        <Route path='/roadmapgeneration/:roadmapId' element={<ProtectedRoute requiredRole="learner"><RoadmapPage/></ProtectedRoute>}/>
         <Route path='/courseprogress' element={<ProtectedRoute requiredRole="learner"><CourseProgress/></ProtectedRoute>}/>
         <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />

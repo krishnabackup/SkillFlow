@@ -23,6 +23,9 @@ const links = [
   },
   {
     label : "MY PATHS" , link : "/paths"
+  },
+  {
+    label : "MY PROFILE" , link : "/profile"
   }
 ]
 export default function Navbar() {

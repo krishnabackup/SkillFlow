@@ -1,10 +1,31 @@
 require("dotenv").config()
-
-
+const Users = require("../models/usermodel")
 const {GoogleGenAI} = require("@google/genai")
-
+const asynchandler = require("../utils/asynchandler")
 const ai = new GoogleGenAI(process.env.GEMINI_API_KEY)
+const RoadMap = require("../models/roadmapmodel")
+const {validateJsonFromAI} = require("../utils/aijsonparser")
 
+const generateRoadmapGoogle = async (req, res) => {
+  try {
+    const {goal}  = req.body;
+    const user = await Users.findById(req.user.id).lean();
+    if (!user) return res.status(401).json({ message: "User not found" });
+    
+    //fetch recommendation to Seed  AI 
+    
+    const recommendation = require("../services/recommendationInternalCall")
+    const rec = await recommendation.getRecommendationInternalCall(req.user.id);
+    // top N reccomendation
+
+    const top = (rec.fillGaps || []).slice(0,6).map(r => {
+      const c = r.course || r;
+      return { title : c.title , description : c.description || "",skills : c.skills || [] };
+    });
+
+
+    const experience = user.profile?.current_role || "beginner";
+    const skills = user.profile?.skills || [];
  const systemPrompt = `
 You are an expert career mentor who creates structured skill-learning roadmaps.
 Return only **valid JSON**. 
@@ -13,6 +34,8 @@ It should also include totalduration of roadmap and it should not exceed 56 week
 and its type like whether it is youtube video,online course free or website with its clickable url to navigate to that site.
 Don't recoomend paid courses.Provide a link between all stages and return it in edges attribute as shown below.
 provide recommended_courses always even it is project building phase or final phase.
+While recommending youtube course as resources , it should be upto data , relvent and valid youtube video or playlist links. Should work properly when clicked. 
+If the user specify the duration of learning like 8weeks,6 month etc . Should adjust the duration as preffered by user  
 Output only valid JSON with double quoted keys and string values, no comments or trailing commas.
 Respond ONLY with valid JSON. Do not include explanations or code block markers
 Format:
@@ -48,59 +71,21 @@ Format:
   ]
 }`;
 
- const userPrompt = `
+
+    const userPrompt = `
 Generate a skill roadmap for a user who wants to become a ${goal}.
 Current experience: ${experience}.
 Existing skills: ${skills.length ? skills.join(", ") : "None"}.
 Seed courses: ${JSON.stringify(top)}.
 Output **only the JSON** (no markdown or text).`;
 
-const generateText = async () => {
-  const response = await ai.models.generateContent({
+    const response = await ai.models.generateContent({
     model : 'gemini-2.5-flash',
     contents : userPrompt ,
     config : {
         systemInstruction : systemPrompt
     }
   });
-  console.log(response.text)
-}
-
-
-const generateRoadmapGoogle = async (req, res) => {
-  try {
-    console.log("Using Hugging Face Token:", HF_API_TOKEN ? "Loaded ✅" : "Missing ❌");
-    const {goal}  = req.body;
-    console.log(goal)
-    const user = await Users.findById(req.user.id).lean();
-    if (!user) return res.status(401).json({ message: "User not found" });
-    
-    //fetch recommendation to Seed  AI 
-    
-    const recommendation = require("../services/recommendationInternalCall")
-    const rec = await recommendation.getRecommendationInternalCall(req.user.id);
-    // top N reccomendation
-
-    const top = (rec.fillGaps || []).slice(0,6).map(r => {
-      const c = r.course || r;
-      return { title : c.title , description : c.description || "",skills : c.skills || [] };
-    });
-
-
-    const experience = user.profile?.current_role || "beginner";
-    const skills = user.profile?.skills || [];
-
-   
-
-    const response = await hf.chatCompletion({
-      model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt },
-      ],
-      max_tokens: 4048,
-    });
-
     const roadmap =  validateJsonFromAI(response);
 
 
@@ -122,22 +107,7 @@ const generateRoadmapGoogle = async (req, res) => {
         }))
       })),
     }));
-    console.log("Normalized Stages:", normalizedStages.recommended_courses);
-    const roadmapCourses = roadmap.stages.flatMap(stage => 
-      (stage.recommended_courses || []).map(rc => (
-        {
-        title: rc.title,
-        description : rc.description,
-        difficulty  : rc.difficulty,
-        skills_learned : rc.skills_learned,
-        resources : (rc.resources || []).map(res => ({
-        title : res && res.title ? res.title : "",
-        url:res && res.url ?  res.url : "",
-        type: res && res.url ? res.type : "link",
-        }))
-        }
-      ))
-    );
+   
     const newRoadmap = new RoadMap({
       title : roadmap?.title,
       owner : user._id,
@@ -170,7 +140,13 @@ const getRoadmapByIdGoogle = asynchandler(async(req,res,next) => {
  if(!roadmap) return res.status(404).json({message : "Roadmap not found"}); 
  const title = roadmap.title
  recommandedCourses = roadmap.stages.flatMap(s => s.recommended_courses || []);
- res.status(200).json({title : title , recommended_courses : recommandedCourses});
+ res.status(200).json({title : title , recommended_courses : recommandedCourses ,roadmap : roadmap});
 });
 
-module.exports = { generateRoadmapGoogle,getRoadmapByIdGoogle ,getRoadmapGoogle};
+const deleteRoadmapByIdGoogle = asynchandler(async(req,res) => {
+  const roadmap = await RoadMap.findByIdAndDelete(req.params.id)
+  if(!roadmap) return res.status(404).json({message : "Delete Unsucessful"}); 
+  return res.status(200).json({message : "Deleted Successfully"})
+})
+
+module.exports = { generateRoadmapGoogle,getRoadmapByIdGoogle ,getRoadmapGoogle ,deleteRoadmapByIdGoogle};

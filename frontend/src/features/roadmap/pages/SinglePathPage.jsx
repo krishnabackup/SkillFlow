@@ -34,7 +34,7 @@ export default function SinglePathPage() {
         {recommended_courses.map(c => {
           const resources = c.resources;
           return (
-            <div key={c._id} className="bg-white p-4 rounded shadow">
+            <div key={c._id} className="bg-white p-4 rounded shadow flex flex-col justify-between">
                <h2 className="text-lg font-semibold mb-1 text-black">{c.title}</h2>
       <p className="text-sm text-gray-600 mb-2 line-clamp-3">{c.description || "No description"}</p>
         <div className="flex gap-2 items-center">
@@ -53,10 +53,6 @@ export default function SinglePathPage() {
                 </div>
                 <div className="flex gap-2">
                   <Link to={`/courses/${c._id}`} className="px-3 py-1 bg-indigo-600 text-white rounded">Continue</Link>
-                  <button
-                    aria-label={`Unenroll from ${c.title}`}
-                    className="px-3 py-1 bg-red-500 text-white rounded"
-                  >Unenroll</button>
                 </div>
               </div>
             </div>

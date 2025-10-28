@@ -7,10 +7,11 @@ export default function GoalsTextArea(){
     const {handleSubmit,register,resetField,formState:{errors}} = useForm();
     const [isGenerated,setIsgenerated] = useState(false);
     const generate = useGenerateRoadmap();
+
     const handleLearn = async (data) => {
-    await updateProfile(data);
     const goal = {goal : data.goals};
-    await generate.mutate(goal);
+    generate.mutate(goal);
+    if(generate.isSuccess)  await updateProfile(data);
     setIsgenerated(true);
     resetField('goals');
     }

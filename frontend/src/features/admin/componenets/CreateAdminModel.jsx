@@ -1,11 +1,19 @@
 import { useForm } from "react-hook-form"
 import { useCreateUserByAdmin } from "../../../hooks/useUsers";
-export default function CreateModel({user,onClose}){
+import { toast } from 'react-toastify';
+
+export default function CreateModel({onClose}){
     const {register,handleSubmit} = useForm();
     const createUsermutation = useCreateUserByAdmin();
     const onSubmit = async (data) => {
-      await createUsermutation.mutateAsync(data, {role : "admin"});
-      onClose();
+      try {
+        await createUsermutation.mutateAsync(data);
+        toast.success('Admin user created successfully');
+        onClose();
+      } catch (err) {
+        console.error('Create admin failed', err);
+        toast.error(err?.response?.data?.message || 'Failed to create admin user');
+      }
     }
     const onError = (eror) => {
         console.log("Message" , eror)
@@ -58,8 +66,9 @@ export default function CreateModel({user,onClose}){
   <button
     type="submit"
     className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+    disabled={createUsermutation.isLoading}
   >
-    Create Admin
+    {createUsermutation.isLoading ? 'Creating...' : 'Create Admin'}
   </button>
 </form>
             <button

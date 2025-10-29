@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useCreateCourses, useUpdateCourses } from '../../../hooks/useAdminCourses';
-
+import { toast } from 'react-toastify';
 export default function CreateEditCourseModal({course, onClose}){
   const { register, handleSubmit, reset ,setValue } = useForm();
   const createMut = useCreateCourses();
@@ -15,12 +15,29 @@ export default function CreateEditCourseModal({course, onClose}){
     // convert comma skills string to array if needed
     data.skills = typeof data.skills === 'string' ? data.skills.split(',').map(s=>s.trim()).filter(Boolean) : data.skills;
     if (course && course._id) {
-      await updateMut.mutateAsync({ id: course._id, payload: data });
-    } else {
-      alert("created");
-      await createMut.mutateAsync(data);
+      try {
+        await updateMut.mutateAsync({ id: course._id, payload: data });
+        toast.success("Updated Course Successfully")
+        onClose();
+      }
+      catch(error) {
+        console.error(error);
+        toast.err(error?.response?.data?.message || 'Failed to update Course')
+      }
+      } 
+      else {
+      try{
+       await createMut.mutateAsync(data);
+       toast.success("Created Course Successfully")
+       onClose()
+
+      }
+      catch(err) {
+         console.error('Create admin failed', err);
+                toast.error(err?.response?.data?.message || 'Failed to create Course ');
+      }
+      
     }
-    onClose();
   };
   
 const onError = (err) => {

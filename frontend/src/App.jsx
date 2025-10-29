@@ -23,6 +23,7 @@ import ForgetPasswordPage from './features/auth/pages/ForgetPasswordPage';
 import RoadmapsPages from './features/roadmap/pages/RoadmapsPages';
 import Mainlayout from './components/Mainlayout';
 import AdminAnalytics from './features/admin/pages/AnalyticsAdminPage';
+import AdminMainLayout from './features/admin/pages/AdminMainLayout';
 export default function App(){
   return (
     <BrowserRouter>
@@ -50,10 +51,12 @@ export default function App(){
         <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
         </Route>
         {/* Admin Route */}
+        <Route element = {<AdminMainLayout/>}>
         <Route path="/admin" element={<PrivateRoute requiredRole="admin"><AdminDashBoard/></PrivateRoute>} />
         <Route path="/admin/courses" element={<PrivateRoute requiredRole="admin"><AdminCourseListPage/></PrivateRoute>}/>
         <Route path="/admin/users" element={<PrivateRoute requiredRole="admin"><ManageUsers/></PrivateRoute>}/>
         <Route path="/admin/analytics" element={<PrivateRoute requiredRole="admin"><AdminAnalytics/></PrivateRoute>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   )

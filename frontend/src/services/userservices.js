@@ -17,4 +17,7 @@ export const createUserByAdmin = async (payload) => {
     return res.data
 } 
 
-
+export const deleteUserByAdmin = async (user_id) => {
+  const res = await api.delete(`/admin/users/${user_id}`);
+  return res.data;
+} 

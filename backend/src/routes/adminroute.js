@@ -44,5 +44,12 @@ router.put("/users/:id/role",protect,authorize('admin'), async (req,res) => {
   res.json(user)
 });
 
+router.delete("/users/:id",protect,authorize("admin"), async(req,res) => {
+  
+  const user = await User.findByIdAndDelete(req.params.id)
+  if(!user) return res.status(404).json({message : "Delete is uncseccessful"})
+  res.status(201).json({message : "Sucessfully Deleted "})
+})
+
 module.exports = router
 

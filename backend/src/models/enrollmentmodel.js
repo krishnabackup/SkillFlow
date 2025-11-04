@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
  const ProgressSchema = new mongoose.Schema({
-    lessonId : {type : String},
     status: { type: String, enum: ['not_started','in_progress','completed'], default: 'not_started' },
+    progressPercent: { type: Number, min: 0, max: 100, default: 0 },
     completedAt : {type : Date , default : null},
     meta : {type : mongoose.Schema.Types.Mixed}
  },{_id : false});

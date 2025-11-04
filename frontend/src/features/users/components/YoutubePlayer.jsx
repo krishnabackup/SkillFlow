@@ -1,15 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import YouTube from "react-youtube";
+import { getCourseById } from "../../../services/courseservices";
 
-export default function YoutubePlayer({ url, playRef, onMessage }) {
+export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
+  console.log(url);
+  const videoId = url.split("v=")[1];
   const [playing, setPlaying] = useState(false);
   const [mute, setMute] = useState(false);
   const [volume, setVolume] = useState(80);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-
   const onReady = (event) => {
     playRef.current = event.target;
     setDuration(event.target.getDuration());
@@ -41,13 +43,19 @@ export default function YoutubePlayer({ url, playRef, onMessage }) {
   };
 
   useEffect(() => {
+
+    const fetchCourseById = async(courseId) => {
+      const course = await getCourseById(courseId);
+      console.log(course)
+    }
+    fetchCourseById(courseId);
     const interval = setInterval(() => {
       if (playRef.current && playing) {
         setCurrentTime(playRef.current.getCurrentTime());
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [playing]);
+  }, [playRef, playing]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -69,7 +77,7 @@ export default function YoutubePlayer({ url, playRef, onMessage }) {
           </div>
         )}
         <YouTube
-          videoId="Sv6dMFF_yts"
+          videoId={videoId}
           onReady={onReady}
           opts={{
             height: "480",

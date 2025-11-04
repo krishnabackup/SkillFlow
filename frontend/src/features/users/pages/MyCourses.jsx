@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 export default function MyCourses() {
   const { data: enrollments, isLoading, isError, isFetching } = useEnrollments();
   const unenrollMut = useUnEnroll();
-
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading enrollments.</div>;
 
@@ -17,7 +16,6 @@ export default function MyCourses() {
       </>
     )
   }
-
   return (
   <>
     <div className="max-w-6xl mx-auto p-6 space-y-4">

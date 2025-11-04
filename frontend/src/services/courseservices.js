@@ -29,3 +29,9 @@ export const updateCourses = async(id,payload) => {
    const res = await api.put(`/courses/${id}`,payload);
    return res.data;
 }
+
+export const getCourseById = async(id) => {
+   const res = await api.get(`/courses/${id}`);
+   return res.data;
+}
+

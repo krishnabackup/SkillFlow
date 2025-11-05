@@ -24,7 +24,7 @@ export default function MyCourses() {
         {enrollments.map(e => {
           const c = e.course;
           return (
-            <div key={c._id} className="bg-white p-4 rounded shadow">
+            <div key={c._id} className="flex justify-between flex-col bg-white p-4 rounded shadow">
                <h2 className="text-lg font-semibold mb-1 text-black">{c.title}</h2>
       <p className="text-sm text-gray-600 mb-2 line-clamp-3">{c.description || "No description"}</p>
         <div className="flex gap-2 items-center">

@@ -5,7 +5,7 @@ export default function CourseCard({course,onEdit,onDelete,onAdd}){
    const role = getUserRole();
     return(
     <>
-     <article className="bg-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">
+     <article className="flex flex-col justify-between bg-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">
       <h3 className="text-lg font-semibold mb-1 text-white">{course.title}</h3>
       <p className="text-sm text-gray-300 mb-2 line-clamp-3">{course.description || "No description"}</p>
         <div className="flex gap-2 items-center">
@@ -16,6 +16,9 @@ export default function CourseCard({course,onEdit,onDelete,onAdd}){
             {course.skills?.slice(0,course?.skills.length).map((s, i) => (
             <p key={i} className="text-xs bg-white/5 px-2 py-0.5 rounded">{s}</p>
           ))}
+        </div>
+        <div className="mt-3 flex gap-2">
+          <p>Type : {course.resources[0].type}</p>
         </div>
         {
           role === "admin" ? (<div className="text-base flex justify-between mt-10">

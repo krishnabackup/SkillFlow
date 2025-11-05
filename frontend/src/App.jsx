@@ -24,6 +24,7 @@ import RoadmapsPages from './features/roadmap/pages/RoadmapsPages';
 import Mainlayout from './components/Mainlayout';
 import AdminAnalytics from './features/admin/pages/AnalyticsAdminPage';
 import AdminMainLayout from './features/admin/pages/AdminMainLayout';
+import QuizePage from './features/cerificate/pages/QuizePage';
 export default function App(){
   return (
     <BrowserRouter>
@@ -49,6 +50,7 @@ export default function App(){
         <Route path='/roadmapgeneration/:roadmapId' element={<ProtectedRoute requiredRole="learner"><RoadmapPage/></ProtectedRoute>}/>
         <Route path='/courseprogress' element={<ProtectedRoute requiredRole="learner"><CourseProgress/></ProtectedRoute>}/>
         <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
+        <Route path='/courses/:courseId/quiz' element={<ProtectedRoute requiredRole="learner"><QuizePage/></ProtectedRoute>}/>
         </Route>
         {/* Admin Route */}
         <Route element = {<AdminMainLayout/>}>

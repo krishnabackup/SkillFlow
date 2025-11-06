@@ -7,7 +7,6 @@ const connectDB = require("../config/db");
     async() => {
         try{
         await connectDB(process.env.MONGO_URI);
-        await Courses.deleteMany({});
         await Courses.insertMany(sample);
         console.log("Seed Completed");
         }

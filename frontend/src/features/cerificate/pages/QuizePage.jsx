@@ -1,21 +1,109 @@
-
+import { useEffect, useRef, useState } from "react";
+import { generateQuiz, submitQuiz} from "../../../services/QuizServices";
+import { useParams } from "react-router-dom";
+import { getCourseById } from "../../../services/courseservices";
+import { ToastContainer,toast,Bounce } from "react-toastify";
+import Spinner from "../../../components/Spinner";
 export default function QuizPage() {
+  const {courseId} = useParams();
+  const [quiz,setQuiz] = useState([{
+    question : "",
+    options : [],
+    correct_answer : ""
+  }]);
+  const [isLoading,setIsLoading] = useState(true);
+  const [currentQestion,setCurrentQuestion] = useState({
+    index : 0,
+    selectedValue : ""
+  });
+  const [answers,setAnswers] = useState([]);
+  console.log("Hello");
+  useEffect(()=> {
+    const getQuizFromBackend = async(id) => {
+      try {
+        const res = await generateQuiz(id);
+        setQuiz(res.quiz);
+        setIsLoading(false);
+      }
+      catch(error) {
+        console.error("Error fetching quiz : ",error);
+      }
+    }
+    getQuizFromBackend(courseId);
+  },[courseId]);
+  const nextButton = () => {
+    setCurrentQuestion(prev => ({...prev , index : prev.index + 1}));
+  }
+  const prevButton = () => {
+    setCurrentQuestion(prev => ({...prev , index : prev.index - 1}));
+  }
+  const submitButton = async () => {
+    let score = 0;
+  answers.forEach((answer, i) => {
+    if (answer === quiz[i].correct_answer) {
+      score++;
+    }
+  });
+   console.log(score);
+   try {
+   const res = await submitQuiz(courseId,score);
+   if (res.type === "application/pdf") {
+  
+   const blob = new Blob([res],{type : "application/pdf"});
+   const url = window.URL.createObjectURL(blob);
+   const a = document.createElement('a');
+   a.href = url;
+   a.download =  `Certificate_${Date.now()}.pdf`;
+   a.click();
+   window.URL.revokeObjectURL(url);
+   toast.success("You have passed the test. PDF will be downloaded.")
+} else {
+  const reader = new FileReader();
+  reader.onload = () => {
+    const data = JSON.parse(reader.result);
+    if (data.failed) toast.error(data.message);
+  };
+  reader.readAsText(res);
+}
+   }
+   catch(error) {
+   toast.error("Error submitting. Try Again")
+   console.error("Error submitting Quiz : ",error);
+   }
+   
+  }
+  const handleChange = (event) => {
+     const val = event.target.value;
+  setAnswers(prev => {
+    const newAnswers = [...prev];
+    newAnswers[currentQestion.index] = val;  // Save answer for current question
+    return newAnswers;
+  }); 
+ }
+ if(isLoading) return <Spinner/>
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 p-6">
+    <>   
+     <ToastContainer
+        position="top-center"
+        className="px-4 py-4 mt-4"
+        autoClose={5000}
+        closeOnClick={false}
+        theme = "dark"
+        pauseOnHover
+        transition = {Bounce}
+    /> <div className="min-h-screen flex items-center justify-center bg-gray-900 p-6">
       <div className="w-full max-w-lg bg-gray-800 rounded-2xl shadow-2xl p-8 text-gray-100 mb-20">
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2 text-yellow-400">
-            Question:
+            Question {currentQestion.index + 1}:
           </h2>
           <p className="text-gray-200 text-lg leading-relaxed">
-            Which of the following is a JavaScript framework for building user
-            interfaces?
+           {quiz[currentQestion.index].question}
           </p>
         </div>
 
-        {/* Options Section */}
         <div className="space-y-4">
-          {["Angular", "React", "Laravel", "Django"].map((option, idx) => (
+          {quiz[currentQestion.index].options.map((option, idx) => (
             <label
               key={idx}
               className="flex items-center bg-gray-700 hover:bg-gray-600 rounded-lg p-3 cursor-pointer transition"
@@ -25,6 +113,8 @@ export default function QuizPage() {
                 value={option}
                 name = "opton"
                 id={`option${idx}`}
+                checked = {answers[currentQestion.index] === option}
+                onChange={handleChange}
                 className="w-5 h-5 accent-yellow-400"
               />
               <span className="ml-3 text-lg">{option}</span>
@@ -32,13 +122,19 @@ export default function QuizPage() {
           ))}
         </div>
 
-        {/* Submit Button */}
-        <div className="mt-8 text-center">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-6 rounded-full transition">
-            Submit Answer
-          </button>
+        <div className="mt-8 text-center flex justify-between">
+          { currentQestion.index > 0 ? <button onClick = {prevButton} className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-6 rounded-full transition">
+            Previous
+          </button> : <div></div>}
+          { currentQestion.index < 9 ? <button onClick = {nextButton} className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-6 rounded-full transition">
+            Next
+          </button> : <div></div>}
+           { currentQestion.index === 9 && <button onClick = {submitButton} className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-6 rounded-full transition">
+            Submit
+          </button>}
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -34,4 +34,29 @@ const validateJsonFromAI = (response) => {
     }
 };
 
-module.exports = { validateJsonFromAI };
+function cleanQuizData(rawResponse) {
+  try {
+    // Remove code block markers and trim
+    const jsonString = rawResponse
+      .replace(/```(json)?/g, "")
+      .replace(/[\u201C\u201D]/g, '"') // Fix curly quotes
+      .trim();
+
+    let data = JSON.parse(jsonString);
+
+    // Ensure array format
+    if (!Array.isArray(data)) data = [data];
+
+    // Normalize structure
+    return data.map((item) => ({
+      question: item.question?.trim() || "",
+      options: (item.options || []).map((opt) => opt.trim()),
+      correct_answer: item.correct_answer?.trim() || "",
+    }));
+  } catch (err) {
+    console.error("Error cleaning quiz data:", err);
+    return [];
+  }
+}
+
+module.exports = { validateJsonFromAI , cleanQuizData };

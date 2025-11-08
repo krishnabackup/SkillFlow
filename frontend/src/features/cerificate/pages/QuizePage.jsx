@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getCourseById } from "../../../services/courseservices";
 import { ToastContainer,toast,Bounce } from "react-toastify";
 import Spinner from "../../../components/Spinner";
+import CongratualtionPage from "./CongratualtionPage";
 export default function QuizPage() {
   const {courseId} = useParams();
   const [quiz,setQuiz] = useState([{
@@ -17,7 +18,10 @@ export default function QuizPage() {
     selectedValue : ""
   });
   const [answers,setAnswers] = useState([]);
-  console.log("Hello");
+  const [congrates,setCongrates] = useState({
+    success : false , 
+    response : {}
+  });
   useEffect(()=> {
     const getQuizFromBackend = async(id) => {
       try {
@@ -44,27 +48,13 @@ export default function QuizPage() {
       score++;
     }
   });
-   console.log(score);
    try {
    const res = await submitQuiz(courseId,score);
-   if (res.type === "application/pdf") {
-  
-   const blob = new Blob([res],{type : "application/pdf"});
-   const url = window.URL.createObjectURL(blob);
-   const a = document.createElement('a');
-   a.href = url;
-   a.download =  `Certificate_${Date.now()}.pdf`;
-   a.click();
-   window.URL.revokeObjectURL(url);
-   toast.success("You have passed the test. PDF will be downloaded.")
-} else {
-  const reader = new FileReader();
-  reader.onload = () => {
-    const data = JSON.parse(reader.result);
-    if (data.failed) toast.error(data.message);
-  };
-  reader.readAsText(res);
-}
+  console.log(res);
+  if(res.passed === true) {
+    setCongrates({success : true , response : res})
+    console.log(congrates)
+  }
    }
    catch(error) {
    toast.error("Error submitting. Try Again")
@@ -81,17 +71,11 @@ export default function QuizPage() {
   }); 
  }
  if(isLoading) return <Spinner/>
-  return (
+return(
     <>   
-     <ToastContainer
-        position="top-center"
-        className="px-4 py-4 mt-4"
-        autoClose={5000}
-        closeOnClick={false}
-        theme = "dark"
-        pauseOnHover
-        transition = {Bounce}
-    /> <div className="min-h-screen flex items-center justify-center bg-gray-900 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 p-6">
+      {
+        congrates.success ? <CongratualtionPage response={congrates.response} /> :
       <div className="w-full max-w-lg bg-gray-800 rounded-2xl shadow-2xl p-8 text-gray-100 mb-20">
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2 text-yellow-400">
@@ -134,6 +118,7 @@ export default function QuizPage() {
           </button>}
         </div>
       </div>
+}
     </div>
     </>
   );

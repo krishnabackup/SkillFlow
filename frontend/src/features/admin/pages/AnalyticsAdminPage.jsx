@@ -30,11 +30,12 @@ export default function AdminAnalytics() {
   return (
     <div className="p-6 space-y-8">
       {/* Summary Cards */}
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-6 gap-4">
         <Card title="Total Users" value={summary.totalUsers} />
         <Card title="Active Users (30d)" value={summary.activeUsers} />
         <Card title="Total Enrollments" value={summary.totalEnrollments} />
         <Card title="Courses" value={summary.coursesCount} />
+        <Card title="Certificates Isssued" value={summary.totalCertificates} />
         <Card title="Avg Completion" value={`${summary.avgCompletion}%`} />
       </div>
 

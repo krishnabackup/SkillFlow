@@ -1,15 +1,15 @@
 require("dotenv").config();
 const {GoogleGenAI} = require("@google/genai");
-const asynchandler = require("../utils/asynchandler");
 const  PDFDocument = require("pdfkit");
 const fs = require("fs");
-const path = require("path");
-const { error } = require("console");
-const { validateJsonFromAI, cleanQuizData } = require("../utils/aijsonparser");
+const path = require("path");;
+const {cleanQuizData } = require("../utils/aijsonparser");
 const Courses = require("../models/coursemodel");
 const Users = require("../models/usermodel");
 const ai = new GoogleGenAI(process.env.GEMINI_API_KEY)
-const CertifcateModel = require("../models/CertificateModel")
+const CertifcateModel = require("../models/CertificateModel");
+const { compareSync } = require("bcryptjs");
+const generateCertificateBuffer = require("../utils/generatePdfBuffer");
 const generateQuiz = async (req,res) => {
     try {
         const course =await  Courses.findById(req.params.id);
@@ -51,43 +51,28 @@ const submitQuiz = async(req,res) => {
     const user = await  Users.findById(userId);
     if(!user) return res.status(404).json({message : "User not Found"});
     const userName  = user.name;
-    console.log(userName);
    const percentage = (score / 10) * 100 ;
-   await CertifcateModel.create({
-    userId,courseId });
    if(percentage >= 60) {
-    const doc = new PDFDocument();
-  res.setHeader("Content-Type", "application/pdf");
-  res.setHeader("Content-Disposition", `attachment;`);
-doc.pipe(res);
-doc.image(path.join(__dirname, "../../assets/logo.png"), 50, 30, { width: 80 });
+     const pdfBuffer = await generateCertificateBuffer(userName,courseTitle,percentage);
+     const certficates = await CertifcateModel.create({
+      userId,
+      userName,
+      courseId,
+      courseTitle,
+      certificate : pdfBuffer
+     });
+     await certficates.save();
 
-doc.moveDown(3);
-doc.fontSize(24).text("Certificate of Achievement", { align: "center" });
-doc.moveDown();
-doc.fontSize(16).text("This Certifies that", { align: "center" });
-doc.moveDown();
-doc.font("Helvetica-Bold").fontSize(24).fillColor("#00FFFF").text(`${userName.toUpperCase()}`, { align: "center"});
-doc.fillColor("black");
-doc.font("Helvetica");
-doc.moveDown();
-doc.fontSize(16);
-doc.text('has successfully completed the course ', { continued: true });
-doc.font('Helvetica-Bold').text(`"${courseTitle}"`, { continued: true });
-doc.font('Helvetica').text('.', {continued : true});
-doc.text('with a Score of  ', { continued: true });
-doc.font('Helvetica-Bold').text(`${percentage.toFixed(2)}%`, { continued: true });
-doc.font('Helvetica').text('.', {continued : true});
-
-doc.image(path.join(__dirname, "../../assets/sign.png"), 400, 450, { width: 100 });
-doc.fontSize(12).text("Authorized by:", 400, 400);
-doc.fontSize(14).text("Krishna Darsh", 400, 425, { align: "left" });
-doc.end();
-return;
+     return res.status(200).json({
+      passed : true,
+      userName : userName,
+      courseTitle : courseTitle,
+      percentage : percentage
+     });
    }
 else {
   return res.status(201).json({
-    failed: true,
+    passed: false,
     message: "You did not meet the passing Criteria (60%)",
   });
 }
@@ -97,7 +82,38 @@ else {
     res.status(500).json({error : "Error Sumbmiting the Quiz"})
  }
 }
-module.exports = {generateQuiz , submitQuiz};
+
+const downloadPdf = async(req,res) => {
+  try {
+    const cert = await CertifcateModel.findById(req.params.id);
+    if (!cert) return res.status(404).json({ message: "Certificate not found" });
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `inline; filename="certificate_${cert._id}.pdf"`,
+    });
+
+    res.send(cert.certificate);
+    }
+  catch(error) {
+    console.error(error);
+    res.status(500).json({message : "Error Submitting the Quiz"})
+  }
+}
+
+const getAllCertificates = async(req,res) => {
+  try {
+  const userId = req.user.id;
+  const certficates  = await CertifcateModel.find({userId})
+  if(!certficates) return res.json({message : "No Certificates Founded" , found : false})
+  res.json(certficates)
+  }
+  catch(error) {
+    console.error("Error occured : ",error);
+  }
+   
+}
+module.exports = {generateQuiz , submitQuiz , downloadPdf ,getAllCertificates};
 
 
 

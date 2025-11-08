@@ -5,7 +5,7 @@ const coursController = require("../controllers/coursecontroller")
 const {protect} = require("../middlewares/authMiddleware");
 const {authorize} = require("../middlewares/authorization_middlewarw");
 const { validateRequest } = require('../validator/request_validator');
-const { generateQuiz, submitQuiz } = require("../controllers/quizController");
+const { generateQuiz, submitQuiz, downloadPdf } = require("../controllers/quizController");
 
 
 
@@ -20,5 +20,7 @@ router.delete("/:id",protect,authorize("admin"),coursController.deleteCourse);
 router.get("/:id/quiz",generateQuiz);
 
 router.post("/:id/quiz/submit",protect,submitQuiz);
+
+router.get("/quiz/downloadPdf/:id",downloadPdf);
 
 module.exports = router;

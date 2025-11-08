@@ -9,6 +9,7 @@ const links = [
   { label: "MY COURSE", link: "/mycourses" },
   { label: "ROADMAP", link: "/roadmapgeneration" },
   { label: "MY PATHS", link: "/paths" },
+  {label : "CERTIFICATE" , link : "/certificates"},
   { label: "MY PROFILE", link: "/profile" },
 ];
 

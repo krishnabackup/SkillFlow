@@ -8,10 +8,12 @@ export default function SingleCoursePage(){
     const playRef = useRef(null);
     const {courseId} = useParams();
     const [resourcesyoutube,setResourcesYoutube] = useState("");
+    const [course,setCourse] = useState({});
     useEffect(() => {
     const fetchCourseById = async () => {
       try {
         const course = await getCourseById(courseId);
+        setCourse(course)
         const type = course.resources[0].type;
         if(type === "youtube") setResourcesYoutube(course?.resources[0].url)
       } catch (error) {
@@ -25,7 +27,7 @@ export default function SingleCoursePage(){
   }, [courseId])
     return(
         <>
-        <CourseProgress/>
+        <CourseProgress course={course}/>
         <YoutubePlayer url={resourcesyoutube} courseId = {courseId} playRef={playRef}/>
         </>
     )

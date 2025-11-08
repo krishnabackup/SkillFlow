@@ -2,10 +2,12 @@ const asynchandler = require("../utils/asynchandler")
 const Enrollments = require("../models/enrollmentmodel")
 const Course = require("../models/coursemodel")
 const Users = require("../models/usermodel")
+const CertificateModel = require("../models/CertificateModel")
 
 const getAnalytics = asynchandler(async(req,res,next) => {
    const totalCourses = await Course.countDocuments()
    const totalUsers = await Users.countDocuments()
+   const totalCertificates = await CertificateModel.countDocuments()
    const totalEnrollments = await Enrollments.countDocuments();
    const activeUsers = await Enrollments.distinct('user', { lastActivity: { $gte: new Date(Date.now() - 30*24*3600*1000) } }).then(a=>a.length);
    const courseTotals = await Enrollments.aggregate([
@@ -24,7 +26,7 @@ const getAnalytics = asynchandler(async(req,res,next) => {
   const avgCompletion = courseTotals[0]?.avgPercent || 0;
   const coursesCount = await Course.countDocuments();
 
-  res.json({ totalUsers, activeUsers, totalEnrollments, avgCompletion: Math.round(avgCompletion*100)/100, coursesCount });
+  res.json({ totalUsers, activeUsers, totalEnrollments,totalCertificates, avgCompletion: Math.round(avgCompletion*100)/100, coursesCount });
 }) 
 
 const topCourses = async (req, res) => {

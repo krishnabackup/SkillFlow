@@ -14,6 +14,7 @@ const {updateProgress} = require('../controllers/EnrollmentController')
 const {getRoadmap: getRoadmapOpenAI, generateRoadmap: generateRoadmapOpenAI} = require('../services/openaiservices_openai');
 const {generateRoadmap,getRoadmap, getRoadmapById} = require('../services/openaiservices');
 const { generateRoadmapGoogle, getRoadmapGoogle, getRoadmapByIdGoogle, deleteRoadmapByIdGoogle } = require('../services/geminiapi');
+const { getAllCertificates } = require('../controllers/quizController');
 router.get('/me', protect, getUsers);
 
 router.put(
@@ -90,5 +91,9 @@ router.delete('/me/roadmap/:id',protect,deleteRoadmapByIdGoogle)
 
 //enrollment Route
 router.patch('/me/enrollments/:courseId/progress', protect, updateProgress);
+
+//certificates 
+
+router.get('/me/certficates',protect,getAllCertificates);
 
 module.exports = router;

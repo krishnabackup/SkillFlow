@@ -25,6 +25,7 @@ import Mainlayout from './components/Mainlayout';
 import AdminAnalytics from './features/admin/pages/AnalyticsAdminPage';
 import AdminMainLayout from './features/admin/pages/AdminMainLayout';
 import QuizePage from './features/cerificate/pages/QuizePage';
+import CertificatesPage from './features/cerificate/pages/CertificatesPage';
 export default function App(){
   return (
     <BrowserRouter>
@@ -51,6 +52,7 @@ export default function App(){
         <Route path='/courseprogress' element={<ProtectedRoute requiredRole="learner"><CourseProgress/></ProtectedRoute>}/>
         <Route path='/recommendation' element={<ProtectedRoute requiredRole="learner"><RecommendationsPage/></ProtectedRoute>}/>
         <Route path='/courses/:courseId/quiz' element={<ProtectedRoute requiredRole="learner"><QuizePage/></ProtectedRoute>}/>
+        <Route path='/certificates' element={<ProtectedRoute requiredRole="learner"><CertificatesPage/></ProtectedRoute>}/>
         </Route>
         {/* Admin Route */}
         <Route element = {<AdminMainLayout/>}>

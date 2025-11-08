@@ -4,7 +4,6 @@ import YouTube from "react-youtube";
 import { getCourseById } from "../../../services/courseservices";
 
 export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
-  console.log(url);
   const videoId = url.split("v=")[1];
   const [playing, setPlaying] = useState(false);
   const [mute, setMute] = useState(false);
@@ -41,15 +40,10 @@ export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
     else playRef.current?.playVideo();
     setPlaying((prev) => !prev);
   };
-
+   if(currentTime === duration) console.log("Completed");
   useEffect(() => {
-
-    const fetchCourseById = async(courseId) => {
-      const course = await getCourseById(courseId);
-      console.log(course)
-    }
-    fetchCourseById(courseId);
-    const interval = setInterval(() => {
+  
+   const interval = setInterval(() => {
       if (playRef.current && playing) {
         setCurrentTime(playRef.current.getCurrentTime());
       }
@@ -65,7 +59,7 @@ export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
 
   return (
     <div className="w-full flex flex-col items-center my-6">
-      {/* Player Box */}
+      
       <div className="relative w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl">
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-900/90">
@@ -88,9 +82,9 @@ export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
         />
       </div>
 
-      {/* Controls Below */}
+  
       <div className="w-full max-w-4xl bg-gray-900 text-white p-4 rounded-b-xl mt-1 space-y-4">
-        {/* Progress Bar */}
+       
         <div className="flex items-center gap-3 text-sm">
           <span className="w-12 text-right text-gray-300">
             {formatTime(currentTime)}
@@ -107,7 +101,7 @@ export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
           <span className="w-12 text-gray-300">{formatTime(duration)}</span>
         </div>
 
-        {/* Buttons Row */}
+      
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <button

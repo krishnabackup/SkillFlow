@@ -16,6 +16,7 @@ export const fetchcourseAdmin = async({page=1,query ="",limit=""}) => {
 }
 
 export const createCourse = async(payload) => {
+   console.log(payload);
    const res = await api.post("/courses",payload);
    return res.data;
 }

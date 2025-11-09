@@ -4,6 +4,7 @@ const asynchandler = require("../utils/asynchandler");
 
 const createCourse =  asynchandler(async (req,res) => {
    const payload = req.body;
+   console.log(payload)
    if(req.user) payload.createBy = req.user.id;
    const course = await Courses.create(payload);
    res.status(201).json(course);

@@ -64,22 +64,11 @@ router.post("/me/enrollments",protect,async(req,res)=>{
 router.delete('/me/enrollments/:courseId', protect, async (req, res) => {
   const { courseId } = req.params;
   const user = await Users.findByIdAndUpdate(req.user.id, { $pull: { 'profile.enrollments': { course: courseId } } }, { new: true });
+  const enrol = await Enrollments.findOneAndDelete({user : req.user.id ,course : courseId})
+  console.log(enrol)
   res.json({ message: 'Unenrolled', enrollments: user.profile.enrollments });
 });
 
-// PATCH update progress
-router.patch('/me/enrollments/:courseId/progress', protect, async (req, res) => {
-  const { courseId } = req.params;
-  const { progress, lastVisitedModule } = req.body;
-  const user = await Users.findOneAndUpdate(
-    { _id: req.user.id, 'profile.enrollments.course': courseId },
-    { $set: { 'profile.enrollments.$.progress': progress, 'profile.enrollments.$.lastVisitedModule': lastVisitedModule } },
-    { new: true }
-  ).populate('profile.enrollments.course', 'title');
-  if (!user) return res.status(404).json({ message: 'Enrollment not found' });
-  const updated = user.profile.enrollments.find(e => String(e.course._id) === String(courseId));
-  res.json(updated);
-});
 
 router.get('/me/recommendation', protect, getRecommendation);
 

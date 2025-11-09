@@ -14,6 +14,7 @@ const EnrollmentSchema  = new mongoose.Schema({
     progress : [ProgressSchema],
     startedAt : {type : Date , default : Date.now},
     completedAt : { type : Date , default : null},
+    quizCompleted : {type : Boolean , default : false},
     status: { type: String, enum: ['active','completed','dropped'], default: 'active' },
     lastActivity : Date
 },{timestamps : true});

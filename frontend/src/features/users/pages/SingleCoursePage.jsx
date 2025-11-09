@@ -20,7 +20,10 @@ export default function SingleCoursePage(){
         const course = await getCourseById(courseId);
         setCourse(course)
         const res  = await getProgress(courseId);
-        setProgress(res.progress[res.progress.length -1].progressPercent);
+        const progressPercent = res.progress.length == 0 ?  0 : res.progress[res.progress.length -1].progressPercent 
+        console.log(res.progress)
+        console.log(progressPercent)
+        setProgress(progressPercent);
         const type = course.resources[0].type;
         if(type === "youtube") setResourcesYoutube(course?.resources[0].url)
       } catch (error) {

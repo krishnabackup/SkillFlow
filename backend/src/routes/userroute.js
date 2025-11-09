@@ -10,11 +10,11 @@ const Course = require("../models/coursemodel");
 const Enrollments = require("../models/enrollmentmodel")
 const router = express.Router();
 const {getRecommendation} = require("../controllers/recommendation_controller");
-const {updateProgress} = require('../controllers/EnrollmentController')
 const {getRoadmap: getRoadmapOpenAI, generateRoadmap: generateRoadmapOpenAI} = require('../services/openaiservices_openai');
 const {generateRoadmap,getRoadmap, getRoadmapById} = require('../services/openaiservices');
 const { generateRoadmapGoogle, getRoadmapGoogle, getRoadmapByIdGoogle, deleteRoadmapByIdGoogle } = require('../services/geminiapi');
 const { getAllCertificates } = require('../controllers/quizController');
+const { getProgress , updateProgress } = require('../controllers/progressControler');
 router.get('/me', protect, getUsers);
 
 router.put(
@@ -90,7 +90,9 @@ router.get('/me/roadmap/:id',protect,getRoadmapByIdGoogle);
 router.delete('/me/roadmap/:id',protect,deleteRoadmapByIdGoogle)
 
 //enrollment Route
-router.patch('/me/enrollments/:courseId/progress', protect, updateProgress);
+router.get('/me/enrollments/progress/:courseId', protect, getProgress);
+
+router.patch("/me/enrollments/progress",protect,updateProgress)
 
 //certificates 
 

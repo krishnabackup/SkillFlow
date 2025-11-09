@@ -37,7 +37,7 @@ export default function CertificatesPage() {
  if(certificates.found === false ) return         <div className="p-6 text-center text-white  text-xl">You have no certificated to show. Complete the quiz to earn certificate . Go to <Link className="text-blue-500" to="/mycourses">myCourse</Link></div>
  return (
     <>
-    <div className="min-h-screen  p-6 ">
+    <div className="min-h-screen  p-6 flex flex-col gap-4 ">
         {
             preview ? <CertificatePreview courseId={certId} setPreview={setPreview}/> : 
             certificates.map((c,index) => (
@@ -50,7 +50,7 @@ export default function CertificatesPage() {
             <button className="bg-blue-400 rounded-full px-6 py-2 hover:bg-blue-800" onClick={() => handlePreview(c._id)}>
                 Preview
             </button>
-            <button className="bg-red-500 rounded-full shadow-2xl px-6 py-2 hover:bg-red-800" onClick={() => handleDownload(c._id,c.userName,c.courseTitle)}>{downloading ? "Downloading..." : "Download"}</button>
+            <button disabled={downloading} className="bg-red-500 rounded-full shadow-2xl px-6 py-2 hover:bg-red-800" onClick={() => handleDownload(c._id,c.userName,c.courseTitle)}>{"Download"}</button>
           </div>
        </div>
             ))

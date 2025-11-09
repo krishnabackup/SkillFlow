@@ -11,24 +11,21 @@ export default function CongratualtionPage({response}) {
     const percentage = response.percentage;
     const [downloading,setDownloading] = useState(false);
     const handleDownload = async () => {
-    try { 
+    try{
      setDownloading(true);
-     const response = await downloadPdf(userName,courseTitle,percentage)
-     console.log(response);
-     const blob = new Blob([response], { type: "application/pdf" });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `${userName}_certificate.pdf`);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
+    const response = await downloadPdf(id)
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `${userName}_${courseTitle}.pdf`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
     } catch (error) {
       console.error("Error downloading certificate:", error);
     } finally {
       setDownloading(false);
-      nav("/home")
+      nav('/home')
     }
      }
   return (

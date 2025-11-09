@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, percent } from "framer-motion";
 import YouTube from "react-youtube";
-import { getCourseById } from "../../../services/courseservices";
+import { getCourseById, updateCourses } from "../../../services/courseservices";
+import { updateProgress } from "../../../services/ProgressServices";
 
-export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
+export default function YoutubePlayer({url,playRef, setProgress , setQuiz , courseId}) {
   const videoId = url.split("v=")[1];
   const [playing, setPlaying] = useState(false);
   const [mute, setMute] = useState(false);
@@ -40,16 +41,29 @@ export default function YoutubePlayer({url,playRef, onMessage , courseId }) {
     else playRef.current?.playVideo();
     setPlaying((prev) => !prev);
   };
-   if(currentTime === duration) console.log("Completed");
   useEffect(() => {
   
-   const interval = setInterval(() => {
+   const interval = setInterval(async() => {
       if (playRef.current && playing) {
-        setCurrentTime(playRef.current.getCurrentTime());
+        const currentTime = await playRef.current.getCurrentTime();
+        const totalDuration = await playRef.current.getDuration();
+        setCurrentTime(currentTime);
+        if(totalDuration > 0 ) {
+          const percentage = Math.min((currentTime/totalDuration) * 100,100);
+          const lastTime = Date.now();
+          const percentInt = Math.round(percentage)
+          const res = await updateProgress(courseId,percentInt,lastTime);
+          console.log(res)
+          setProgress(percentage.toFixed(1));
+
+          if(percentage >= 99.9) {
+            setQuiz(true);
+          }
+        }
       }
-    }, 1000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [playRef, playing]);
+  }, [playRef, playing, setProgress, setQuiz]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);

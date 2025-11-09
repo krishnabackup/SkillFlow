@@ -27,8 +27,8 @@ async function generateCertificateBuffer(userName, courseTitle, percentage) {
       doc.text(`with a score of ${percentage.toFixed(2)}%.`, { align: "center" });
 
       doc.image(path.join(__dirname, "../../assets/sign.png"), 400, 400, { width: 100 });
-      doc.fontSize(12).text("Authorized by:", 400, 410);
-      doc.fontSize(14).text("Krishna Darsh", 400, 420, { align: "left" });
+      doc.fontSize(12).text("Authorized by:", 400, 510);
+      doc.fontSize(14).text("Krishna Darsh", 400, 520, { align: "left" });
 
       doc.end();
     } catch (err) {

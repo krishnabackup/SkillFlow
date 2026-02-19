@@ -13,6 +13,7 @@ export default function SingleCoursePage(){
     const [resourcesyoutube,setResourcesYoutube] = useState("");
     const [course,setCourse] = useState({});
     const [progress,setProgress] = useState(0);
+    const [lastTime,setLastTime] = useState(0);
     const [quiz,setQuiz] = useState(false);
     useEffect(() => {
     const fetchCourseById = async () => {
@@ -21,8 +22,7 @@ export default function SingleCoursePage(){
         setCourse(course)
         const res  = await getProgress(courseId);
         const progressPercent = res.progress.length == 0 ?  0 : res.progress[res.progress.length -1].progressPercent 
-        console.log(res.progress)
-        console.log(progressPercent)
+        setLastTime(res.progress.length == 0 ? 0 : res.progress[res.progress.length - 1].meta.lastTime)
         setProgress(progressPercent);
         const type = course.resources[0].type;
         if(type === "youtube") setResourcesYoutube(course?.resources[0].url)
@@ -35,11 +35,12 @@ export default function SingleCoursePage(){
       fetchCourseById();
     }
   }, [courseId])
+  console.log(lastTime)
     return(
         <>
         <CourseProgress course={course} progress={progress}/>
         {
-          quiz ?  <CourseCompletionBox courseId={courseId}/>:  <YoutubePlayer url={resourcesyoutube} courseId = {courseId} playRef={playRef} setProgress={setProgress} setQuiz={setQuiz}/>
+          quiz ?  <CourseCompletionBox courseId={courseId}/>:  <YoutubePlayer url={resourcesyoutube} courseId = {courseId} playRef={playRef} setProgress={setProgress} setQuiz={setQuiz} lastTime={lastTime}/>
         }
         </>
     )

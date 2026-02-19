@@ -14,7 +14,7 @@ import MyCourses from './features/users/pages/MyCourses';
 import RecommendationsPage from './features/roadmap/pages/RecommendationPage';
 import RoadmapPage from './features/roadmap/pages/RoadmapPage';
 import CourseProgress from './features/analytics/components/CourseProgress';
-import SingleCoursePage from './features/users/pages/singleCoursePage';
+import SingleCoursePage from './features/users/pages/SingleCoursePage';
 import VerifyEmailPage from  './pages/VerifyEmailPage';
 import HomePage from './features/users/pages/HomePage';
 import PathsPage from './features/roadmap/pages/PathsPage';

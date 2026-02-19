@@ -8,11 +8,11 @@ import CongratualtionPage from "./CongratualtionPage";
 export default function QuizPage() {
   const {courseId} = useParams();
   const [quiz,setQuiz] = useState([{
-    question : "",
-    options : [],
+    question : "Which among is a Javascript library",
+    options : ["A) Angular","B) Next.js", "C) React" , "D) MongoDB "],
     correct_answer : ""
   }]);
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState(false);
   const [currentQestion,setCurrentQuestion] = useState({
     index : 0,
     selectedValue : ""

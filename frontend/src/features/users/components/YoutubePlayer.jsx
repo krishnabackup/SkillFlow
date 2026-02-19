@@ -4,7 +4,7 @@ import YouTube from "react-youtube";
 import { getCourseById, updateCourses } from "../../../services/courseservices";
 import { updateProgress } from "../../../services/ProgressServices";
 
-export default function YoutubePlayer({url,playRef, setProgress , setQuiz , courseId}) {
+export default function YoutubePlayer({url,playRef, setProgress , setQuiz , courseId  , lastTime}) {
   const videoId = url.split("v=")[1];
   const [playing, setPlaying] = useState(false);
   const [mute, setMute] = useState(false);
@@ -15,6 +15,10 @@ export default function YoutubePlayer({url,playRef, setProgress , setQuiz , cour
   const onReady = (event) => {
     playRef.current = event.target;
     setDuration(event.target.getDuration());
+    if(lastTime > 0) {
+      playRef.current?.seekTo(lastTime,true);
+      setCurrentTime(lastTime)
+    }
     setIsLoading(false);
   };
 
@@ -50,7 +54,7 @@ export default function YoutubePlayer({url,playRef, setProgress , setQuiz , cour
         setCurrentTime(currentTime);
         if(totalDuration > 0 ) {
           const percentage = Math.min((currentTime/totalDuration) * 100,100);
-          const lastTime = Date.now();
+          const lastTime = currentTime
           const percentInt = Math.round(percentage)
           const res = await updateProgress(courseId,percentInt,lastTime);
           console.log(res)

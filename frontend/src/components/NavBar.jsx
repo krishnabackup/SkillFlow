@@ -1,7 +1,6 @@
-import logo from "../assets/logo.png";
 import { Link, useNavigate ,useLocation } from "react-router-dom";
 import { isAuthenticated, logout } from "../utils/authhelper";
-
+import logo from "../assets/logo.png"
 const links = [
   { label: "HOME", link: "/home" },
   { label: "COURSE", link: "/courses" },

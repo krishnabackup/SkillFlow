@@ -16,7 +16,8 @@ const generateQuiz = async (req,res) => {
         if(!course) return res.status(404).json({message : "Course not Found"});
         const topic = course.title;
         const numQuestion = 10;
-        const systemPrompt = `You are a quiz master , your job is to generate a multiple choice question of users's selected course.Options should be an array of 4 different option labeled as (A-D) .Return the results as proper JSON format as mentioned : 
+        const systemPrompt = `You are a quiz master , your job is to generate a multiple choice question of users's selected course.
+        Options should be an array of 4 different option labeled as (A-D) .Return the results as proper JSON format as mentioned : 
   {
    "question" : string,
    "options" : [String],

@@ -9,7 +9,6 @@ const api = axios.create({
   withCredentials: false,
 });
 
-//attach token automatically if present 
 
 api.interceptors.request.use(config => {
   const token = getToken();

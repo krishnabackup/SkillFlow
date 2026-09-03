@@ -37,9 +37,9 @@ export default function App(){
         <Route path='/forgetPassword' element={<ForgetPasswordPage/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
          <Route path='/verify-email/' element={<VerifyEmailPage/>}/>
-        <Route path='/register/question' element={<ProtectedRoute requiredRole="learner"><Questionire/></ProtectedRoute>}/>
        {/* User Route */}
         <Route element = {<Mainlayout/>}>
+        <Route path='/register/question' element={<ProtectedRoute requiredRole="learner"><Questionire/></ProtectedRoute>}/>
         <Route path='/profile' element={<ProtectedRoute requiredRole="learner"><ProfilePage/></ProtectedRoute>}/>
         <Route path='/home' element={<ProtectedRoute requiredRole="learner"><HomePage/></ProtectedRoute>}/>
         <Route path='/paths' element={<ProtectedRoute requiredRole="learner"><PathsPage/></ProtectedRoute>}/>

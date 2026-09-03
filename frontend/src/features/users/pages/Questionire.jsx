@@ -3,7 +3,7 @@ import { Form, Button, ListGroup } from "react-bootstrap"
 import { useState } from "react";
 import {updateProfile } from "../../../services/userservices";
 import { useNavigate } from "react-router-dom";
-
+import Navbar from "../../../components/NavBar";
 const levelMap = {
     'Beginner' : 1,
     'Intermediate' : 2,
@@ -44,8 +44,8 @@ export default function Questionire() {
     }
     return(
         <>
-        <div className="flex justify-between ml-5 p-10 mt-5 mr-10 text-yellow-400 ">
-            <div>
+        <div className="flex flex-col p-3 h-screen justify-center items-start text-yellow-400 md:flex md:flex-row md:gap-4">
+            <div className = "border-2 border-yellow-400 p-10 rounded-lg w-full max-w-md bg-gray-800">
               <Form action="" className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
                <Form.Group controlId="current_role">
                 <Form.Label className="mr-5">Current Role : </Form.Label>

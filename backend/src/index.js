@@ -46,5 +46,8 @@ connectDB(process.env.MONGO_URI).then(() => {
     app.listen(PORT, () => {
         console.log(`Server running on ${PORT}`)
     })
-})
+}).catch((err) => {
+    console.log(err)
+}
+)
 

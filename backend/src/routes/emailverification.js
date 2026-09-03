@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const express = require('express');
 const app = express();
+const Users = require('../models/usermodel');
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -15,6 +16,14 @@ const transporter = nodemailer.createTransport({
 
 app.post('/send-verification-email', async (req, res) => {
     try {
+        const { email } = req.body;
+        if (!email) {
+            return res.status(400).json({ message: 'Email is required' });
+        }
+        const existingUser = await Users.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Email already exists' });
+        }
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
        const verificationLink = `http://localhost:5173/verify-email?token=${token}`;
 

@@ -125,7 +125,7 @@ export default function ProfilePage() {
             <input {...register('skills')} className="w-full px-3 py-2 border rounded" placeholder="HTML, CSS, JavaScript" disabled={isEditting} />
             <p className="text-xs text-gray-500 mt-1">Example: HTML, CSS, React</p>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-col gap-2 sm:flex sm:flex-row sm:gap-8">
             <div className="inline-flex items-center">
               <label className="relative flex items-center cursor-pointer" htmlFor="beginner">
                 <input

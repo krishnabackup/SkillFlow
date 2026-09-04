@@ -110,11 +110,10 @@ export default function Questionire() {
                     </div>
                 </Form.Group>
                 <Button className="bg-violet-400 text-base p-3 rounded-full font-bold hover:bg-violet-700 font-mono" disabled={!isAddSkillEnabled} onClick={handleSkills}>Add Skill </Button>
-          <ListGroup className="flex gap-2">
+          <ListGroup className="flex gap-2 flex-wrap">
             {skillArray.length > 0 && skillArray.map((skill, index) => (
               <ListGroup.Item
                 key={index}
-                className=""
               >
                 <div className="relative border border-black bg-gray-400 text-black rounded-lg p-1">
                   <span className="pr-2">

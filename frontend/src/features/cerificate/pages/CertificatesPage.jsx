@@ -37,14 +37,16 @@ export default function CertificatesPage() {
  if(certificates.found === false ) return         <div className="p-6 text-center text-white  text-xl">You have no certificated to show. Complete the quiz to earn certificate . Go to <Link className="text-blue-500" to="/mycourses">myCourse</Link></div>
  return (
     <>
-    <div className="min-h-screen  p-6 flex flex-col gap-4 ">
+    <div className="max-w-6xl mx-auto p-6 space-y-4 ">
+      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
         {
             preview ? <CertificatePreview courseId={certId} setPreview={setPreview}/> : 
             certificates.map((c,index) => (
-            <div key={c._id} className=" flex max-w-full  max-h-lg rounded-2xl   shadow-2xl p-6 bg-gray-400 justify-between items-center ">
-          <div className="flex gap-4">
+              <div key={c._id} className="bg-gray-400 p-4 rounded shadow flex flex-col justify-between gap-4">
+              
+          <div className="flex gap-4 items-center">
             <p>{index+1}</p>
-            <h2>{c.courseTitle}</h2>
+             <h2 className="text-lg font-semibold text-black">{c.courseTitle}</h2>
           </div>
           <div className="flex gap-4">
             <button className="bg-blue-400 rounded-full px-6 py-2 hover:bg-blue-800" onClick={() => handlePreview(c._id)}>
@@ -55,6 +57,7 @@ export default function CertificatesPage() {
        </div>
             ))
             }
+            </div>
     </div>
     </>
   )

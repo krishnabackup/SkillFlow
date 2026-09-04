@@ -57,32 +57,33 @@ export default function CourseListPage() {
       <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h1 className="text-2xl font-bold text-white">Courses</h1>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap md:flex gap-3">
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search courses..."
-            className="px-3 py-2 rounded bg-white/5 text-white placeholder-gray-400"
+            className="w-full sm:w-auto px-3 py-2 rounded bg-white/5 text-white placeholder-gray-400 border border-emerald-100"
             aria-label="Search courses"
           />
+          <div className="flex gap-2">
 
           <select value={difficulty} 
           onChange={(e)=> setDifficulty(e.target.value)} 
-            className="px-3 py-2 rounded bg-white/5 text-white">
+            className="px-3 py-2 rounded bg-white/5 text-white border-emerald-100 border">
             <option  className="text-black bg-gray-400"
             value="">All difficulty</option>
             <option value="beginner" className="text-black bg-gray-400">Beginner</option>
             <option value="intermediate" className="text-black bg-gray-400">Intermediate</option>
             <option value="advanced" className="text-black bg-gray-400">Advanced</option>
           </select>
-
           <input
             value={skill}
             onChange={(e) => setSkill(e.target.value)}
-            placeholder="Filter by skill (comma separated)"
-            className="px-3 py-2 rounded bg-white/5 text-white"
+            placeholder="Filter by skill"
+            className="px-3 py-2 rounded bg-white/5 text-white w-full md:w-48 sm:w-auto border border-emerald-100"
           />
+          </div>
         </div>
       </header>
 

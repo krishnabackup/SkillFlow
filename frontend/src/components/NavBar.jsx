@@ -2,7 +2,7 @@ import { Link, useNavigate ,useLocation } from "react-router-dom";
 import { isAuthenticated, logout } from "../utils/authhelper";
 import logo from "../assets/logo.png"
 import {Menu,X} from 'lucide-react'
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const links = [
   { label: "HOME", link: "/home" },
   { label: "COURSE", link: "/courses" },
@@ -19,10 +19,29 @@ export default function Navbar() {
   const location = useLocation();
   const nav = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const modelRef = useRef(null);
   const onLoggedout = () => {
     logout();
     nav("/");
   };
+  useEffect(()=>{
+    const handleOutsideClickEvent = (e) => {
+      console.log(modelRef.current);
+      if(
+      modelRef.current &&
+      !modelRef.current.contains(e.target)
+      )
+      {
+        setIsOpen(false)
+      }
+    }
+     if(isOpen){
+       document.addEventListener("mousedown",handleOutsideClickEvent)
+     }
+     return () => {
+      document.removeEventListener('mousedown',handleOutsideClickEvent)
+     }
+  },[isOpen])
 
   return (
     <>
@@ -54,8 +73,7 @@ export default function Navbar() {
           )
           }
         )
-          }
-        
+          }     
         {isAuthenticated() && (
           <button
             onClick={onLoggedout}
@@ -67,20 +85,27 @@ export default function Navbar() {
         </div>
 
         <button className = "xl:hidden text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold"
-         onClick={() => setIsOpen(!isOpen)}
+         onClick={() => setIsOpen(prev => !prev)}
          >
-          <Menu size={24} />
+          {isOpen ? <X/>:<Menu size={24} />}
+          
          </button>
          </div>
-          {isOpen && <MobileMenu />}
+          {isOpen && <MobileMenu modelRef = {modelRef} />}
     </nav>    
       </>
     );
 }
 
-const MobileMenu = () => {
+const MobileMenu = ({modelRef}) => {
+  const location = useLocation();
+  const nav = useNavigate();
+   const onLoggedout = () => {
+    logout();
+    nav("/");
+  };
   return (
-      <div className="absolute top-full right-0  p-2 bg-black/70 z-50 backdrop-blur-sm ">
+      <div className="absolute top-full right-0  p-2 bg-black/70 z-50 backdrop-blur-sm " ref={modelRef}>
           <div className="flex flex-col">
           {links.map((value, index) => {
             const isActive = location.pathname == value.link;
@@ -88,10 +113,10 @@ const MobileMenu = () => {
             <Link
               key={index}
               to={value.link}
-              className= {`text-white hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold ${
+              className= {` px-3 py-1 rounded transition font-extrabold ${
                   isActive
-                    ? "text-indigo-700 underline underline-offset-4"
-                    : "text-white hover:text-indigo-300"
+                    ? "text-blue-400 underline underline-offset-4"
+                    : "text-white"
                 }`}
             >
               {value.label}
@@ -100,6 +125,7 @@ const MobileMenu = () => {
           }
         )
           }
+          <button className="text-white flex justify-start px-3 py-1 rounded transition font-extrabold" onClick={onLoggedout}>Logout</button>   
         </div>
         </div>
   );

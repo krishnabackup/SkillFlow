@@ -34,7 +34,7 @@ const login = asynchandler(async (req,res) => {
     if(!user) return res.status(401).json({message : "Invalid Credentials"})
 
     const isMatch = await bcrypt.compare(password,user.passwordHash)
-    if(!isMatch) return res.status(401).json({message : "Invalid Password"})
+    if(!isMatch) return res.status(401).json({message : "Invalid Credentials"})
     const token = jwt.sign({id : user._id, role: user.role}, jwtSecret, {expiresIn: jwtExpiresIn})
     res.status(201).json({token, user: { id: user._id, name: user.name, email: user.email, role: user.role }})
 });

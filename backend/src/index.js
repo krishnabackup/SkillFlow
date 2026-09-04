@@ -18,7 +18,7 @@ const app = express()
 //Middleware
 app.use(helmet())
 app.use(express.json())
-app.use(cors({origin: 'http://localhost:5173', credentials: true}))
+app.use(cors({origin: ['http://localhost:5173','http://192.168.18.200:5173'], credentials: true}))
 app.use(morgan('dev'))
 
 //auth route
@@ -43,7 +43,7 @@ module.exports = app;
 const PORT = process.env.PORT || 5000
 
 connectDB(process.env.MONGO_URI).then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0",() => {
         console.log(`Server running on ${PORT}`)
     })
 }).catch((err) => {

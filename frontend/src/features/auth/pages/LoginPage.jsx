@@ -7,10 +7,10 @@ export default function LoginPage(){
     return (
        <>
       
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
+      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900 p-2">
       <div className="w-full max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white
-                      dark:bg-black/40 dark:border-white/20 transition">
+                      dark:bg-black/40 dark:border-white/20 transition overflow-hidden">
         <h1 className="text-2xl font-bold text-center mb-6 text-blue-200 drop-shadow">
           Sign In To Continue
         </h1>

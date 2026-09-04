@@ -25,7 +25,7 @@ app.post('/send-verification-email', async (req, res) => {
             return res.status(400).json({ message: 'Email already exists' });
         }
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-       const verificationLink = `http://localhost:5173/verify-email?token=${token}`;
+       const verificationLink = `http://192.168.18.200:5173/verify-email?token=${token}`;
 
        await transporter.sendMail({
         to: email,

@@ -17,7 +17,7 @@ export default function GoalsTextArea(){
     }
     return(
         <>
-        <div className="w-2/4 mt-14">
+        <div className="w-full mt-14 md:w-3/4 xl:w-1/2">
            <form onSubmit={handleSubmit(handleLearn)}>
             <div >
              <textarea

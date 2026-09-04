@@ -32,9 +32,10 @@ export default function CertificatesPage() {
       setDownloading(false);
     }
     }
+    console.log(certificates)
   if(isLoading) return <div className='text-white text-4xl'>Loading....</div>
   if(isError)  return <div className='text-red text-4xl'>Erorr Fetching.....</div>
- if(certificates.found === false ) return         <div className="p-6 text-center text-white  text-xl">You have no certificated to show. Complete the quiz to earn certificate . Go to <Link className="text-blue-500" to="/mycourses">myCourse</Link></div>
+ if(certificates.length === 0) return         <div className="p-6 text-center text-white  text-xl">You have no certificated to show. Complete the quiz to earn certificate . Go to <Link className="text-blue-500" to="/mycourses">myCourse</Link></div>
  return (
     <>
     <div className="max-w-6xl mx-auto p-6 space-y-4 ">

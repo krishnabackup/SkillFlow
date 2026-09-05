@@ -14,19 +14,30 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("SMTP ERROR:", error);
+  } else {
+    console.log("SMTP READY:", success);
+  }
+});
+
 app.post('/send-verification-email', async (req, res) => {
     try {
+        console.log("Hello")
         const { email } = req.body;
+        const API = process.env.CLIENT_URI ?? 'http://localhost:5173'
+        console.log(API)
         if (!email) {
             return res.status(400).json({ message: 'Email is required' });
         }
         const existingUser = await Users.findOne({ email });
+        console.log(existingUser)
         if (existingUser) {
             return res.status(400).json({ message: 'Email already exists' });
         }
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-       const verificationLink = `http://192.168.18.200:5173/verify-email?token=${token}`;
-
+       const verificationLink = `${API}/verify-email?token=${token}`;
        await transporter.sendMail({
         to: email,
         subject: 'Email Verification',

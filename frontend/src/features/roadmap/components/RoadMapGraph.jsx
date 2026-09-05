@@ -1,6 +1,7 @@
 // src/components/Roadmap/RoadmapGraph.jsx
 import { useCallback, useEffect, useRef, useState } from 'react';
-import ReactFlow, {
+import{
+  ReactFlow,
   MiniMap,
   Controls,
   Background,
@@ -9,7 +10,9 @@ import ReactFlow, {
   applyEdgeChanges,
   useNodesState,
   useEdgesState,
-} from 'react-flow-renderer';
+} from '@xyflow/react';
+import '@xyflow/react/dist/style.css'
+
 import dagre from 'dagre';
 import StagePanel from './StagePanel';
 import { CustomNode } from './CustomNode';

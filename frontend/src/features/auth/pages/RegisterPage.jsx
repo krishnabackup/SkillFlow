@@ -7,9 +7,9 @@ export default function RegisterPage(){
        <>
       <Navbar isLandingPage={true}/>
       <div className="min-h-screen flex justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
-        <div className='w-full h-full flex flex-col mt-4gap-10 md:flex md:flex-row xl:p-4'>
+        <div className='w-full h-full flex flex-col mt-4 gap-10 p-2 md:flex md:flex-row xl:p-4'>
                   <LandingPageText/>
-      <div className="max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
+      <div className="w-full max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white
                       dark:bg-black/40 dark:border-white/20 transition">
         <h1 className="text-2xl font-bold text-center mb-6 text-blue-200 drop-shadow">

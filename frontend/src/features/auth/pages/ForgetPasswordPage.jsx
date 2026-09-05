@@ -103,20 +103,20 @@ export default function ForgetPasswordPage() {
       {serverError && <div className="text-red-600 text-sm">{serverError}</div>}
       <div>
         <label className="block text-sm font-medium mb-1">Email</label>
-        <input {...register('email')} className="min-w-[380px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
+        <input {...register('email')} className="w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
         {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email.message}</p>}
       </div>
      { isVeriified && (
         <>
       <div>
         <label className="block text-sm font-medium mb-1">New Password</label>
-        <input type="password" {...register('newPassword')} className="min-w-[380px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
+        <input type="password" {...register('newPassword')} className="w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
         {errors.newPassword && <p className="text-xs text-red-600 mt-1">{errors.newPassword.message}</p>}
       </div>
 
       <div>
         <label className="block text-sm font-medium mb-1">Confirm New Password</label>
-        <input type="password" {...register('confirmNewPassword')} className="min-w-[380px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
+        <input type="password" {...register('confirmNewPassword')} className="w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400'" />
         {errors.confirmNewPassword && <p className="text-xs text-red-600 mt-1">{errors.confirmNewPassword.message}</p>}
       </div> 
       </>

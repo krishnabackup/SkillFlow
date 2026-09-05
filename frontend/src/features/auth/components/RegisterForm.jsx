@@ -89,12 +89,12 @@ export default function RegisterForm() {
             {serverError && <div className='text-red-600 text-sm'>{serverError}</div>}
             <div>
                 <label className=' block text-sm mb-1'>Name</label>
-                <input {...register('name')} className='min-w-[350px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
+                <input {...register('name')} className='w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
                 {errors.name && <p className='text-xs text-red-600 mt-1'>{errors.name.message}</p>}
             </div>
              <div>
                 <label className='block text-sm mb-1'>Email</label>
-                <input {...register('email')} className='min-w-[350px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
+                <input {...register('email')} className='w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
                 {
                    showButton &&  (
                     <div className='flex justify-between p-2 '>
@@ -111,12 +111,12 @@ export default function RegisterForm() {
             </div>
              <div>
                 <label className='block text-sm mb-1'>Password</label>
-                <input type="password" {...register('password')} className='min-w-[350px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
+                <input type="password" {...register('password')} className='w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
                 {errors.password && <p className='text-xs text-red-600 mt-1'>{errors.password.message}</p>}
             </div>
              <div>
                 <label className='block text-sm mb-1'>Confirm Password</label>
-                <input type='password' {...register('confirm')} className='min-w-[350px] px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
+                <input type='password' {...register('confirm')} className='w-full px-3 py-2 border rounded text-black focus:outline-none focus:ring-2 focus:ring-indigo-400' />
                 {errors.confirm && <p className='text-xs text-red-600 mt-1'>{errors.confirm.message}</p>}
             </div>
             <div className='flex justify-center'>

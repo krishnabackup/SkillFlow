@@ -24,7 +24,6 @@ transporter.verify((error, success) => {
 
 app.post('/send-verification-email', async (req, res) => {
     try {
-        console.log("Hello")
         const { email } = req.body;
         const API = process.env.CLIENT_URI ?? 'http://localhost:5173'
         console.log(API)
@@ -32,12 +31,12 @@ app.post('/send-verification-email', async (req, res) => {
             return res.status(400).json({ message: 'Email is required' });
         }
         const existingUser = await Users.findOne({ email });
-        console.log(existingUser)
         if (existingUser) {
             return res.status(400).json({ message: 'Email already exists' });
         }
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
        const verificationLink = `${API}/verify-email?token=${token}`;
+       console.log(verificationLink)
        await transporter.sendMail({
         to: email,
         subject: 'Email Verification',

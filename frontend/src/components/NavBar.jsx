@@ -15,7 +15,7 @@ const links = [
   {label : "About Us" , link : "/aboutus"}
 ];
 
-export default function Navbar() {
+export default function Navbar({isLandingPage = false}) {
   const location = useLocation();
   const nav = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,8 @@ export default function Navbar() {
             alt="Logo"
           />
         </div>
-
+      {
+        !isLandingPage &&
         <div className="hidden xl:flex ">
           {links.map((value, index) => {
             const isActive = location.pathname == value.link;
@@ -83,13 +84,15 @@ export default function Navbar() {
           </button>
         )}
         </div>
-
-        <button className = "xl:hidden text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold"
+}
+{
+     !isLandingPage &&  <button className = "xl:hidden text-black hover:text-indigo-300 px-3 py-1 rounded transition font-extrabold"
          onClick={() => setIsOpen(prev => !prev)}
          >
           {isOpen ? <X/>:<Menu size={24} />}
           
          </button>
+}
          </div>
           {isOpen && <MobileMenu modelRef = {modelRef} />}
     </nav>    

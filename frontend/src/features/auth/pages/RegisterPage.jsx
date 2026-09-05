@@ -1,10 +1,14 @@
 import React from 'react';
 import RegisterForm from '../components/RegisterForm';
+import LandingPageText from '../components/LandingPageText';
+import Navbar from '../../../components/NavBar';
 export default function RegisterPage(){
   return (
        <>
-      
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
+      <Navbar isLandingPage={true}/>
+      <div className="min-h-screen flex justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900">
+        <div className='w-full h-full flex flex-col mt-4gap-10 md:flex md:flex-row xl:p-4'>
+                  <LandingPageText/>
       <div className="max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white
                       dark:bg-black/40 dark:border-white/20 transition">
@@ -18,6 +22,7 @@ export default function RegisterPage(){
             Login
           </a>
         </p>
+      </div>
       </div>
     </div>
     </>

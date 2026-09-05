@@ -1,13 +1,17 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
+import Navbar from '../../../components/NavBar';
+import LandingPageText from '../components/LandingPageText';
 
  
 
 export default function LoginPage(){
     return (
        <>
-      
-      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-black via-indigo-950 to-neutral-900 p-2">
+      <Navbar isLandingPage={true}/>
+      <div className="min-h-screen bg-gradient-to-br from-black via-indigo-950 to-neutral-900 p-2">
+        <div className='w-full h-full mt-10 flex flex-col gap-10 md:flex md:flex-row xl:p-4'>
+        <LandingPageText/>
       <div className="w-full max-w-md p-8 rounded-2xl bg-white/10 border border-white/30 shadow-xl backdrop-blur-xl
                       bg-clip-padding text-white
                       dark:bg-black/40 dark:border-white/20 transition overflow-hidden">
@@ -22,7 +26,8 @@ export default function LoginPage(){
           </a>
         </p>
       </div>
-    </div>
+      </div>
+      </div>
     </>
   );
 }

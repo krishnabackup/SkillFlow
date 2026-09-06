@@ -4,7 +4,13 @@ const express = require('express');
 const app = express();
 const Users = require('../models/usermodel');
 
-const transporter = nodemailer.createTransport({
+
+
+
+
+app.post('/send-verification-email', async (req, res) => {
+    try {
+        const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
@@ -13,7 +19,6 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS,
     },
 });
-
 transporter.verify((error, success) => {
   if (error) {
     console.error("SMTP ERROR:", error);
@@ -21,9 +26,6 @@ transporter.verify((error, success) => {
     console.log("SMTP READY:", success);
   }
 });
-
-app.post('/send-verification-email', async (req, res) => {
-    try {
         const { email } = req.body;
         const API = process.env.CLIENT_URI ?? 'http://localhost:5173'
         console.log(API)
@@ -37,11 +39,12 @@ app.post('/send-verification-email', async (req, res) => {
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
        const verificationLink = `${API}/verify-email?token=${token}`;
        console.log(verificationLink)
-       await transporter.sendMail({
+       const result = await transporter.sendMail({
         to: email,
         subject: 'Email Verification',
         html: `<p>Please verify your email by clicking <a href="${verificationLink}">here</a></p>`,
        });
+       console.log(result)
        res.status(200).json({ message: 'Verification email sent' });
     }
     catch (error) {

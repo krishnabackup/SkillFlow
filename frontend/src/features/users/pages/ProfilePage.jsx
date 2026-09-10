@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ListGroup, Button } from 'react-bootstrap';
-import { useProfie, useUpdateProfile } from '../../../hooks/useProfile';
+import { useProfie, useUpdateProfile } from '../../../hooks/useProfile.js';
 import { toast } from 'sonner';
 
 const levelMap = {
@@ -76,7 +76,7 @@ export default function ProfilePage() {
     return <p>{error.response?.data?.message || "Failed to load profile"}</p>;
   }
 
-
+  console.log(isLoading)
   return (
     <>
       <div className="max-w-2xl mx-auto p-6">

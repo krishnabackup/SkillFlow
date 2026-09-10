@@ -1,7 +1,7 @@
 import api from "./api";
 
 export const getProfile = async () => {const result = await api.get('/users/me'); return result.data }
-export const updateProfile = async (payload) => await api.put('/users/me', payload);
+export const updateProfile = async (payload) => {const res = await api.put('/users/me', payload); return res.data}
 
 export const getProfileAdmin = async () => {
     const res = await api.get('/admin/users')

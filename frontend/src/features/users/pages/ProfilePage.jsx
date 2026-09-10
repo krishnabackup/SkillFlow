@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { getProfile, updateProfile } from '../../../services/userservices';
 import { ListGroup, Button } from 'react-bootstrap';
-import { useProfie } from '../../../hooks/useProfile';
+import { useProfie, useUpdateProfile } from '../../../hooks/useProfile';
+import { toast } from 'sonner';
 
 const levelMap = {
   'Beginner': 1,
@@ -12,6 +12,7 @@ const levelMap = {
 export default function ProfilePage() {
   const { register, handleSubmit, setValue, watch, resetField, formState: { errors, isSubmitting } } = useForm();
   const {data : user , isLoading, isError , isSuccess, error} = useProfie()
+  const updateProfile = useUpdateProfile();
   const [skillsArray, setSkillsArray] = useState([]);
   const [serverMsg, setServerMsg] = useState('');
   const [isEditting, setIsedittting] = useState(true);
@@ -47,20 +48,12 @@ export default function ProfilePage() {
           availabilityHours: Number(data.availabilityHours),
           skills: data.skills // backend accepts string or array
         };
-        await updateProfile(payload);
-        alert('Profile updated successfully');
-        const res = await getProfile();           // Fetch latest profile after update
-        const user = res.data;
-        setSkillsArray(user.profile?.skills || []); // Update skills in state!
-        setValue('name', user.name || '');
-        setValue('email', user.email || '');
-        setValue('availabilityHours', user.profile?.availabilityHours ?? 5);
-        setValue('current_role', user.profile?.current_role || "");
-        alert('Profile updated successfully');
+        updateProfile.mutate(payload);
+        toast.success('Profile updated successfully');
         setIsedittting(true);
       } catch (err) {
         console.error(err);
-        setServerMsg(err?.response?.data?.message || 'Update failed');
+        toast.error(err?.response?.data?.message || 'Update failed')
       }
     }
   };
@@ -82,7 +75,6 @@ export default function ProfilePage() {
   if (isError) {
     return <p>{error.response?.data?.message || "Failed to load profile"}</p>;
   }
-  console.log(isSuccess)
 
 
   return (

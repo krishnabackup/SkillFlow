@@ -1,7 +1,5 @@
-import { google } from "googleapis";
-import { gmail } from "../utils/googleapi";
-import asynchandler from "../utils/asynchandler";
 
+const gmail = require("../utils/googleapi");
 function generateRawEmail({to,subject,html}){
   const message = [
     `From: SkillFlow <yourgmail@gmail.com>`,

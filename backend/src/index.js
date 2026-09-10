@@ -10,6 +10,7 @@ const userRoutes = require('./routes/userroute')
 const adminRoutes = require("./routes/adminroute")
 const courseRoutes  = require("./routes/courseroute");
 const emailVerificationRoutes = require('./routes/emailverification');
+const gmailVerificationRoutes = require('./routes/gmailVerificationRoutes')
 const passwordResetRoutes = require('./routes/passwordRestRoute');
 const analyticsRoutes = require("./routes/analyticsRoute");
 const { oauthCallback } = require('./utils/googleapi');
@@ -28,7 +29,7 @@ app.use('/api/users',userRoutes)
 app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
 app.use('/api/auth/email-verification', emailVerificationRoutes);
-app.use('/api/auth/gmail-verification',gmailSendVerification)
+app.use('/api/auth/gmail-verification',gmailVerificationRoutes)
 app.use('/api/auth', passwordResetRoutes);
 
 //analytics route

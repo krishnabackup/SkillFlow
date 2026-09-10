@@ -1,8 +1,9 @@
 
 const gmail = require("../utils/googleapi");
+
 function generateRawEmail({to,subject,html}){
   const message = [
-    `From: SkillFlow <yourgmail@gmail.com>`,
+    `From: ${process.env.EMAIL_USER}`,
     `To: ${to}`,
     `Subject: ${subject}`,
     "MIME-Version: 1.0",
@@ -15,15 +16,14 @@ function generateRawEmail({to,subject,html}){
 }
 
 const sendEmail = async ({to,subject,html}) => {
-    const content = generateRawEmail(to,subject,html)
+    const content = generateRawEmail({to,subject,html})
    
-    const result = await gmail.users.messages({
+    const result = await gmail.gmail.users.messages.send({
         userId : "me",
         requestBody : {
-            content
+            raw : content
         }
-    }
-    )
+    })
     return result.data
 }
 

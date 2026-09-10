@@ -29,7 +29,7 @@ export const loginUser = async (credentials) => {
 
 
 export const verifyEmail = async (email) => {
-    const res = await api.post('/auth/email-verification/send-verification-email', { email });
+    const res = await api.post('/auth/gmail-verification/send-verification-email', { email });
     return res.data;
 }
 

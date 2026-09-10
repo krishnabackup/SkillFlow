@@ -35,6 +35,8 @@
     "react-use": "^17.6.0",
     "react-youtube": "^10.1.0",
     "recharts": "^3.3.0",
+    "sonner": "^2.0.8",
+    "sooner": "^1.1.4",
     "string-similarity": "^4.0.4",
     "validator": "^13.15.15",
     "yup": "^1.7.1"

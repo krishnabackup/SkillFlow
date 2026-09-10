@@ -6,6 +6,7 @@ import CourseCard from "../../../components/CourseCard";
 import Pagination from "../../../components/Pagination";
 import { useEnrollCourse } from "../../../hooks/useEnrollments";
 import { addUserEnrolledCourses } from "../../../services/user_course_services";
+import { toast } from "sonner";
 export default function CourseListPage() {
   // local UI state
   const [page, setPage] = useState(1);
@@ -39,12 +40,14 @@ export default function CourseListPage() {
   const handleAddCourses =  async (courseId) => {
     try {
     const res = await addmutate.mutateAsync(courseId);
-    alert("Course added Sucessfully");
+    toast.success("Course added Successfully",{
+      className : "bg-green-500"
+    })
     }
     catch(error) {
       if(error.response){
         const status = error.response.status;
-        if(status === 402) alert("Course already existed");
+        if(status === 402) toast.error("Course Already exist")
       }
       else{
         console.log(error.message);

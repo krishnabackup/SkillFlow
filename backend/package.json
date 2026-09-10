@@ -35,6 +35,7 @@
     "nodemailer": "^7.0.9",
     "pdfkit": "^0.17.2",
     "resend": "^6.26.0",
+    "sooner": "^1.1.4",
     "stream": "^0.0.3",
     "string-similarity": "^4.0.4",
     "uuid": "^13.0.0",

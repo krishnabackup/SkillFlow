@@ -3,6 +3,7 @@ import { useRecommendation } from "../../../hooks/useRecommedation";
 import CourseCard from "../../../components/CourseCard";
 import Pagination from "../../../components/Pagination";
 import { useEnrollCourse } from "../../../hooks/useEnrollments";
+import { toast } from "sonner";
 export default function RecommendationsPage() {
   const [page,setPage] = useState(1)
   const { data, isLoading, isError } = useRecommendation({page});
@@ -23,12 +24,12 @@ export default function RecommendationsPage() {
   const handleAddCourses =  async (courseId) => {
     try {
      await addmutate.mutateAsync(courseId);
-    alert("Course added Sucessfully");
+    toast.success("Course added Sucessfully");
     }
     catch(error) {
       if(error.response){
         const status = error.response.status;
-        if(status === 402) alert("Course already existed");
+        if(status === 402) toast.error("Course already existed");
       }
       else{
         console.log(error.message);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { getProfile, updateProfile } from '../../../services/userservices';
 import { ListGroup, Button } from 'react-bootstrap';
+import { useProfie } from '../../../hooks/useProfile';
 
 const levelMap = {
   'Beginner': 1,
@@ -10,6 +11,7 @@ const levelMap = {
 }
 export default function ProfilePage() {
   const { register, handleSubmit, setValue, watch, resetField, formState: { errors, isSubmitting } } = useForm();
+  const {data : user , isLoading, isError , isSuccess, error} = useProfie()
   const [skillsArray, setSkillsArray] = useState([]);
   const [serverMsg, setServerMsg] = useState('');
   const [isEditting, setIsedittting] = useState(true);
@@ -28,24 +30,7 @@ export default function ProfilePage() {
   const deleteSkills = (index) => {
     setSkillsArray((prev) => prev.filter((_, i) => i !== index))
   }
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await getProfile();
-        const user = res.data;
-        setValue('name', user.name || '');
-        setValue('email', user.email || '');
-        setValue('availabilityHours', user.profile?.availabilityHours ?? 5);
-        console.log(user.profile?.current_role);
-        setValue('current_role', user.profile?.current_role || "");
-        // convert skills array to comma string
-        setSkillsArray(user.profile?.skills || []);
-      } catch (err) {
-        console.error('Load profile failed', err);
-      }
-    })();
-  }, [setValue]);
-
+ 
   const onSubmit = async (data) => {
     if (isEditting) {
       setIsedittting(false);
@@ -79,6 +64,25 @@ export default function ProfilePage() {
       }
     }
   };
+
+    useEffect(() => {
+      if(user) {
+        setValue('name', user.name || '');
+        setValue('email', user.email || '');
+        setValue('availabilityHours', user.profile?.availabilityHours ?? 5);
+        setValue('current_role', user.profile?.current_role || "");
+        setSkillsArray(user.profile?.skills || []);
+      }
+  },[setValue,user])
+
+   if (isLoading) {
+    return <p>Loading profile...</p>;
+  }
+
+  if (isError) {
+    return <p>{error.response?.data?.message || "Failed to load profile"}</p>;
+  }
+  console.log(isSuccess)
 
 
   return (

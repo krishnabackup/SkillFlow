@@ -46,4 +46,5 @@ const getProfile = asynchandler(async (req,res) => {
 });
 
 
-module.exports = { login , register , getProfile }
+
+module.exports = { login , register , getProfile}

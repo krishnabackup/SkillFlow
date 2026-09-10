@@ -3,6 +3,7 @@ import { getUserRole } from "../utils/authhelper";
 export default function CourseCard({course,onEdit,onDelete,onAdd}){
    if (!course) return null;
    const role = getUserRole();
+   console.log(course)
     return(
     <>
      <article className="flex flex-col justify-between bg-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition">

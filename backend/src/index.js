@@ -11,7 +11,9 @@ const adminRoutes = require("./routes/adminroute")
 const courseRoutes  = require("./routes/courseroute");
 const emailVerificationRoutes = require('./routes/emailverification');
 const passwordResetRoutes = require('./routes/passwordRestRoute');
-const analyticsRoutes = require("./routes/analyticsRoute")
+const analyticsRoutes = require("./routes/analyticsRoute");
+const { oauthCallback } = require('./utils/googleapi');
+const { gmailSendVerification } = require('./controllers/gmailSendController');
 const app = express()
 
 
@@ -26,6 +28,7 @@ app.use('/api/users',userRoutes)
 app.use("/api/admin",adminRoutes);
 app.use("/api/courses",courseRoutes);
 app.use('/api/auth/email-verification', emailVerificationRoutes);
+app.use('/api/auth/gmail-verification',gmailSendVerification)
 app.use('/api/auth', passwordResetRoutes);
 
 //analytics route
@@ -35,6 +38,7 @@ app.use("/api/admin/analytics",analyticsRoutes)
 
 app.use('/api/health' , (req,res) => res.json({staus : "ok"}))
 
+app.get("/oauth2callback",oauthCallback)
 //error handler
 app.use(errorHandler)
 

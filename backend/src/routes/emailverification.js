@@ -3,32 +3,17 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 const app = express();
 const Users = require('../models/usermodel');
+const {Resend} = require("resend")
 
-
-
+const resend = new Resend(process.env.RESEND_API)
 
 
 app.post('/send-verification-email', async (req, res) => {
     try {
-        const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
-});
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP ERROR:", error);
-  } else {
-    console.log("SMTP READY:", success);
-  }
-});
         const { email } = req.body;
-        const API = process.env.CLIENT_URI ?? 'http://localhost:5173'
-        console.log(API)
+        const from = process.env.EMAIL_USER ?? 'krishnadek2002@gmail.com'
+        const API = process.env.CLIENT_URI ?? 'http:localhost:5173'
+        console.log(from)
         if (!email) {
             return res.status(400).json({ message: 'Email is required' });
         }
@@ -38,13 +23,13 @@ transporter.verify((error, success) => {
         }
        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
        const verificationLink = `${API}/verify-email?token=${token}`;
-       console.log(verificationLink)
-       const result = await transporter.sendMail({
+       const {data} = await resend.emails.send({
+        from : "onboarding@resend.dev",
         to: email,
         subject: 'Email Verification',
         html: `<p>Please verify your email by clicking <a href="${verificationLink}">here</a></p>`,
        });
-       console.log(result)
+       console.log(data)
        res.status(200).json({ message: 'Verification email sent' });
     }
     catch (error) {

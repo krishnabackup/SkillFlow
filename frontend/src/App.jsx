@@ -26,10 +26,12 @@ import AdminAnalytics from './features/admin/pages/AnalyticsAdminPage';
 import AdminMainLayout from './features/admin/pages/AdminMainLayout';
 import QuizePage from './features/cerificate/pages/QuizePage';
 import CertificatesPage from './features/cerificate/pages/CertificatesPage';
+import PrivacyPages from './pages/PrivacyPage';
 export default function App(){
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/privacy' element={<PrivacyPages/>}/>
         {/* Auth Route */}
         <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
